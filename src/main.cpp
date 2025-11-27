@@ -208,10 +208,10 @@ void loop() {
     uint32_t now = lv_tick_get();
     if (now - last_power_update >= 500) {
         last_power_update = now;
-        if (objects.power_bar) {
-            int val = lv_rand(0, 100);
-            lv_bar_set_value(objects.power_bar, val, LV_ANIM_ON);
-        }
+       //if (objects.power_bar) {
+       //    int val = lv_rand(0, 100);
+       //    lv_bar_set_value(objects.power_bar, val, LV_ANIM_ON);
+       //}
     }
     delay(5);
 }
