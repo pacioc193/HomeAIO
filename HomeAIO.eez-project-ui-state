@@ -1,6 +1,8 @@
 {
   "navigation": {
     "selectedUserPageObject": "[HomeAIO.eez-project]:/userPages/0",
+    "selectedStyleObject": "[HomeAIO.eez-project]:/lvglStyles/styles/-1",
+    "selectedFontObject": "[HomeAIO.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {}
   },
   "layoutModel": {
@@ -185,10 +187,44 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 65,
+              "weight": 57.357723577235774,
+              "selected": 3,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#b974779c-1412-4950-ad38-7d01ada11a43",
+                  "name": "allPowerConsumption",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[HomeAIO.eez-project]:/userPages/1",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#80c01249-7215-43bb-bdca-b3ed75083b43",
+                  "name": "Roboto_80",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[HomeAIO.eez-project]:/fonts/2",
+                    "permanent": false
+                  },
+                  "icon": "material:font_download"
+                },
+                {
+                  "type": "tab",
+                  "id": "#1ea27f6b-6612-4dc9-ad80-7b8d0d2f0d3b",
+                  "name": "Roboto",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[HomeAIO.eez-project]:/fonts/0",
+                    "permanent": true
+                  },
+                  "icon": "material:font_download"
+                },
                 {
                   "type": "tab",
                   "id": "#61c705c1-56b8-46af-9075-8d027ea6da89",
@@ -196,7 +232,7 @@
                   "component": "editor",
                   "config": {
                     "objectPath": "[HomeAIO.eez-project]:/userPages/0",
-                    "permanent": false
+                    "permanent": true
                   },
                   "icon": "svg:page"
                 }
@@ -206,7 +242,7 @@
             {
               "type": "row",
               "id": "#0c1d5c34-3033-4321-88d5-69151db4da2e",
-              "weight": 20,
+              "weight": 27.642276422764226,
               "children": [
                 {
                   "type": "tabset",
@@ -573,6 +609,7 @@
             {
               "type": "tabset",
               "id": "#95510625-db91-4230-b3b6-81182ee7c6b4",
+              "weight": 174.3119266055046,
               "enableDrop": false,
               "enableDrag": false,
               "enableClose": false,
@@ -589,6 +626,7 @@
             {
               "type": "tabset",
               "id": "#0419d70f-d0aa-46df-b286-3035294c21b0",
+              "weight": 25.68807339449541,
               "enableDrop": false,
               "enableDrag": false,
               "enableClose": false,
@@ -757,7 +795,8 @@
                       "component": "styles",
                       "enableClose": false
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -969,17 +1008,39 @@
     "[HomeAIO.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
-          "0": {},
+          "0": {
+            "2": {},
+            "$selected": true
+          },
           "1": {},
-          "2": {}
+          "3": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -640,
-          "y": -360
+          "x": -402.5728363054855,
+          "y": -255.0022113458682
         },
-        "scale": 1
+        "scale": 0.5
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[HomeAIO.eez-project]:/lvglStyles/styles[tree-state]": {
+      "0": {}
+    },
+    "[HomeAIO.eez-project]:/userPages/1[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -425,
+          "y": -373
+        },
+        "scale": 0.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1000,13 +1061,14 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "SCROLLBAR",
+  "lvglPart": "INDICATOR",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
-    "TEXT"
+    "BACKGROUND",
+    "BORDER"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1,
+  "flowZoom": 0.5,
   "implementationLanguage": "C"
 }
