@@ -1,6 +1,6 @@
 ﻿# HomeAIO
 
-[![PlatformIO](https://img.shields.io/badge/PlatformIO-ready-2bbc8a.svg)](https://platformio.org) [![LVGL](https://img.shields.io/badge/LVGL-9.4-blue.svg)](https://lvgl.io) [![M5Unified](https://img.shields.io/badge/M5Unified-required-orange.svg)](https://github.com/m5stack/M5Unified) [![Build Status](https://img.shields.io/github/actions/workflow/status/YOUR_USER/HomeAIO/ci.yml?branch=main&label=build)](https://github.com/YOUR_USER/HomeAIO/actions)
+[![PlatformIO](https://img.shields.io/badge/PlatformIO-ready-2bbc8a.svg)](https://platformio.org) [![LVGL](https://img.shields.io/badge/LVGL-9.4-blue.svg)](https://lvgl.io) [![M5Unified](https://img.shields.io/badge/M5Unified-required-orange.svg)](https://github.com/m5stack/M5Unified) [![Build Status](https://img.shields.io/github/actions/workflow/status/pacioc193/HomeAIO/ci.yml?branch=main&label=build)](https://github.com/pacioc193/HomeAIO/actions)
 
 Compact control UI for Home automation on M5Stack Tab5 (ESP32-P4) using LVGL and PlatformIO.
 
