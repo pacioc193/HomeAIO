@@ -1,0 +1,29 @@
+.pio/
+.pioenvs/
+
+# VSCode
+.vscode/
+
+# PlatformIO build artifacts
+.build/
+*.elf
+*.bin
+*.map
+
+# Arduino library index
+.arduino15/
+
+# Python virtual env
+.venv/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Misc
+.idea/
+
+# Local secrets
+secrets.json
