@@ -1,8 +1,8 @@
 {
   "navigation": {
     "selectedUserPageObject": "[HomeAIO.eez-project]:/userPages/0",
-    "selectedStyleObject": "[HomeAIO.eez-project]:/lvglStyles/styles/-1",
     "selectedFontObject": "[HomeAIO.eez-project]:/fonts/2",
+    "selectedGlyphObject": "[HomeAIO.eez-project]:/fonts/1/glyphs/-1",
     "subnavigationSelectedItems": {}
   },
   "layoutModel": {
@@ -23,6 +23,7 @@
           },
           {
             "type": "border",
+            "selected": 1,
             "size": 240,
             "location": "right",
             "children": [
@@ -188,10 +189,21 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 57.357723577235774,
-              "selected": 3,
+              "selected": 4,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#a41349b1-0dbc-4806-905b-93df4750417e",
+                  "name": "Roboto_80",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[HomeAIO.eez-project]:/fonts/2",
+                    "permanent": false
+                  },
+                  "icon": "material:font_download"
+                },
                 {
                   "type": "tab",
                   "id": "#b974779c-1412-4950-ad38-7d01ada11a43",
@@ -206,11 +218,11 @@
                 {
                   "type": "tab",
                   "id": "#80c01249-7215-43bb-bdca-b3ed75083b43",
-                  "name": "Roboto_80",
+                  "name": "Roboto_120",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[HomeAIO.eez-project]:/fonts/2",
-                    "permanent": false
+                    "objectPath": "[HomeAIO.eez-project]:/fonts/1",
+                    "permanent": true
                   },
                   "icon": "material:font_download"
                 },
@@ -621,7 +633,8 @@
                   "component": "glyphs",
                   "enableClose": false
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "tabset",

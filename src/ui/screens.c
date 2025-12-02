@@ -27,6 +27,7 @@ void create_screen_main() {
             objects.power_consumption = obj;
             lv_obj_set_pos(obj, 2, 2);
             lv_obj_set_size(obj, 1276, 200);
+            lv_obj_add_event_cb(obj, action_show_all_power_consumption, LV_EVENT_PRESSED, (void *)1);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             {
@@ -89,11 +90,24 @@ void create_screen_main() {
 void tick_screen_main() {
 }
 
+void create_screen_all_power_consumption() {
+    lv_obj_t *obj = lv_obj_create(0);
+    objects.all_power_consumption = obj;
+    lv_obj_set_pos(obj, 0, 0);
+    lv_obj_set_size(obj, 1280, 720);
+    
+    tick_screen_all_power_consumption();
+}
+
+void tick_screen_all_power_consumption() {
+}
+
 
 
 typedef void (*tick_screen_func_t)();
 tick_screen_func_t tick_screen_funcs[] = {
     tick_screen_main,
+    tick_screen_all_power_consumption,
 };
 void tick_screen(int screen_index) {
     tick_screen_funcs[screen_index]();
@@ -108,4 +122,5 @@ void create_screens() {
     lv_disp_set_theme(dispp, theme);
     
     create_screen_main();
+    create_screen_all_power_consumption();
 }

@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+extern void action_show_all_power_consumption(lv_event_t * e);
 
 
 #ifdef __cplusplus
