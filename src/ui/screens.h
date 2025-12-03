@@ -11,6 +11,7 @@ typedef struct _objects_t {
     lv_obj_t *main;
     lv_obj_t *all_power_consumption;
     lv_obj_t *power_consumption;
+    lv_obj_t *lbl_battery;
     lv_obj_t *bar_actual_percentage;
     lv_obj_t *lbl_power_consumption;
     lv_obj_t *lbl_k_w;

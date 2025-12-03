@@ -3,10 +3,32 @@
 #include <lvgl.h>
 #include "ui/ui.h"
 #include "ui/screens.h"
+#include "AppManager.h"
+#include "LogManager.h"
+#include "NetworkUtils.h"
+#include <ArduinoOTA.h>
+#include <time.h>
 
-// Dimensioni display Tab5: 1280x720
-static const uint16_t screenWidth = 1280;
-static const uint16_t screenHeight = 720;
+#define SD_SPI_CS_PIN 42
+#define SD_SPI_SCK_PIN 43
+#define SD_SPI_MOSI_PIN 44
+#define SD_SPI_MISO_PIN 39
+
+// WiFi SDIO pins for M5Tab5 (use before WiFi.begin)
+#define WIFI_SDIO_CLK 12
+#define WIFI_SDIO_CMD 13
+#define WIFI_SDIO_D0 11
+#define WIFI_SDIO_D1 10
+#define WIFI_SDIO_D2 9
+#define WIFI_SDIO_D3 8
+#define WIFI_SDIO_RST 15
+
+// App Manager Instance
+AppManager appManager;
+
+// Display size (Tab5): 1280x720
+static uint16_t screenWidth;
+static uint16_t screenHeight;
 
 // Buffer LVGL in PSRAM per DMA (2 buffer full-screen per DIRECT mode)
 static lv_color_t *buf1 = nullptr;
@@ -14,204 +36,334 @@ static lv_color_t *buf2 = nullptr;
 
 lv_display_t *display = nullptr;
 
-// Flag per gestione DMA asincrona
-volatile bool dma_transfer_done = true;
+// --- Helper Functions ---
 
-// Funzione flush ottimizzata con DMA di M5GFX
-void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map) {
-    volatile uint32_t w = (area->x2 - area->x1 + 1);
-    volatile uint32_t h = (area->y2 - area->y1 + 1);    
-
-    M5.Display.startWrite();
-    M5.Display.pushImageDMA(area->x1, area->y1, w, h, (const uint16_t *)px_map);
-    M5.Display.endWrite();
-    
-    // Segnala a LVGL che può continuare (non bloccante)
-    lv_display_flush_ready(disp);
-}
-
-// Funzione touchpad per LVGL 9.4
-void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data) {
-    M5.update(); // Aggiorna touch
-    auto touch = M5.Touch.getDetail();
-    
-    if (touch.isPressed() || touch.wasPressed()) {
-        data->state = LV_INDEV_STATE_PRESSED;
-        data->point.x = touch.x;
-        data->point.y = touch.y;
-    } else {
-        data->state = LV_INDEV_STATE_RELEASED;
-    }
-}
-
-// UI Demo
-void create_demo_ui() {
-    // Sfondo gradiente
-    lv_obj_t *screen = lv_screen_active();
-    lv_obj_set_style_bg_color(screen, lv_color_hex(0x1a1a2e), 0);
-    lv_obj_set_style_bg_grad_color(screen, lv_color_hex(0x16213e), 0);
-    lv_obj_set_style_bg_grad_dir(screen, LV_GRAD_DIR_VER, 0);
-    
-    // Titolo
-    lv_obj_t *title = lv_label_create(screen);
-    lv_label_set_text(title, "M5Stack Tab5");
-    lv_obj_set_style_text_font(title, &lv_font_montserrat_32, 0);
-    lv_obj_set_style_text_color(title, lv_color_white(), 0);
-    lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 40);
-    
-    // Sottotitolo
-    lv_obj_t *subtitle = lv_label_create(screen);
-    lv_label_set_text(subtitle, "LVGL 9.4 + DMA Acceleration");
-    lv_obj_set_style_text_color(subtitle, lv_color_hex(0x00d9ff), 0);
-    lv_obj_align(subtitle, LV_ALIGN_TOP_MID, 0, 80);
-    
-    // Contenitore centrale
-    lv_obj_t *cont = lv_obj_create(screen);
-    lv_obj_set_size(cont, 600, 400);
-    lv_obj_center(cont);
-    lv_obj_set_style_radius(cont, 20, 0);
-    lv_obj_set_style_bg_color(cont, lv_color_hex(0x0f3460), 0);
-    lv_obj_set_style_border_width(cont, 0, 0);
-    lv_obj_set_style_shadow_width(cont, 40, 0);
-    lv_obj_set_style_shadow_color(cont, lv_color_black(), 0);
-    
-    // Bottone
-    lv_obj_t *btn = lv_button_create(cont);
-    lv_obj_set_size(btn, 250, 80);
-    lv_obj_align(btn, LV_ALIGN_CENTER, 0, -50);
-    lv_obj_set_style_radius(btn, 15, 0);
-    lv_obj_set_style_bg_color(btn, lv_color_hex(0xe94560), 0);
-    lv_obj_set_style_bg_color(btn, lv_color_hex(0xff6b85), LV_STATE_PRESSED);
-    
-    // Callback bottone con performance test
-    static uint32_t click_count = 0;
-    lv_obj_add_event_cb(btn, [](lv_event_t *e) {
-        click_count++;
-        Serial.printf("Button clicked! Count: %d\n", click_count);
-        M5.Speaker.tone(1000, 100);
-        
-        // Misura performance
-        uint32_t start = millis();
-        lv_obj_invalidate(lv_screen_active());
-        lv_refr_now(NULL);
-        uint32_t elapsed = millis() - start;
-        Serial.printf("Frame time: %d ms (%.1f FPS)\n", elapsed, 1000.0f / elapsed);
-    }, LV_EVENT_CLICKED, NULL);
-    
-    lv_obj_t *btn_label = lv_label_create(btn);
-    lv_label_set_text(btn_label, "TEST DMA");
-    lv_obj_set_style_text_font(btn_label, &lv_font_montserrat_20, 0);
-    lv_obj_center(btn_label);
-    
-    // Slider
-    lv_obj_t *slider = lv_slider_create(cont);
-    lv_obj_set_width(slider, 450);
-    lv_obj_align(slider, LV_ALIGN_CENTER, 0, 60);
-    lv_slider_set_range(slider, 0, 100);
-    lv_slider_set_value(slider, 50, LV_ANIM_OFF);
-    lv_obj_set_style_bg_color(slider, lv_color_hex(0x533483), LV_PART_MAIN);
-    lv_obj_set_style_bg_color(slider, lv_color_hex(0x00d9ff), LV_PART_INDICATOR);
-    lv_obj_set_style_bg_color(slider, lv_color_hex(0xe94560), LV_PART_KNOB);
-    
-    // Label slider value
-    lv_obj_t *slider_label = lv_label_create(cont);
-    lv_label_set_text(slider_label, "50%");
-    lv_obj_align(slider_label, LV_ALIGN_CENTER, 0, 110);
-    lv_obj_set_style_text_color(slider_label, lv_color_white(), 0);
-    
-    lv_obj_add_event_cb(slider, [](lv_event_t *e) {
-        lv_obj_t *slider = (lv_obj_t *)lv_event_get_target(e);
-        lv_obj_t *label = (lv_obj_t *)lv_event_get_user_data(e);
-        int32_t value = lv_slider_get_value(slider);
-        lv_label_set_text_fmt(label, "%d%%", value);
-        Serial.printf("Slider: %d%%\n", value);
-    }, LV_EVENT_VALUE_CHANGED, slider_label);
-    
-    // Info display
-    lv_obj_t *info = lv_label_create(screen);
-    lv_label_set_text_fmt(info, "ESP32-P4 @ 400MHz | Display: %dx%d | DMA: ON", 
-                          screenWidth, screenHeight);
-    lv_obj_set_style_text_color(info, lv_color_hex(0x00d9ff), 0);
-    lv_obj_set_style_text_font(info, &lv_font_montserrat_14, 0);
-    lv_obj_align(info, LV_ALIGN_BOTTOM_MID, 0, -20);
-}
-
-void setup() {
-    // Inizializza M5Unified
+void initHardware()
+{
     auto cfg = M5.config();
     cfg.clear_display = true;
     cfg.internal_imu = true;
     cfg.internal_rtc = true;
     cfg.internal_spk = true;
     cfg.internal_mic = true;
-    
+
     M5.begin(cfg);
-    
-    Serial.begin(115200);
     delay(200);
-    Serial.println("\n=== M5Stack Tab5 + LVGL 9.4 + DMA ===");
-    Serial.printf("Display: %dx%d\n", M5.Display.width(), M5.Display.height());
-    
-    // Configura M5GFX per prestazioni ottimali
-    M5.Display.setColorDepth(16); // RGB565 per compatibilità LVGL
-    M5.Display.setSwapBytes(true); // Swap RGB565 byte order (BGR <-> RGB)
+}
+
+void initDisplay()
+{
+    M5.Display.setColorDepth(16); // RGB565
+    M5.Display.setSwapBytes(true);
     M5.Display.setBrightness(200);
-    M5.Display.setRotation(1); // Landscape
+    M5.Display.setRotation(3); // Landscape
     M5.Display.fillScreen(TFT_BLACK);
-    
-    // Inizializza LVGL
+    M5.Display.waitDisplay(); // Wait for DMA transfer to complete
+    screenWidth = M5.Display.width();
+    screenHeight = M5.Display.height();
+}
+
+// DMA-optimized flush function for M5GFX
+void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
+{
+    uint32_t w = (area->x2 - area->x1 + 1);
+    uint32_t h = (area->y2 - area->y1 + 1);
+
+    // Wait for any previous DMA transfer to complete
+    M5.Display.waitDisplay();
+
+    M5.Display.startWrite();
+    M5.Display.pushImageDMA(area->x1, area->y1, w, h, (const uint16_t *)px_map);
+    M5.Display.endWrite();
+
+    lv_display_flush_ready(disp);
+}
+
+// Touchpad read function for LVGL 9.4
+void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
+{
+    M5.update();
+    auto touch = M5.Touch.getDetail();
+
+    if (touch.isPressed() || touch.wasPressed())
+    {
+        data->state = LV_INDEV_STATE_PRESSED;
+        data->point.x = touch.x;
+        data->point.y = touch.y;
+    }
+    else
+    {
+        data->state = LV_INDEV_STATE_RELEASED;
+    }
+}
+
+void initLVGL()
+{
     lv_init();
-    // Questo permette a LVGL di sapere quanto tempo è passato
-    lv_tick_set_cb([]() -> uint32_t {
-        return millis();
-    });
-    
-    size_t buf_size = screenWidth * 100 * sizeof(lv_color_t); // full-screen
+    lv_tick_set_cb([]() -> uint32_t
+                   { return millis(); });
+
+    size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
     buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
     buf2 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
-    
-    if (!buf1 || !buf2) {
-        Serial.println("ERROR: Failed to allocate LVGL buffers in PSRAM!");
-        while(1) delay(100);
+
+    if (!buf1 || !buf2)
+    {
+        SysLog.error("Failed to allocate LVGL buffers!");
+        while (1)
+            delay(100);
     }
-    
-    Serial.printf("LVGL buffers allocated: 2x %.2f MB in PSRAM\n", 
-                  buf_size / (1024.0 * 1024.0));
-    
-    // Crea display LVGL 9.4
+
+    // Zero-initialize buffers to prevent artifacts from uninitialized PSRAM
+    memset(buf1, 0, buf_size);
+    memset(buf2, 0, buf_size);
+
+    SysLog.log("LVGL buffers allocated: 2x " + String(buf_size / (1024.0 * 1024.0)) + " MB");
+
     display = lv_display_create(screenWidth, screenHeight);
-    
     lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
-    
-    // Imposta callback flush con DMA
     lv_display_set_flush_cb(display, my_disp_flush);
-    
-    // Crea input device per touch
+
     lv_indev_t *indev = lv_indev_create();
     lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
     lv_indev_set_read_cb(indev, my_touchpad_read);
-    
-    // Crea UI
-    //create_demo_ui();
-    create_screens();
-    ui_init();
-    
-    Serial.println("Setup complete! DMA acceleration enabled.");
-    Serial.println("Touch the 'TEST DMA' button to measure performance.\n");
 }
 
-void loop() {
-    lv_timer_handler(); // Handler LVGL - gestisce animazioni e refresh
-    ui_tick();
-    // Aggiorna la power_bar dal main ogni 500 ms con valore random 0..100
-    static uint32_t last_power_update = 0;
-    uint32_t now = lv_tick_get();
-    if (now - last_power_update >= 500) {
-        last_power_update = now;
-       //if (objects.power_bar) {
-       //    int val = lv_rand(0, 100);
-       //    lv_bar_set_value(objects.power_bar, val, LV_ANIM_ON);
-       //}
+// Initialize system time from the M5 RTC. Returns true if system time
+// was set (RTC appeared to contain a valid date), false otherwise.
+bool initSystemTimeFromRtc()
+{
+    auto dt = M5.Rtc.getDateTime();
+    struct tm tm{};
+    tm.tm_year = dt.date.year - 1900;
+    tm.tm_mon = dt.date.month - 1;
+    tm.tm_mday = dt.date.date;
+    tm.tm_hour = dt.time.hours;
+    tm.tm_min = dt.time.minutes;
+    tm.tm_sec = dt.time.seconds;
+    time_t t = mktime(&tm);
+    // Only set system time if RTC reports a year >= 2021 to avoid epoch defaults
+    if (t > 1609459200)
+    {
+        struct timeval now = {.tv_sec = t, .tv_usec = 0};
+        settimeofday(&now, NULL);
+        return true;
     }
+    return false;
+}
+
+// Setup OTA updates (call only once after WiFi connected)
+void setupOTA()
+{
+    ArduinoOTA.setHostname("HomeAIO-Tab5");
+
+    ArduinoOTA.onStart([]()
+                       {
+        String type;
+        if (ArduinoOTA.getCommand() == U_FLASH)
+            type = "sketch";
+        else
+            type = "filesystem";
+        SysLog.log(String("OTA Start: ") + type); });
+
+    ArduinoOTA.onEnd([]()
+                     { SysLog.log("OTA End"); });
+
+    ArduinoOTA.onProgress([](unsigned int progress, unsigned int total)
+                          {
+        static unsigned int lastPct = 0;
+        unsigned int pct = (total > 0) ? (progress * 100) / total : 0;
+        // Log every 10% to avoid spamming
+        if (pct == 0 || pct - lastPct >= 10)
+        {
+            lastPct = pct;
+            SysLog.log(String("OTA Progress: ") + String(pct) + "%");
+        } });
+
+    ArduinoOTA.onError([](ota_error_t error)
+                       {
+        String err = "OTA Error[" + String(error) + "]: ";
+        switch (error)
+        {
+        case OTA_AUTH_ERROR:    err += "Auth Failed"; break;
+        case OTA_BEGIN_ERROR:   err += "Begin Failed"; break;
+        case OTA_CONNECT_ERROR: err += "Connect Failed"; break;
+        case OTA_RECEIVE_ERROR: err += "Receive Failed"; break;
+        case OTA_END_ERROR:     err += "End Failed"; break;
+        default:                err += "Unknown"; break;
+        }
+        SysLog.error(err); });
+
+    ArduinoOTA.begin();
+    SysLog.log("OTA Ready");
+}
+
+// Helper: handle OTA setup and periodic handling (call from `loop()`)
+static void handleOTA()
+{
+    static bool otaConfigured = false;
+
+    if (appManager.isWifiConnected())
+    {
+        if (!otaConfigured)
+        {
+            setupOTA();
+            otaConfigured = true;
+        }
+        ArduinoOTA.handle();
+    }
+    else
+    {
+        // Clear flag so OTA will be reinitialized after reconnect
+        otaConfigured = false;
+    }
+}
+
+// Helper: UI periodic updates
+static void handleUIUpdates()
+{
+    static uint32_t last_ui_update = 0;
+    uint32_t now = millis();
+    if (now - last_ui_update >= 100)
+    {
+        last_ui_update = now;
+        // Show the actual main meter consumption as a percentage of configured max_power_w
+        SystemState st = appManager.getSystemState();
+        float currentWatts = st.totalPower; // current consumption from shared state
+        int maxWatts = appManager.getMaxPowerW();
+
+        int pct = 0;
+        if (maxWatts > 0)
+        {
+            float prop = currentWatts / (float)maxWatts;
+            if (prop < 0.0f) prop = 0.0f;
+            if (prop > 1.0f) prop = 1.0f;
+            pct = (int)(prop * 100.0f + 0.5f);
+        }
+        lv_bar_set_value(objects.bar_actual_percentage, pct, LV_ANIM_ON);
+        lv_label_set_text_fmt(objects.lbl_power_consumption, "%d", (int)currentWatts);
+        lv_label_set_text_fmt(objects.lbl_battery, "%d%% / %dW", st.batteryPercent);
+    }
+}
+
+// Helper: attempt SD remount periodically
+static void handleSdRemount()
+{
+    static uint32_t last_sd_remount = 0;
+    uint32_t now = millis();
+
+    if (!SysLog.isSdMounted())
+    {
+        if (now - last_sd_remount >= 10000)
+        { // 10 seconds
+            last_sd_remount = now;
+            SysLog.log("Attempting SD remount...");
+            if (SysLog.tryRemount())
+            {
+                SysLog.log("SD remounted successfully");
+            }
+            else
+            {
+                SysLog.log("SD remount attempt failed");
+            }
+        }
+    }
+}
+
+// Helper: read battery info via getSystemState() and log it
+static void logBatteryStateFromSystem()
+{
+    static uint32_t last_batt_log = 0;
+    uint32_t now = millis();
+    if (now - last_batt_log < 10000) return;
+    last_batt_log = now;
+
+    SystemState st = appManager.getSystemState();
+    int pct = st.batteryPercent;
+    int mv = st.batteryMv;
+    int ma = st.batteryMa;
+    bool charging = st.batteryCharging;
+
+    String s = String("Battery: ") + String(pct) + "%  " + String(mv) + "mV  " + String(ma) + "mA " + (charging ? "(charging)" : "(discharging)");
+    SysLog.log(s);
+}
+
+void setup()
+{
+    // 1. Init Hardware (M5)
+    initHardware();
+    // 2. Init System Time (RTC -> system clock)
+    // Initialize system time from RTC so SysLog can use real timestamps.
+    // If RTC holds a reasonable date, apply it to the system clock.
+    bool rtcInitialized = initSystemTimeFromRtc();
+
+    // 3. Init Logging (Screen + SD)
+    // Provide SPI pins before begin so LogManager can initialize SD properly
+    SysLog.setSdPins(SD_SPI_CS_PIN, SD_SPI_SCK_PIN, SD_SPI_MOSI_PIN, SD_SPI_MISO_PIN);
+    SysLog.begin();
+    // Configure WiFi SDIO pins for M5Tab5 (like SD pin setup)
+    setWifiPins(WIFI_SDIO_CLK, WIFI_SDIO_CMD, WIFI_SDIO_D0, WIFI_SDIO_D1, WIFI_SDIO_D2, WIFI_SDIO_D3, WIFI_SDIO_RST);
+    // Now that SysLog is active we can report RTC initialization result
+    if (rtcInitialized)
+        SysLog.log("System time initialized from RTC");
+    else
+        SysLog.log("System time not initialized from RTC; using millis()");
+
+    SysLog.log("=== HomeAIO Boot Sequence ===");
+    SysLog.log("Hardware Initialized");
+
+    if (SysLog.isSdMounted())
+        SysLog.log("SD Card Mounted");
+    else
+        SysLog.error("SD Card Mount Failed");
+
+    // 4. Init Display Settings
+    initDisplay();
+    SysLog.log("Display Configured: " + String(screenWidth) + "x" + String(screenHeight));
+
+    // 5. Start App Logic
+    SysLog.log("Starting AppManager...");
+    appManager.begin();
+    SysLog.log("AppManager Started");
+
+    // 6. Init LVGL
+    SysLog.log("Initializing LVGL...");
+    initLVGL();
+    SysLog.log("LVGL Initialized");
+
+    // 7. Finalize Boot
+    SysLog.log("System Ready. Starting UI...");
+
+    // 8. Start App Task (after UI init to avoid glitches)
+    SysLog.log("Starting App Task...");
+    appManager.start();
+
+    // Waiting user to touch the screen to start UI
+    SysLog.log("Waiting for user touch to start UI...");
+    while (!M5.Touch.getDetail().isPressed())
+    {
+        M5.update();
+        delay(10);
+    }
+    // Disable screen logging before UI takes over
+    SysLog.setScreenLogging(false);
+
+    //store all shelly devices to sd card
+    appManager.saveShellyDevicesToSD("/shelly_discovered.json");
+
+    // 9. Start UI
+    ui_init();
+}
+
+void loop()
+{
+    lv_timer_handler();
+    M5.update();
+
+    handleOTA();
+    handleUIUpdates();
+    handleSdRemount();
+    logBatteryStateFromSystem();
+
     delay(5);
 }

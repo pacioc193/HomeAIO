@@ -33,32 +33,43 @@ void create_screen_main() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
+                    // lbl_battery
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.lbl_battery = obj;
+                    lv_obj_set_pos(obj, 1181, -13);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_text_font(obj, &lv_font_montserrat_36, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "100");
+                }
+                {
                     // bar_actualPercentage
                     lv_obj_t *obj = lv_bar_create(parent_obj);
                     objects.bar_actual_percentage = obj;
-                    lv_obj_set_pos(obj, 365, 78);
-                    lv_obj_set_size(obj, 846, 49);
-                    lv_bar_set_value(obj, 12, LV_ANIM_ON);
+                    lv_obj_set_pos(obj, 408, 78);
+                    lv_obj_set_size(obj, 803, 49);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff862929), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff29865e), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0xffff0000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
                 }
                 {
                     // lbl_powerConsumption
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     objects.lbl_power_consumption = obj;
                     lv_obj_set_pos(obj, 30, 27);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_size(obj, 268, 90);
                     lv_obj_set_style_text_font(obj, &ui_font_roboto_120, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "4.5");
+                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "0");
                 }
                 {
                     // lbl_kW
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     objects.lbl_k_w = obj;
-                    lv_obj_set_pos(obj, 209, 60);
+                    lv_obj_set_pos(obj, 310, 57);
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                     lv_obj_set_style_text_font(obj, &ui_font_roboto_80, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "kW");
+                    lv_label_set_text(obj, "W");
                 }
             }
         }
