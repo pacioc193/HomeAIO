@@ -104,10 +104,6 @@ void initLVGL()
                    { return millis(); });
 
     size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
-    lv_tick_set_cb([]() -> uint32_t
-                   { return millis(); });
-
-    size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
     buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
     buf2 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
 
@@ -117,27 +113,27 @@ void initLVGL()
         while (1)
             delay(100);
 
-    if (!buf1 || !buf2)
-    {
-        SysLog.error("Failed to allocate LVGL buffers!");
-        while (1)
-            delay(100);
+        if (!buf1 || !buf2)
+        {
+            SysLog.error("Failed to allocate LVGL buffers!");
+            while (1)
+                delay(100);
+        }
+
+        // Zero-initialize buffers to prevent artifacts from uninitialized PSRAM
+        memset(buf1, 0, buf_size);
+        memset(buf2, 0, buf_size);
+
+        SysLog.log("LVGL buffers allocated: 2x " + String(buf_size / (1024.0 * 1024.0)) + " MB");
+
+        display = lv_display_create(screenWidth, screenHeight);
+        lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
+        lv_display_set_flush_cb(display, my_disp_flush);
+
+        lv_indev_t *indev = lv_indev_create();
+        lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+        lv_indev_set_read_cb(indev, my_touchpad_read);
     }
-
-    // Zero-initialize buffers to prevent artifacts from uninitialized PSRAM
-    memset(buf1, 0, buf_size);
-    memset(buf2, 0, buf_size);
-
-    SysLog.log("LVGL buffers allocated: 2x " + String(buf_size / (1024.0 * 1024.0)) + " MB");
-
-    display = lv_display_create(screenWidth, screenHeight);
-    lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
-    lv_display_set_flush_cb(display, my_disp_flush);
-
-
-    lv_indev_t *indev = lv_indev_create();
-    lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
-    lv_indev_set_read_cb(indev, my_touchpad_read);
 }
 
 // Initialize system time from the M5 RTC. Returns true if system time
@@ -247,8 +243,10 @@ static void handleUIUpdates()
         if (maxWatts > 0)
         {
             float prop = currentWatts / (float)maxWatts;
-            if (prop < 0.0f) prop = 0.0f;
-            if (prop > 1.0f) prop = 1.0f;
+            if (prop < 0.0f)
+                prop = 0.0f;
+            if (prop > 1.0f)
+                prop = 1.0f;
             pct = (int)(prop * 100.0f + 0.5f);
         }
         lv_bar_set_value(objects.bar_actual_percentage, pct, LV_ANIM_ON);
@@ -286,7 +284,8 @@ static void logBatteryStateFromSystem()
 {
     static uint32_t last_batt_log = 0;
     uint32_t now = millis();
-    if (now - last_batt_log < 10000) return;
+    if (now - last_batt_log < 10000)
+        return;
     last_batt_log = now;
 
     SystemState st = appManager.getSystemState();
@@ -359,7 +358,7 @@ void setup()
     // Disable screen logging before UI takes over
     SysLog.setScreenLogging(false);
 
-    //store all shelly devices to sd card
+    // store all shelly devices to sd card
     appManager.saveShellyDevicesToSD("/shelly_discovered.json");
 
     // 9. Start UI
@@ -378,4 +377,3 @@ void loop()
 
     delay(5);
 }
-
