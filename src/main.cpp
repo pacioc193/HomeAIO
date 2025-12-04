@@ -104,8 +104,18 @@ void initLVGL()
                    { return millis(); });
 
     size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
+    lv_tick_set_cb([]() -> uint32_t
+                   { return millis(); });
+
+    size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
     buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
     buf2 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
+
+    if (!buf1 || !buf2)
+    {
+        SysLog.error("Failed to allocate LVGL buffers!");
+        while (1)
+            delay(100);
 
     if (!buf1 || !buf2)
     {
@@ -123,6 +133,7 @@ void initLVGL()
     display = lv_display_create(screenWidth, screenHeight);
     lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
     lv_display_set_flush_cb(display, my_disp_flush);
+
 
     lv_indev_t *indev = lv_indev_create();
     lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
@@ -367,3 +378,4 @@ void loop()
 
     delay(5);
 }
+
