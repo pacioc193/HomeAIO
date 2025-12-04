@@ -36,10 +36,11 @@ void create_screen_main() {
                     // lbl_battery
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     objects.lbl_battery = obj;
-                    lv_obj_set_pos(obj, 1181, -13);
-                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_pos(obj, 1147, -13);
+                    lv_obj_set_size(obj, 91, 40);
                     lv_obj_set_style_text_font(obj, &lv_font_montserrat_36, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "100");
+                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "100%");
                 }
                 {
                     // bar_actualPercentage

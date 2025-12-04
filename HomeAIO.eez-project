@@ -179,9 +179,9 @@
                 {
                   "objID": "42d3f7bb-b55f-4d82-b99f-97f17d21189f",
                   "type": "LVGLLabelWidget",
-                  "left": 1181,
+                  "left": 1147,
                   "top": -13,
-                  "width": 61,
+                  "width": 91,
                   "height": 40,
                   "customInputs": [],
                   "customOutputs": [],
@@ -196,8 +196,8 @@
                   "identifier": "lbl_battery",
                   "leftUnit": "px",
                   "topUnit": "px",
-                  "widthUnit": "content",
-                  "heightUnit": "content",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
                   "children": [],
                   "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
                   "hiddenFlagType": "literal",
@@ -214,14 +214,15 @@
                     "definition": {
                       "MAIN": {
                         "DEFAULT": {
-                          "text_font": "MONTSERRAT_36"
+                          "text_font": "MONTSERRAT_36",
+                          "text_align": "RIGHT"
                         }
                       }
                     }
                   },
                   "group": "",
                   "groupIndex": 0,
-                  "text": "100",
+                  "text": "100%",
                   "textType": "literal",
                   "longMode": "WRAP",
                   "recolor": false

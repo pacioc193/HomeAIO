@@ -97,15 +97,12 @@ void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
     }
 }
 
-static uint32_t my_tick_get(void)
-{
-    return millis();
-}
-
 void initLVGL()
 {
     lv_init();
-    lv_tick_set_cb(my_tick_get);
+    lv_tick_set_cb([]() -> uint32_t {
+        return millis();
+    });
 
     size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
     buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
@@ -366,6 +363,7 @@ void loop()
 {
     M5.update();
     lv_timer_handler();
+    ui_tick();
 
     handleOTA();
     handleUIUpdates();
