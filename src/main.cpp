@@ -82,7 +82,7 @@ void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
 // Touchpad read function for LVGL 9.4
 void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
 {
-    M5.update();
+    // M5.update() is called in loop(), so we just read the state here
     auto touch = M5.Touch.getDetail();
 
     if (touch.isPressed() || touch.wasPressed())
@@ -97,11 +97,15 @@ void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
     }
 }
 
+static uint32_t my_tick_get(void)
+{
+    return millis();
+}
+
 void initLVGL()
 {
     lv_init();
-    lv_tick_set_cb([]() -> uint32_t
-                   { return millis(); });
+    lv_tick_set_cb(my_tick_get);
 
     size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
     buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
@@ -112,28 +116,21 @@ void initLVGL()
         SysLog.error("Failed to allocate LVGL buffers!");
         while (1)
             delay(100);
-
-        if (!buf1 || !buf2)
-        {
-            SysLog.error("Failed to allocate LVGL buffers!");
-            while (1)
-                delay(100);
-        }
-
-        // Zero-initialize buffers to prevent artifacts from uninitialized PSRAM
-        memset(buf1, 0, buf_size);
-        memset(buf2, 0, buf_size);
-
-        SysLog.log("LVGL buffers allocated: 2x " + String(buf_size / (1024.0 * 1024.0)) + " MB");
-
-        display = lv_display_create(screenWidth, screenHeight);
-        lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
-        lv_display_set_flush_cb(display, my_disp_flush);
-
-        lv_indev_t *indev = lv_indev_create();
-        lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
-        lv_indev_set_read_cb(indev, my_touchpad_read);
     }
+
+    // Zero-initialize buffers to prevent artifacts from uninitialized PSRAM
+    memset(buf1, 0, buf_size);
+    memset(buf2, 0, buf_size);
+
+    SysLog.log("LVGL buffers allocated: 2x " + String(buf_size / (1024.0 * 1024.0)) + " MB");
+
+    display = lv_display_create(screenWidth, screenHeight);
+    lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
+    lv_display_set_flush_cb(display, my_disp_flush);
+
+    lv_indev_t *indev = lv_indev_create();
+    lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+    lv_indev_set_read_cb(indev, my_touchpad_read);
 }
 
 // Initialize system time from the M5 RTC. Returns true if system time
@@ -367,8 +364,8 @@ void setup()
 
 void loop()
 {
-    lv_timer_handler();
     M5.update();
+    lv_timer_handler();
 
     handleOTA();
     handleUIUpdates();

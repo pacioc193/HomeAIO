@@ -35,16 +35,15 @@ ShellyGen1::ShellyGen1(String ip, String id, int channel, DeviceRole role, int p
     : ShellyDevice(ip, id, channel, role, priority) {}
 
 void ShellyGen1::turnOn() {
-    // Check if the channel is valid and supported (Relay mode)
     if (!hasRelay) {
-        SysLog.log(String("ShellyGen1: ERR - turnOn ignored on ") + id + ". Roller mode or meter-only channel not supported for control.");
+        SysLog.log(String("Shelly/GEN1 [") + id + "]: ERR turnOn ignored - Roller mode or meter-only channel not supported for control.");
         return;
     }
 
     String url = "http://" + ip + "/relay/" + String(channelIndex) + "?turn=on";
-    SysLog.log(String("ShellyGen1: sending turnOn to ") + url);
+    SysLog.debug(String("Shelly/GEN1 [") + id + "]: sending turnOn -> " + url);
     HttpResult r = httpGet(url);
-    SysLog.debug(String("ShellyGen1: turnOn HTTP code=") + String(r.code) + " payload=" + r.payload);
+    SysLog.debug(String("Shelly/GEN1 [") + id + "]: turnOn HTTP code=" + String(r.code) + " payload=" + r.payload);
     
     if (r.code == 200) {
         isOn = true; 
@@ -52,16 +51,15 @@ void ShellyGen1::turnOn() {
 }
 
 void ShellyGen1::turnOff() {
-    // Check if the channel is valid and supported (Relay mode)
     if (!hasRelay) {
-        SysLog.log(String("ShellyGen1: ERR - turnOff ignored on ") + id + ". Roller mode or meter-only channel not supported for control.");
+        SysLog.log(String("Shelly/GEN1 [") + id + "]: ERR turnOff ignored - Roller mode or meter-only channel not supported for control.");
         return;
     }
 
     String url = "http://" + ip + "/relay/" + String(channelIndex) + "?turn=off";
-    SysLog.log(String("ShellyGen1: sending turnOff to ") + url);
+    SysLog.debug(String("Shelly/GEN1 [") + id + "]: sending turnOff -> " + url);
     HttpResult r = httpGet(url);
-    SysLog.debug(String("ShellyGen1: turnOff HTTP code=") + String(r.code) + " payload=" + r.payload);
+    SysLog.debug(String("Shelly/GEN1 [") + id + "]: turnOff HTTP code=" + String(r.code) + " payload=" + r.payload);
     
     if (r.code == 200) {
         isOn = false;
@@ -73,7 +71,7 @@ void ShellyGen1::update() {
     HttpResult r = httpGet(url);
     
     if (r.code <= 0 || r.payload.length() == 0) {
-        SysLog.error(String("ShellyGen1: empty /status response from ") + ip);
+        SysLog.error(String("Shelly/GEN1 [") + id + "]: empty /status response from " + ip);
         isOnline = false;
         return;
     }
@@ -81,7 +79,7 @@ void ShellyGen1::update() {
     JsonDocument doc;
     DeserializationError err = deserializeJson(doc, r.payload);
     if (err) {
-        SysLog.error(String("ShellyGen1: JSON parse error from /status ") + ip);
+                SysLog.log(String("Shelly/GEN1 [") + id + "]: WARNING - detected 'roller' mode (unsupported for control).");
         isOnline = false;
         return;
     }
@@ -89,47 +87,32 @@ void ShellyGen1::update() {
     isOnline = true;
 
     // --- ROLLER SHUTTER MODE CHECK (Shelly 2.5) ---
-    // If we find the "rollers" array, the device is in shutter/roller mode.
     if (!doc["rollers"].isNull()) {
-        // Mode NOT SUPPORTED for control
         hasRelay = false; 
-        isOn = false; // State undefined for us
-        
-        // Attempt to read power if available in the meters
+        isOn = false; 
         if (!doc["meters"].isNull() && doc["meters"].size() > 0) {
-            // In roller mode there is usually a single aggregated/logical meter at index 0
             power = doc["meters"][0]["power"];
         } else {
             power = 0.0f;
         }
-
-        // Log once or in debug that this is an unsupported mode
-        SysLog.debug(String("ShellyGen1: Device ") + id + " in ROLLER SHUTTER mode (unsupported for control). Power=" + String(power));
-        return; // Exit, don't look for relays
+        SysLog.debug(String("Shelly/GEN1 [") + id + "]: ROLLER SHUTTER mode (unsupported for control). Power=" + String(power));
+        return; 
     }
 
     // --- STANDARD RELAY / EMETERS LOGIC ---
-
-    // 1. Extract Relay State
-    // Shelly 3EM: usually has relays only on channel 0; others are null or missing.
     if (!doc["relays"].isNull() && doc["relays"].size() > channelIndex) {
         isOn = doc["relays"][channelIndex]["ison"];
         hasRelay = true;
     } else {
-        // Channel without relay (e.g., Shelly 3EM phases 2 and 3, or device in unusual mode)
         isOn = false;
         hasRelay = false;
     }
 
-    // 2. Extract consumption (Meters or Emeters)
     bool powerFound = false;
-
-    // Priority 1: "meters" (Shelly 1PM, 2.5 Relay Mode)
     if (!doc["meters"].isNull() && doc["meters"].size() > channelIndex) {
         power = doc["meters"][channelIndex]["power"];
         powerFound = true;
     } 
-    // Priority 2: "emeters" (Shelly 3EM, EM)
     else if (!doc["emeters"].isNull() && doc["emeters"].size() > channelIndex) {
         power = doc["emeters"][channelIndex]["power"];
         powerFound = true;
@@ -137,7 +120,7 @@ void ShellyGen1::update() {
 
     if (!powerFound) power = 0.0f;
 
-    SysLog.debug(String("ShellyGen1: ") + id + " On=" + String(isOn) + " Pwr=" + String(power) + " Rel=" + String(hasRelay));
+    SysLog.debug(String("Shelly/GEN1 [") + id + "]: On=" + String(isOn) + " Pwr=" + String(power) + " Rel=" + String(hasRelay));
 }
 
 void ShellyGen1::fetchMetadata() {
@@ -150,33 +133,24 @@ void ShellyGen1::fetchMetadata() {
     DeserializationError err = deserializeJson(doc, r.payload);
     if (err) return;
 
-    // Explicit mode check (e.g., Shelly 2.5)
     if (!doc["mode"].isNull()) {
         String mode = doc["mode"].as<String>();
         if (mode == "roller") {
-            SysLog.log(String("ShellyGen1: WARNING - Device ") + id + " detected in 'roller' mode. This mode is NOT supported for control.");
-            // We can mark an internal flag here if present in the class header
-            // isModeUnsupported = true; 
+            SysLog.log(String("Shelly/GEN1 [") + id + "]: WARNING - detected 'roller' mode (unsupported for control).");
         }
     }
 
-    // 1. Global device name
     if (!doc["name"].isNull()) {
         String n = doc["name"].as<String>();
         if (n.length() > 0) friendlyName = n;
     }
 
-    // 2. Specific channel name
     String channelName = "";
-    
-    // Search in relays (Standard)
     if (!doc["relays"].isNull() && doc["relays"].size() > channelIndex) {
         if (!doc["relays"][channelIndex]["name"].isNull()) {
              channelName = doc["relays"][channelIndex]["name"].as<String>();
         }
     }
-
-    // Search in emeters (Shelly 3EM) if not found in relays
     if (channelName.length() == 0 && !doc["emeters"].isNull() && doc["emeters"].size() > channelIndex) {
         if (!doc["emeters"][channelIndex]["name"].isNull()) {
             channelName = doc["emeters"][channelIndex]["name"].as<String>();
@@ -186,10 +160,9 @@ void ShellyGen1::fetchMetadata() {
     if (channelName.length() > 0) {
         friendlyName = channelName;
     }
-    
     if (friendlyName.length() == 0) friendlyName = id;
 
-    SysLog.log(String("ShellyGen1: fetched metadata for ") + id + " name=" + friendlyName);
+    SysLog.log(String("Shelly/GEN1 [") + id + "]: fetched metadata name=\"" + friendlyName + "\"");
 }
 
 // --- Shelly Gen 2 ---
@@ -198,55 +171,115 @@ ShellyGen2::ShellyGen2(String ip, String id, int channel, DeviceRole role, int p
     : ShellyDevice(ip, id, channel, role, priority) {}
 
 void ShellyGen2::turnOn() {
+    // Gen2 uses RPC over HTTP
     String body = "{\"id\":1, \"method\":\"Switch.Set\", \"params\":{\"id\":" + String(channelIndex) + ", \"on\":true}}";
     String url = "http://" + ip + "/rpc";
-    httpPost(url, body);
-    isOn = true;
+
+    SysLog.debug(String("Shelly/GEN2 [") + id + "]: sending Switch.Set ON -> " + url + " body=" + body);
+    HttpResult r = httpPost(url, body); // assume httpPost is available
+
+    if (r.code == 200) {
+        isOn = true;
+    } else {
+        SysLog.error(String("Shelly/GEN2 [") + id + "]: turnOn failed code=" + String(r.code) + " resp=" + r.payload);
+    }
 }
 
 void ShellyGen2::turnOff() {
     String body = "{\"id\":1, \"method\":\"Switch.Set\", \"params\":{\"id\":" + String(channelIndex) + ", \"on\":false}}";
     String url = "http://" + ip + "/rpc";
-    httpPost(url, body);
-    isOn = false;
+
+    SysLog.debug(String("Shelly/GEN2 [") + id + "]: sending Switch.Set OFF -> " + url + " body=" + body);
+    HttpResult r = httpPost(url, body);
+
+    if (r.code == 200) {
+        isOn = false;
+    } else {
+        SysLog.error(String("Shelly/GEN2 [") + id + "]: turnOff failed code=" + String(r.code) + " resp=" + r.payload);
+    }
 }
 
 void ShellyGen2::update() {
+    // Retrieve the specific Switch component status
     String body = "{\"id\":1, \"method\":\"Switch.GetStatus\", \"params\":{\"id\":" + String(channelIndex) + "}}";
     String url = "http://" + ip + "/rpc";
     HttpResult r = httpPost(url, body);
 
     if (r.code <= 0) {
+        SysLog.error(String("Shelly/GEN2 [") + id + "]: empty /rpc response from " + ip);
         isOnline = false;
         return;
     }
 
     JsonDocument doc;
-    if (deserializeJson(doc, r.payload)) {
+    DeserializationError err = deserializeJson(doc, r.payload);
+    if (err) {
+        SysLog.error(String("Shelly/GEN2 [") + id + "]: JSON error: " + String(err.c_str()));
         isOnline = false; 
         return;
     }
 
+    // Response structure: { "id": 1, "result": { "output": true, "apower": 12.5, ... } }
     if (!doc["result"].isNull()) {
         isOnline = true;
         isOn = doc["result"]["output"];
-        power = doc["result"]["apower"];
+        // apower is the instantaneous active power
+        if (!doc["result"]["apower"].isNull()) {
+            power = doc["result"]["apower"];
+        } else {
+            power = 0.0f;
+        }
+        
+        SysLog.debug(String("Shelly/GEN2 [") + id + "]: On=" + String(isOn) + " Pwr=" + String(power));
     } else {
+        SysLog.error(String("Shelly/GEN2 [") + id + "]: API Error or component not found: " + r.payload);
         isOnline = false;
     }
 }
 
 void ShellyGen2::fetchMetadata() {
-    String body = "{\"id\":1, \"method\":\"Switch.GetConfig\", \"params\":{\"id\":" + String(channelIndex) + "}}";
+    // 1. Retrieve device configuration (global name)
+    // Use Sys.GetConfig
+    String sysBody = "{\"id\":1, \"method\":\"Sys.GetConfig\"}";
     String url = "http://" + ip + "/rpc";
-    HttpResult r = httpPost(url, body);
-    if (r.code <= 0) return;
-
-    JsonDocument doc;
-    if (!deserializeJson(doc, r.payload) && !doc["result"].isNull()) {
-        String n = doc["result"]["name"].as<String>();
-        if (n.length() > 0) friendlyName = n;
+    HttpResult rSys = httpPost(url, sysBody);
+    
+    String globalName = "";
+    if (rSys.code == 200) {
+        JsonDocument docSys;
+        if (!deserializeJson(docSys, rSys.payload)) {
+            if (!docSys["result"]["device"]["name"].isNull()) {
+                globalName = docSys["result"]["device"]["name"].as<String>();
+            }
+        }
     }
+
+    // 2. Retrieve channel configuration (switch name)
+    String swBody = "{\"id\":2, \"method\":\"Switch.GetConfig\", \"params\":{\"id\":" + String(channelIndex) + "}}";
+    HttpResult rSw = httpPost(url, swBody);
+    
+    String chName = "";
+    if (rSw.code == 200) {
+        JsonDocument docSw;
+        if (!deserializeJson(docSw, rSw.payload)) {
+            if (!docSw["result"]["name"].isNull()) {
+                chName = docSw["result"]["name"].as<String>();
+            }
+        }
+    }
+
+    // Name combination logic
+    if (chName.length() > 0) {
+        friendlyName = chName;
+    } else if (globalName.length() > 0) {
+        // If only the global name exists, use that (optionally append index if multiple channels).
+        // For now use the global name when the channel name is empty.
+        friendlyName = globalName;
+    }
+
+    if (friendlyName.length() == 0) friendlyName = id;
+    
+    SysLog.log(String("Shelly/GEN2 [") + id + "]: fetched metadata name=\"" + friendlyName + "\"");
 }
 
 // --- Shelly Blu TRV ---
@@ -260,16 +293,21 @@ void ShellyBluTrv::turnOff() {}
 void ShellyBluTrv::setTargetTemperature(float temp) {
     String body = "{\"id\":1, \"method\":\"Thermostat.SetTargetTemp\", \"params\":{\"id\":" + String(componentId) + ", \"target_C\":" + String(temp) + "}}";
     String url = "http://" + ip + "/rpc";
-    httpPost(url, body);
+    SysLog.debug(String("Shelly/BLU_TRV [") + id + "]: RPC set target temp -> " + url + " body=" + body);
+    HttpResult r = httpPost(url, body);
+    if (r.code <= 0) {
+        SysLog.error(String("Shelly/BLU_TRV [") + id + "]: RPC set target temp failed");
+    }
     targetTemp = temp;
 }
 
 void ShellyBluTrv::update() {
     String body = "{\"id\":1, \"method\":\"Thermostat.GetStatus\", \"params\":{\"id\":" + String(componentId) + "}}";
     String url = "http://" + ip + "/rpc";
+    SysLog.debug(String("Shelly/BLU_TRV [") + id + "]: RPC get status -> " + url + " body=" + body);
     HttpResult r = httpPost(url, body);
 
-    if (r.code <= 0) { isOnline = false; return; }
+    if (r.code <= 0) { SysLog.error(String("Shelly/BLU_TRV [") + id + "]: empty /rpc response"); isOnline = false; return; }
 
     JsonDocument doc;
     if (!deserializeJson(doc, r.payload) && !doc["result"].isNull()) {
@@ -277,6 +315,7 @@ void ShellyBluTrv::update() {
         currentTemp = doc["result"]["current_C"];
         targetTemp = doc["result"]["target_C"];
     } else {
+        SysLog.error(String("Shelly/BLU_TRV [") + id + "]: RPC parse error or missing result");
         isOnline = false;
     }
 }

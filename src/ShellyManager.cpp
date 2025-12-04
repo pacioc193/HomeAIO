@@ -13,7 +13,8 @@ void ShellyManager::begin() {
             if (cfg.type == DeviceType::SHELLY_BLU_TRV) {
                  ShellyDevice* dev = ShellyDevice::create(cfg.type, cfg.ip, cfg.id, 200, cfg.role, cfg.priority); 
                  if (dev) devices[cfg.id] = dev;
-                SysLog.log(String("ShellyManager: added static device: ") + cfg.id);
+                String typeStr = (cfg.type == DeviceType::SHELLY_GEN2) ? "GEN2" : (cfg.type == DeviceType::SHELLY_BLU_TRV) ? "BLU_TRV" : "GEN1";
+                SysLog.log(String("ShellyManager: added static device Shelly/") + typeStr + " [" + cfg.id + "]");
             }
         }
     }
@@ -38,8 +39,9 @@ void ShellyManager::update() {
 
 void ShellyManager::discoverDevices() {
     SysLog.log("ShellyManager: starting mDNS discovery");
-    int n = MDNS.queryService("http", "tcp");
     
+    // 1. Search for _http._tcp (Gen1 and some Gen2)
+    int n = MDNS.queryService("http", "tcp");
     for (int i = 0; i < n; ++i) {
         String hostname = MDNS.hostname(i);
         String ip = MDNS.address(i).toString();
@@ -48,15 +50,66 @@ void ShellyManager::discoverDevices() {
             processDiscoveredService(ip, hostname);
         }
     }
+
+    // 2. Search for _shelly._tcp (Gen2 specific)
+    n = MDNS.queryService("shelly", "tcp");
+    for (int i = 0; i < n; ++i) {
+        String hostname = MDNS.hostname(i);
+        String ip = MDNS.address(i).toString();
+        
+        // Gen2 devices usually have hostnames starting with shelly...
+        // But we process them if found via _shelly._tcp service
+        if (hostname.indexOf("shelly") >= 0) {
+            processDiscoveredService(ip, hostname);
+        }
+    }
 }
 
 void ShellyManager::processDiscoveredService(String ip, String hostname) {
-    String mac = getMacFromIp(ip);
+    // 1. Device identification (Gen1 vs Gen2) and MAC address
+    // Use the /shelly endpoint which is common to Gen2 and supported by many Gen1 devices (returns type/mac).
+    // If it's Gen2, the JSON contains a "gen" field (2 or greater).
+    
+    String url = "http://" + ip + "/shelly";
+    HttpResult r = httpGet(url);
+    if (r.code <= 0) return;
+
+    JsonDocument doc;
+    if (deserializeJson(doc, r.payload)) return;
+
+    String mac = "";
+    int generation = 1; // Default Gen1
+
+    // Detect MAC and generation
+    if (!doc["gen"].isNull()) {
+        // It's a Gen2 or newer device (Plus, Pro)
+        generation = doc["gen"].as<int>();
+        if (!doc["mac"].isNull()) mac = doc["mac"].as<String>();
+    } else {
+        // Probably Gen1
+        // Gen1 on /shelly responds with { "type": "...", "mac": "...", ... }
+        if (!doc["mac"].isNull()) mac = doc["mac"].as<String>();
+    }
+
+    if (mac.length() == 0) {
+        // Fallback for old Gen1 that may not expose a full /shelly endpoint or use /status
+        // Try calling getMacFromIp (legacy /status path)
+        mac = getMacFromIp(ip);
+    }
+
     if (mac.length() == 0) return;
 
-    int channels = getChannelCount(ip);
-    
-    // Loop over available channels
+    // 2. Determine channel count
+    int channels = 1;
+    if (generation >= 2) {
+        // Gen2 logic: query RPC to see how many switches are present
+        channels = getChannelCountGen2(ip);
+    } else {
+        // Gen1 logic: query /status
+        channels = getChannelCountGen1(ip);
+    }
+
+    // 3. Creazione e Aggiunta Dispositivi
     for (int ch = 0; ch < channels; ch++) {
         String id = mac + "_" + String(ch);
         
@@ -70,17 +123,16 @@ void ShellyManager::processDiscoveredService(String ip, String hostname) {
                 config->devices[id].ip = ip; 
             }
             
-            // Create Gen1 device (covers 1, 1PM, 2.5, 3EM)
-            ShellyDevice* dev = ShellyDevice::create(
-                DeviceType::SHELLY_GEN1,
-                ip, id, ch, role, priority
-            );
+            DeviceType dtype = (generation >= 2) ? DeviceType::SHELLY_GEN2 : DeviceType::SHELLY_GEN1;
+
+            ShellyDevice* dev = ShellyDevice::create(dtype, ip, id, ch, role, priority);
             
             if (dev) {
-                dev->fetchMetadata(); // It will detect if it's in Roller mode (unsupported)
+                dev->fetchMetadata(); 
                 devices[id] = dev;
                 
-                String logMsg = String("ShellyManager: added ") + id + " [" + dev->getName() + "]";
+                String typeStr = (generation >= 2) ? "GEN2" : "GEN1";
+                String logMsg = String("ShellyManager: added Shelly/") + typeStr + " [" + id + "] name=\"" + dev->getName() + "\"";
                 SysLog.log(logMsg);
                 
                 if (config->devices[id].name.length() == 0) {
@@ -91,52 +143,78 @@ void ShellyManager::processDiscoveredService(String ip, String hostname) {
     }
 }
 
+// Legacy helper: get MAC from /status for Gen1 devices
 String ShellyManager::getMacFromIp(String ip) {
     String url = "http://" + ip + "/status";
     HttpResult r = httpGet(url);
     if (r.code <= 0) return "";
-
     JsonDocument doc;
     if (deserializeJson(doc, r.payload)) return "";
-
     if (!doc["mac"].isNull()) return doc["mac"].as<String>();
     if (!doc["device"].isNull() && !doc["device"]["mac"].isNull()) return doc["device"]["mac"].as<String>();
-    // Shelly 3EM fallback
     if (!doc["wifi_sta"].isNull() && !doc["wifi_sta"]["mac"].isNull()) return doc["wifi_sta"]["mac"].as<String>();
-
     return "";
 }
 
-int ShellyManager::getChannelCount(String ip) {
+// Helper: count channels on Gen1 (using /status)
+int ShellyManager::getChannelCountGen1(String ip) {
     String url = "http://" + ip + "/status";
     HttpResult r = httpGet(url);
     if (r.code <= 0) return 1; 
-
     JsonDocument doc;
     if (deserializeJson(doc, r.payload)) return 1;
 
-    // 1. Check Shelly 2.5 in Roller Mode
-    // If there's the "rollers" array, it's logically a single entity
-    if (!doc["rollers"].isNull()) {
-        // Return 1 channel. ShellyGen1::update() will detect Roller and disable controls.
-        return 1;
-    }
-
-    // 2. Shelly 3EM (o EM)
+    // Check roller mode
+    if (!doc["rollers"].isNull()) return 1;
+    // Check emeters (3EM)
     if (!doc["emeters"].isNull()) {
         int c = doc["emeters"].size();
         if (c > 0) return c; 
     }
-
-    // 3. Shelly Standard (1, 1PM, 2.5 Relay)
+    // Check Relays/Meters
     int relays = 0;
     if (!doc["relays"].isNull()) relays = doc["relays"].size();
-    
     int meters = 0;
     if (!doc["meters"].isNull()) meters = doc["meters"].size();
-
     int maxc = (relays > meters) ? relays : meters;
     return (maxc > 0) ? maxc : 1;
+}
+
+// Helper: count channels on Gen2 (using Shelly.GetConfig RPC)
+int ShellyManager::getChannelCountGen2(String ip) {
+    // Use Shelly.GetConfig to see how many 'switch' components are configured.
+    // Alternative: call Switch.GetConfig for id=0,1,2,... until failure, but Shelly.GetConfig is a single call.
+    String body = "{\"id\":1, \"method\":\"Shelly.GetConfig\"}";
+    String url = "http://" + ip + "/rpc";
+    HttpResult r = httpPost(url, body);
+    
+    if (r.code != 200) return 1; // Fallback
+
+    JsonDocument doc;
+    // Increase capacity if the config JSON is very large (Shelly Pro 4PM)
+    if (deserializeJson(doc, r.payload)) return 1;
+
+    if (doc["result"].isNull()) return 1;
+
+    int switchCount = 0;
+    JsonObject result = doc["result"].as<JsonObject>();
+    
+    // Iterate keys to find "switch:0", "switch:1", etc.
+    for (JsonPair kv : result) {
+        String key = String(kv.key().c_str());
+        if (key.startsWith("switch:")) {
+            switchCount++;
+        }
+    }
+
+    // If no switches found, it might be a cover device (e.g. Shelly Plus 2PM in cover mode).
+    // To support covers, look for keys like "cover:0". For now return switchCount.
+    return (switchCount > 0) ? switchCount : 1;
+}
+
+// Keep these methods for interface compatibility, but internally we now use differentiated logic
+int ShellyManager::getChannelCount(String ip) {
+    return getChannelCountGen1(ip); 
 }
 
 ShellyDevice* ShellyManager::getDevice(String id) {

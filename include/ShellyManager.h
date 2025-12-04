@@ -15,10 +15,17 @@ private:
     unsigned long lastUpdate = 0;
     unsigned long lastDiscovery = 0;
     
+    // Metodi interni di discovery
     void discoverDevices();
     void processDiscoveredService(String ip, String hostname);
+    
+    // Metodi Helper
     String getMacFromIp(String ip);
-    int getChannelCount(String ip);
+    
+    // Gestione conteggio canali (Gen1 vs Gen2)
+    int getChannelCount(String ip);      // Wrapper generico (mantenuto per compatibilità)
+    int getChannelCountGen1(String ip);  // Logica specifica Gen1 (/status)
+    int getChannelCountGen2(String ip);  // Logica specifica Gen2 (RPC)
 
 public:
     ShellyManager(AppConfig* config);
@@ -35,6 +42,5 @@ public:
     
     // Save discovered devices to SD as JSON so user can edit config manually.
     // Returns true on success.
-    // Updated default extension to .json to match implementation
     bool saveDiscoveredDevices(const String& path = "/shelly_discovered.json");
 };
