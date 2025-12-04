@@ -97,15 +97,12 @@ void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
     }
 }
 
-static uint32_t my_tick_get(void)
-{
-    return millis();
-}
-
 void initLVGL()
 {
     lv_init();
-    lv_tick_set_cb(my_tick_get);
+    lv_tick_set_cb([]() -> uint32_t {
+        return millis();
+    });
 
     size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
     buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
@@ -233,22 +230,23 @@ static void handleUIUpdates()
         last_ui_update = now;
         // Show the actual main meter consumption as a percentage of configured max_power_w
         SystemState st = appManager.getSystemState();
-        float currentWatts = st.totalPower; // current consumption from shared state
-        int maxWatts = appManager.getMaxPowerW();
-
+        float currentKw = st.totalPower / 1000.f; // current consumption from shared state
+        float maxKw = appManager.getMaxPowerW() / 1000.f;   // configured max power in kW
         int pct = 0;
-        if (maxWatts > 0)
+        if (maxKw > 0)
         {
-            float prop = currentWatts / (float)maxWatts;
+            float prop = currentKw / maxKw;
             if (prop < 0.0f)
                 prop = 0.0f;
             if (prop > 1.0f)
                 prop = 1.0f;
             pct = (int)(prop * 100.0f + 0.5f);
         }
-        lv_bar_set_value(objects.bar_actual_percentage, pct, LV_ANIM_ON);
-        lv_label_set_text_fmt(objects.lbl_power_consumption, "%d", (int)currentWatts);
-        lv_label_set_text_fmt(objects.lbl_battery, "%d%% / %dW", st.batteryPercent);
+        char *temp = new char[5];
+        sprintf(temp, "%.2f", currentKw);
+        lv_bar_set_value(objects.bar_power, pct, LV_ANIM_ON);
+        lv_label_set_text(objects.lbl_power_val, temp);
+        //lv_label_set_text_fmt(objects.lbl_battery, "%d%% / %dW", st.batteryPercent);
     }
 }
 
@@ -360,12 +358,15 @@ void setup()
 
     // 9. Start UI
     ui_init();
+    loadScreen(SCREEN_ID_MAIN_2);
+    
 }
 
 void loop()
 {
     M5.update();
     lv_timer_handler();
+    ui_tick();
 
     handleOTA();
     handleUIUpdates();

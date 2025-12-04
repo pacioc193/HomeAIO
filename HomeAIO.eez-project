@@ -121,19 +121,19 @@
   ],
   "userPages": [
     {
-      "objID": "4b40eba7-b31a-468a-b887-11dfd0b6637f",
+      "objID": "3de2e60b-d9e9-4fd2-8a36-8698f6434e0d",
       "components": [
         {
-          "objID": "f90b60d0-0665-1f2d-d7bb-8672ca4b6e2e",
+          "objID": "f6612aef-d8db-4537-e221-b0e008e40995",
           "type": "LVGLScreenWidget",
           "left": 0,
           "top": 0,
-          "width": 800,
-          "height": 480,
+          "width": 1280,
+          "height": 720,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "fb6a8ebf-ffb2-c572-e37b-06078605c72c",
+            "objID": "642ec621-2e67-4528-8204-2d73d7d7fc66",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -146,54 +146,154 @@
           "heightUnit": "px",
           "children": [
             {
-              "objID": "32926eb9-9df9-4177-879f-8d5d6deb8bf7",
+              "objID": "8a28875b-9309-4015-da83-55fff46d72bb",
               "type": "LVGLPanelWidget",
-              "left": 2,
-              "top": 2,
-              "width": 1276,
-              "height": 200,
+              "left": 0,
+              "top": 0,
+              "width": 400,
+              "height": 720,
               "customInputs": [],
               "customOutputs": [],
               "style": {
-                "objID": "50fd12e8-8cae-4cdb-fbd6-c74abe08c6ec",
+                "objID": "9ad902e3-94e0-4ce4-8bc7-04efb70abc23",
                 "useStyle": "default",
                 "conditionalStyles": [],
                 "childStyles": []
               },
+              "locked": true,
               "timeline": [],
-              "eventHandlers": [
-                {
-                  "objID": "c5db0d62-552b-426a-fd22-fe0cd5b7fe4f",
-                  "eventName": "PRESSED",
-                  "handlerType": "action",
-                  "action": "showAllPowerConsumption",
-                  "userData": 1
-                }
-              ],
-              "identifier": "powerConsumption",
+              "eventHandlers": [],
+              "identifier": "Panel_Sidebar",
               "leftUnit": "px",
               "topUnit": "px",
               "widthUnit": "px",
               "heightUnit": "px",
               "children": [
                 {
-                  "objID": "42d3f7bb-b55f-4d82-b99f-97f17d21189f",
+                  "objID": "327265fb-dab6-40dd-9d28-723d4a08eb6b",
                   "type": "LVGLLabelWidget",
-                  "left": 1181,
-                  "top": -13,
-                  "width": 61,
+                  "left": 20,
+                  "top": 50,
+                  "width": 360,
                   "height": 40,
                   "customInputs": [],
                   "customOutputs": [],
                   "style": {
-                    "objID": "929b5005-4179-42ba-8c3c-bd6210cccb19",
+                    "objID": "afc5ca67-9369-4ec4-9a70-0678027170d6",
                     "useStyle": "default",
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "locked": true,
                   "timeline": [],
                   "eventHandlers": [],
-                  "identifier": "lbl_battery",
+                  "identifier": "Lbl_Power_Title",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
+                  "children": [],
+                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlagType": "literal",
+                  "flagScrollbarMode": "",
+                  "flagScrollDirection": "",
+                  "scrollSnapX": "",
+                  "scrollSnapY": "",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "86c3b37c-9cf5-4499-b3af-21473ae8b0eb",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "text_color": "#AAAAAA",
+                          "text_align": "CENTER",
+                          "text_font": "MONTSERRAT_28"
+                        }
+                      }
+                    }
+                  },
+                  "group": "",
+                  "groupIndex": 0,
+                  "text": "POTENZA CASA",
+                  "textType": "literal",
+                  "longMode": "WRAP",
+                  "recolor": false
+                },
+                {
+                  "objID": "921611d6-5742-4bef-e843-65b49b413b52",
+                  "type": "LVGLLabelWidget",
+                  "left": 8,
+                  "top": 110,
+                  "width": 380,
+                  "height": 89,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "dffb9251-584f-4122-dd3d-4572d65e6fec",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "locked": true,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "Lbl_Power_Val",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "content",
+                  "children": [],
+                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlagType": "literal",
+                  "flagScrollbarMode": "",
+                  "flagScrollDirection": "",
+                  "scrollSnapX": "",
+                  "scrollSnapY": "",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "921ab349-ed65-4435-a2d1-9a0068241349",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "text_color": "#00E5FF",
+                          "text_align": "CENTER",
+                          "text_font": "Roboto_120"
+                        }
+                      }
+                    }
+                  },
+                  "group": "",
+                  "groupIndex": 0,
+                  "text": "2.45",
+                  "textType": "literal",
+                  "longMode": "WRAP",
+                  "recolor": false
+                },
+                {
+                  "objID": "240e986c-6f77-4d3c-f4b1-8eee7d28b8a2",
+                  "type": "LVGLLabelWidget",
+                  "left": 157,
+                  "top": 199,
+                  "width": 83,
+                  "height": 52,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "ac386633-cf96-47c4-a0e9-3801f301c938",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "locked": true,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "Lbl_Power_Unit",
                   "leftUnit": "px",
                   "topUnit": "px",
                   "widthUnit": "content",
@@ -210,40 +310,43 @@
                   "disabledStateType": "literal",
                   "states": "",
                   "localStyles": {
-                    "objID": "d816de85-ebe1-4d2d-8761-afbccdacbf1d",
+                    "objID": "81b9b73d-5257-4c01-831d-3a6372960659",
                     "definition": {
                       "MAIN": {
                         "DEFAULT": {
-                          "text_font": "MONTSERRAT_36"
+                          "text_color": "#00E5FF",
+                          "text_align": "CENTER",
+                          "text_font": "MONTSERRAT_48"
                         }
                       }
                     }
                   },
                   "group": "",
                   "groupIndex": 0,
-                  "text": "100",
+                  "text": "kW",
                   "textType": "literal",
                   "longMode": "WRAP",
                   "recolor": false
                 },
                 {
-                  "objID": "b80582c9-b5ea-476c-bf44-6c030ff4be77",
+                  "objID": "c08bc54d-c260-4c69-d8a4-83e7739ddc47",
                   "type": "LVGLBarWidget",
-                  "left": 408,
-                  "top": 78,
-                  "width": 803,
-                  "height": 49,
+                  "left": 141,
+                  "top": 269,
+                  "width": 105,
+                  "height": 421,
                   "customInputs": [],
                   "customOutputs": [],
                   "style": {
-                    "objID": "d67fdcb9-7102-4805-ae46-b8d8a8c3517d",
+                    "objID": "caf5ca74-f0db-46ac-acee-9eed0c29d27b",
                     "useStyle": "default",
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "locked": false,
                   "timeline": [],
                   "eventHandlers": [],
-                  "identifier": "bar_actualPercentage",
+                  "identifier": "Bar_Power",
                   "leftUnit": "px",
                   "topUnit": "px",
                   "widthUnit": "px",
@@ -261,133 +364,18 @@
                   "disabledStateType": "literal",
                   "states": "",
                   "localStyles": {
-                    "objID": "5e5d0bb4-bcab-405b-867c-0f9c4a9b3cbd",
-                    "definition": {
-                      "MAIN": {
-                        "DEFAULT": {
-                          "bg_color": "#000000"
-                        }
-                      },
-                      "INDICATOR": {
-                        "DEFAULT": {
-                          "bg_color": "#29865e",
-                          "bg_grad_dir": "HOR",
-                          "bg_grad_color": "#ff0000"
-                        }
-                      }
-                    }
+                    "objID": "f6ffa856-9e92-4cbf-962f-1686d2280c81"
                   },
                   "group": "",
                   "groupIndex": 0,
                   "min": 0,
                   "max": 100,
                   "mode": "NORMAL",
-                  "value": 0,
+                  "value": 33,
                   "valueType": "literal",
-                  "valueStart": 0,
+                  "valueStart": 10,
                   "valueStartType": "literal",
                   "enableAnimation": true
-                },
-                {
-                  "objID": "9a455f35-edb8-4517-be7b-47581c779f2a",
-                  "type": "LVGLLabelWidget",
-                  "left": 30,
-                  "top": 27,
-                  "width": 268,
-                  "height": 90,
-                  "customInputs": [],
-                  "customOutputs": [],
-                  "style": {
-                    "objID": "c6898abd-9abe-4766-ed15-140bb11b9791",
-                    "useStyle": "default",
-                    "conditionalStyles": [],
-                    "childStyles": []
-                  },
-                  "timeline": [],
-                  "eventHandlers": [],
-                  "identifier": "lbl_powerConsumption",
-                  "leftUnit": "px",
-                  "topUnit": "px",
-                  "widthUnit": "px",
-                  "heightUnit": "px",
-                  "children": [],
-                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
-                  "hiddenFlagType": "literal",
-                  "clickableFlagType": "literal",
-                  "flagScrollbarMode": "",
-                  "flagScrollDirection": "",
-                  "scrollSnapX": "",
-                  "scrollSnapY": "",
-                  "checkedStateType": "literal",
-                  "disabledStateType": "literal",
-                  "states": "",
-                  "localStyles": {
-                    "objID": "89f39832-e527-4559-ba49-b4b0a9e9bcb6",
-                    "definition": {
-                      "MAIN": {
-                        "DEFAULT": {
-                          "text_font": "Roboto_120",
-                          "text_align": "RIGHT"
-                        }
-                      }
-                    }
-                  },
-                  "group": "",
-                  "groupIndex": 0,
-                  "text": "0",
-                  "textType": "literal",
-                  "longMode": "WRAP",
-                  "recolor": false
-                },
-                {
-                  "objID": "74c8e6cd-ae9d-4002-e4be-5b855a301eed",
-                  "type": "LVGLLabelWidget",
-                  "left": 310,
-                  "top": 57,
-                  "width": 71,
-                  "height": 61,
-                  "customInputs": [],
-                  "customOutputs": [],
-                  "style": {
-                    "objID": "6dae5a71-361c-43df-fb90-fb53f2ca05ba",
-                    "useStyle": "default",
-                    "conditionalStyles": [],
-                    "childStyles": []
-                  },
-                  "timeline": [],
-                  "eventHandlers": [],
-                  "identifier": "lbl_kW",
-                  "leftUnit": "px",
-                  "topUnit": "px",
-                  "widthUnit": "content",
-                  "heightUnit": "content",
-                  "children": [],
-                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
-                  "hiddenFlagType": "literal",
-                  "clickableFlagType": "literal",
-                  "flagScrollbarMode": "",
-                  "flagScrollDirection": "",
-                  "scrollSnapX": "",
-                  "scrollSnapY": "",
-                  "checkedStateType": "literal",
-                  "disabledStateType": "literal",
-                  "states": "",
-                  "localStyles": {
-                    "objID": "a54625fb-815b-40fb-a0cc-a14f8ac197db",
-                    "definition": {
-                      "MAIN": {
-                        "DEFAULT": {
-                          "text_font": "Roboto_80"
-                        }
-                      }
-                    }
-                  },
-                  "group": "",
-                  "groupIndex": 0,
-                  "text": "W",
-                  "textType": "literal",
-                  "longMode": "WRAP",
-                  "recolor": false
                 }
               ],
               "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
@@ -402,12 +390,22 @@
               "disabledStateType": "literal",
               "states": "",
               "localStyles": {
-                "objID": "3ce4e2dc-2046-4238-9b7f-295b8042870b",
+                "objID": "31dd0957-3f99-4296-8523-1b48a7e6439f",
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_opa": 0,
-                      "border_width": 0
+                      "bg_color": "#1E1E1E",
+                      "pad_top": 0,
+                      "pad_bottom": 0,
+                      "pad_left": 0,
+                      "pad_right": 0,
+                      "pad_row": 0,
+                      "pad_column": 0
+                    }
+                  },
+                  "SCROLLBAR": {
+                    "DEFAULT": {
+                      "opa": 0
                     }
                   }
                 }
@@ -416,27 +414,680 @@
               "groupIndex": 0
             },
             {
-              "objID": "e7550028-a7e5-4032-f2c7-2c09b2d6260c",
+              "objID": "c9f3d76a-b1fa-48c5-91be-e04956c4d055",
               "type": "LVGLPanelWidget",
-              "left": 650,
-              "top": 220,
-              "width": 600,
-              "height": 230,
+              "left": 400,
+              "top": 0,
+              "width": 880,
+              "height": 720,
               "customInputs": [],
               "customOutputs": [],
               "style": {
-                "objID": "5fd47029-b24a-4682-d1b0-d74b32f5dcce",
+                "objID": "d0232327-71f6-42c6-a423-019e3ccd6921",
                 "useStyle": "default",
                 "conditionalStyles": [],
                 "childStyles": []
               },
+              "locked": true,
               "timeline": [],
               "eventHandlers": [],
+              "identifier": "Cont_Rooms",
               "leftUnit": "px",
               "topUnit": "px",
               "widthUnit": "px",
               "heightUnit": "px",
-              "children": [],
+              "children": [
+                {
+                  "objID": "ae8355ba-3bb9-4f57-b6a0-19ec90389469",
+                  "type": "LVGLPanelWidget",
+                  "left": 30,
+                  "top": 30,
+                  "width": 395,
+                  "height": 315,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "75081ed8-4ea6-4e82-9123-ba0a57272b0b",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "locked": true,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "Panel_Room_1",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
+                  "children": [
+                    {
+                      "objID": "695d066f-c86a-4292-d336-69a45baaa162",
+                      "type": "LVGLLabelWidget",
+                      "left": 20,
+                      "top": 20,
+                      "width": 355,
+                      "height": 49,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "3830b0dc-2ef0-4d4e-9191-8f307c106235",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": true,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Name_Camera_da_Letto",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "px",
+                      "heightUnit": "px",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "9952764b-6524-4cb6-f9e2-b964501c42be",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_align": "LEFT",
+                              "text_color": "#AAAAAA",
+                              "text_font": "MONTSERRAT_28"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "Camera Letto",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    },
+                    {
+                      "objID": "e71c6532-20a5-43a6-dd03-9122d75bdd7e",
+                      "type": "LVGLLabelWidget",
+                      "left": 0,
+                      "top": 111,
+                      "width": 100,
+                      "height": 89,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "faa68a50-5fc3-401a-95e5-82b330225747",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": true,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Temp_Camera_da_letto",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "%",
+                      "heightUnit": "content",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "11fc7498-8afc-412c-9801-d9e4f060b001",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_color": "#FFB74D",
+                              "text_font": "Roboto_120",
+                              "text_align": "CENTER"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "21.5°C",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    }
+                  ],
+                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlag": true,
+                  "clickableFlagType": "literal",
+                  "flagScrollbarMode": "",
+                  "flagScrollDirection": "",
+                  "scrollSnapX": "",
+                  "scrollSnapY": "",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "3a44a1b7-a4af-4fa9-eeb2-1f09fb13a673",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "pad_top": 0,
+                          "pad_bottom": 0,
+                          "pad_left": 0,
+                          "pad_right": 0,
+                          "pad_row": 0,
+                          "pad_column": 0
+                        }
+                      },
+                      "SCROLLBAR": {
+                        "DEFAULT": {
+                          "bg_opa": 0,
+                          "layout": "FLEX",
+                          "flex_flow": "ROW",
+                          "flex_main_place": "CENTER",
+                          "flex_cross_place": "CENTER",
+                          "flex_track_place": "CENTER"
+                        }
+                      }
+                    }
+                  },
+                  "group": "",
+                  "groupIndex": 0
+                },
+                {
+                  "objID": "f7d59e0a-aa7c-400f-be62-1701d7afed8d",
+                  "type": "LVGLPanelWidget",
+                  "left": 455,
+                  "top": 30,
+                  "width": 395,
+                  "height": 315,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "61534f24-ee08-415c-d140-da6d9b10b159",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "locked": true,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "Panel_Room_2",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
+                  "children": [
+                    {
+                      "objID": "ca66ec52-88cd-409f-b9a5-2a34430df1b7",
+                      "type": "LVGLLabelWidget",
+                      "left": 20,
+                      "top": 20,
+                      "width": 355,
+                      "height": 49,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "94230b9b-0817-4784-f483-3360928ac4e7",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": true,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Name_Salotto",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "px",
+                      "heightUnit": "px",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "1423f1bd-5e10-4241-8e10-c9b16b558d33",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_align": "LEFT",
+                              "text_color": "#AAAAAA",
+                              "text_font": "MONTSERRAT_28"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "Salotto",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    },
+                    {
+                      "objID": "da0a3857-7d8e-487d-f259-95e70c3cc55c",
+                      "type": "LVGLLabelWidget",
+                      "left": 0,
+                      "top": 111,
+                      "width": 100,
+                      "height": 89,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "55ab831a-b961-43f1-9a6b-68806c623728",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": false,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Temp_Salotto",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "%",
+                      "heightUnit": "content",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "d9c188fa-3a08-472d-c966-ca80fdcd70c6",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_color": "#FFB74D",
+                              "text_font": "Roboto_120",
+                              "text_align": "CENTER"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "21.5°C",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    }
+                  ],
+                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlag": true,
+                  "clickableFlagType": "literal",
+                  "flagScrollbarMode": "",
+                  "flagScrollDirection": "",
+                  "scrollSnapX": "",
+                  "scrollSnapY": "",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "5ae6ab50-ccba-44e6-ab1b-25c07b153784",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "pad_top": 0,
+                          "pad_bottom": 0,
+                          "pad_left": 0,
+                          "pad_right": 0,
+                          "pad_row": 0,
+                          "pad_column": 0
+                        }
+                      }
+                    }
+                  },
+                  "group": "",
+                  "groupIndex": 0
+                },
+                {
+                  "objID": "eaef514b-6277-4102-da2a-6c9c79a38af9",
+                  "type": "LVGLPanelWidget",
+                  "left": 30,
+                  "top": 375,
+                  "width": 395,
+                  "height": 315,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "7a047f23-30b5-4a01-dbac-a3a0c6e181c5",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "locked": true,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "Panel_Room_3",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
+                  "children": [
+                    {
+                      "objID": "cb846eae-7b8a-48de-f2ee-9e78ab89a4dd",
+                      "type": "LVGLLabelWidget",
+                      "left": 20,
+                      "top": 20,
+                      "width": 355,
+                      "height": 49,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "0f98acea-0795-40e5-d8f3-661f96f06519",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": true,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Name_Cameretta",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "px",
+                      "heightUnit": "px",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "638f79c0-a409-44a4-dad6-eb338bb173c1",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_align": "LEFT",
+                              "text_color": "#AAAAAA",
+                              "text_font": "MONTSERRAT_28"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "Cameretta",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    },
+                    {
+                      "objID": "86a9bd81-aa44-4729-cdce-106aab4906b2",
+                      "type": "LVGLLabelWidget",
+                      "left": 0,
+                      "top": 111,
+                      "width": 100,
+                      "height": 89,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "091e2f11-457b-4c10-ff42-a2634616717e",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": false,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Temp_Cameretta",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "%",
+                      "heightUnit": "content",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "f5bff6f7-6e92-4a8c-b06a-492499dbdd1e",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_color": "#FFB74D",
+                              "text_font": "Roboto_120",
+                              "text_align": "CENTER"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "21.5°C",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    }
+                  ],
+                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlag": true,
+                  "clickableFlagType": "literal",
+                  "flagScrollbarMode": "",
+                  "flagScrollDirection": "",
+                  "scrollSnapX": "",
+                  "scrollSnapY": "",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "d5431328-6c46-45c4-ce08-77fcf64e198f",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "pad_top": 0,
+                          "pad_bottom": 0,
+                          "pad_left": 0,
+                          "pad_right": 0,
+                          "pad_row": 0,
+                          "pad_column": 0
+                        }
+                      }
+                    }
+                  },
+                  "group": "",
+                  "groupIndex": 0
+                },
+                {
+                  "objID": "df682745-e6ac-45a2-f7f7-58820fef5fa1",
+                  "type": "LVGLPanelWidget",
+                  "left": 455,
+                  "top": 375,
+                  "width": 395,
+                  "height": 315,
+                  "customInputs": [],
+                  "customOutputs": [],
+                  "style": {
+                    "objID": "e7ba889b-f0f0-414c-a82f-e90db751b536",
+                    "useStyle": "default",
+                    "conditionalStyles": [],
+                    "childStyles": []
+                  },
+                  "locked": true,
+                  "timeline": [],
+                  "eventHandlers": [],
+                  "identifier": "Panel_Room_4",
+                  "leftUnit": "px",
+                  "topUnit": "px",
+                  "widthUnit": "px",
+                  "heightUnit": "px",
+                  "children": [
+                    {
+                      "objID": "932d6ed3-9ad2-43ca-b736-5ceddcda226b",
+                      "type": "LVGLLabelWidget",
+                      "left": 20,
+                      "top": 20,
+                      "width": 355,
+                      "height": 49,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "94584364-09b1-49b7-9fb2-0c5043b0a129",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": true,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Name_Bagno",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "px",
+                      "heightUnit": "px",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "7939860a-d1e2-4431-90c8-d5cb6525487e",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_align": "LEFT",
+                              "text_color": "#AAAAAA",
+                              "text_font": "MONTSERRAT_28"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "Bagno",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    },
+                    {
+                      "objID": "808e99db-85ea-4755-b591-b4afcadec70f",
+                      "type": "LVGLLabelWidget",
+                      "left": 0,
+                      "top": 111,
+                      "width": 100,
+                      "height": 89,
+                      "customInputs": [],
+                      "customOutputs": [],
+                      "style": {
+                        "objID": "c151cc70-141a-4622-abbb-989da6ab9e00",
+                        "useStyle": "default",
+                        "conditionalStyles": [],
+                        "childStyles": []
+                      },
+                      "locked": false,
+                      "timeline": [],
+                      "eventHandlers": [],
+                      "identifier": "Lbl_Temp_Bagno",
+                      "leftUnit": "px",
+                      "topUnit": "px",
+                      "widthUnit": "%",
+                      "heightUnit": "content",
+                      "children": [],
+                      "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                      "hiddenFlagType": "literal",
+                      "clickableFlagType": "literal",
+                      "flagScrollbarMode": "",
+                      "flagScrollDirection": "",
+                      "scrollSnapX": "",
+                      "scrollSnapY": "",
+                      "checkedStateType": "literal",
+                      "disabledStateType": "literal",
+                      "states": "",
+                      "localStyles": {
+                        "objID": "ea468cf9-06e1-4562-81b3-13e6ddeeece1",
+                        "definition": {
+                          "MAIN": {
+                            "DEFAULT": {
+                              "text_color": "#FFB74D",
+                              "text_font": "Roboto_120",
+                              "text_align": "CENTER"
+                            }
+                          }
+                        }
+                      },
+                      "group": "",
+                      "groupIndex": 0,
+                      "text": "21.5°C",
+                      "textType": "literal",
+                      "longMode": "WRAP",
+                      "recolor": false
+                    }
+                  ],
+                  "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+                  "hiddenFlagType": "literal",
+                  "clickableFlag": true,
+                  "clickableFlagType": "literal",
+                  "flagScrollbarMode": "",
+                  "flagScrollDirection": "",
+                  "scrollSnapX": "",
+                  "scrollSnapY": "",
+                  "checkedStateType": "literal",
+                  "disabledStateType": "literal",
+                  "states": "",
+                  "localStyles": {
+                    "objID": "0ff2666f-33e3-4dc9-c12b-b2762dbff68b",
+                    "definition": {
+                      "MAIN": {
+                        "DEFAULT": {
+                          "pad_top": 0,
+                          "pad_bottom": 0,
+                          "pad_left": 0,
+                          "pad_right": 0,
+                          "pad_row": 0,
+                          "pad_column": 0
+                        }
+                      }
+                    }
+                  },
+                  "group": "",
+                  "groupIndex": 0
+                }
+              ],
               "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
               "hiddenFlagType": "literal",
               "clickableFlag": true,
@@ -449,124 +1100,20 @@
               "disabledStateType": "literal",
               "states": "",
               "localStyles": {
-                "objID": "dcc1ccba-56f1-4908-ce6d-1dcbc57c4c36"
-              },
-              "group": "",
-              "groupIndex": 0
-            },
-            {
-              "objID": "07dd351e-6fe8-4eb7-ede5-4865cabe64c4",
-              "type": "LVGLPanelWidget",
-              "left": 650,
-              "top": 470,
-              "width": 600,
-              "height": 230,
-              "customInputs": [],
-              "customOutputs": [],
-              "style": {
-                "objID": "12e4259f-be45-4779-afcf-01f7d6be6b79",
-                "useStyle": "default",
-                "conditionalStyles": [],
-                "childStyles": []
-              },
-              "timeline": [],
-              "eventHandlers": [],
-              "leftUnit": "px",
-              "topUnit": "px",
-              "widthUnit": "px",
-              "heightUnit": "px",
-              "children": [],
-              "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
-              "hiddenFlagType": "literal",
-              "clickableFlag": true,
-              "clickableFlagType": "literal",
-              "flagScrollbarMode": "",
-              "flagScrollDirection": "",
-              "scrollSnapX": "",
-              "scrollSnapY": "",
-              "checkedStateType": "literal",
-              "disabledStateType": "literal",
-              "states": "",
-              "localStyles": {
-                "objID": "097613f9-ec14-4b24-8580-5cd0283b2ca8"
-              },
-              "group": "",
-              "groupIndex": 0
-            },
-            {
-              "objID": "b24a4c09-384b-4976-e960-c51f4d0ebec5",
-              "type": "LVGLPanelWidget",
-              "left": 30,
-              "top": 220,
-              "width": 600,
-              "height": 230,
-              "customInputs": [],
-              "customOutputs": [],
-              "style": {
-                "objID": "8e5de0a3-97f9-485b-e89b-4cf7da026ffe",
-                "useStyle": "default",
-                "conditionalStyles": [],
-                "childStyles": []
-              },
-              "timeline": [],
-              "eventHandlers": [],
-              "leftUnit": "px",
-              "topUnit": "px",
-              "widthUnit": "px",
-              "heightUnit": "px",
-              "children": [],
-              "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
-              "hiddenFlagType": "literal",
-              "clickableFlag": true,
-              "clickableFlagType": "literal",
-              "flagScrollbarMode": "",
-              "flagScrollDirection": "",
-              "scrollSnapX": "",
-              "scrollSnapY": "",
-              "checkedStateType": "literal",
-              "disabledStateType": "literal",
-              "states": "",
-              "localStyles": {
-                "objID": "800788fc-cbe3-4b01-892d-567511a52237"
-              },
-              "group": "",
-              "groupIndex": 0
-            },
-            {
-              "objID": "6ba4499c-182c-4d02-9bf5-c21fa76d39b2",
-              "type": "LVGLPanelWidget",
-              "left": 30,
-              "top": 470,
-              "width": 600,
-              "height": 230,
-              "customInputs": [],
-              "customOutputs": [],
-              "style": {
-                "objID": "1dada506-67d6-4b1e-bfdd-ad54395694d1",
-                "useStyle": "default",
-                "conditionalStyles": [],
-                "childStyles": []
-              },
-              "timeline": [],
-              "eventHandlers": [],
-              "leftUnit": "px",
-              "topUnit": "px",
-              "widthUnit": "px",
-              "heightUnit": "px",
-              "children": [],
-              "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
-              "hiddenFlagType": "literal",
-              "clickableFlag": true,
-              "clickableFlagType": "literal",
-              "flagScrollbarMode": "",
-              "flagScrollDirection": "",
-              "scrollSnapX": "",
-              "scrollSnapY": "",
-              "checkedStateType": "literal",
-              "disabledStateType": "literal",
-              "states": "",
-              "localStyles": {
-                "objID": "17af83a6-8a3a-4da8-e6b4-5168d0893957"
+                "objID": "bf065ef4-dd97-4791-bea8-6bee4b6cddcf",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "bg_opa": 0,
+                      "pad_top": 0,
+                      "pad_bottom": 0,
+                      "pad_left": 0,
+                      "pad_right": 0,
+                      "pad_row": 0,
+                      "pad_column": 0
+                    }
+                  }
+                }
               },
               "group": "",
               "groupIndex": 0
@@ -580,7 +1127,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "8eb86917-c831-b762-5685-8d01972e8a22"
+            "objID": "6be1e74e-47e8-4abe-95f0-de5a9e1803fe",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#121212"
+                }
+              }
+            }
           },
           "groupIndex": 0
         }
@@ -588,56 +1142,7 @@
       "connectionLines": [],
       "localVariables": [],
       "userProperties": [],
-      "name": "Main",
-      "left": 0,
-      "top": 0,
-      "width": 1280,
-      "height": 720,
-      "createAtStart": true,
-      "deleteOnScreenUnload": false
-    },
-    {
-      "objID": "5b158678-5dda-4f5a-e412-3218690a3bb3",
-      "components": [
-        {
-          "objID": "ead9e438-1c14-4e30-d3bc-de2eade8174b",
-          "type": "LVGLScreenWidget",
-          "left": 0,
-          "top": 0,
-          "width": 1280,
-          "height": 720,
-          "customInputs": [],
-          "customOutputs": [],
-          "style": {
-            "objID": "f5e69c66-b514-4885-b78c-3661626698e4",
-            "useStyle": "default",
-            "conditionalStyles": [],
-            "childStyles": []
-          },
-          "timeline": [],
-          "eventHandlers": [],
-          "leftUnit": "px",
-          "topUnit": "px",
-          "widthUnit": "px",
-          "heightUnit": "px",
-          "children": [],
-          "widgetFlags": "CLICKABLE|PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLLABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER",
-          "hiddenFlagType": "literal",
-          "clickableFlag": true,
-          "clickableFlagType": "literal",
-          "checkedStateType": "literal",
-          "disabledStateType": "literal",
-          "states": "",
-          "localStyles": {
-            "objID": "157bfd54-7bf6-47be-ee44-91331c26fc0b"
-          },
-          "groupIndex": 0
-        }
-      ],
-      "connectionLines": [],
-      "localVariables": [],
-      "userProperties": [],
-      "name": "allPowerConsumption",
+      "name": "Main_2",
       "left": 0,
       "top": 0,
       "width": 1280,
@@ -704,8 +1209,8 @@
       "descent": 28,
       "glyphs": [],
       "lvglRanges": "",
-      "lvglSymbols": "1234567890",
-      "lvglBinFile": "MAAAAGhlYWQBAAAAAwB4AFgA//9aAOL/BgD//1gAQwAQAAAAAAQFBwAAAAAGAAAAHAAAAGNtYXABAAAAHAAAADAAAAAKAAEACgACACQAAABsb2NhCwAAAAgACAB/CR4P/BhzIuAsEDaHP3NJ6lIAAGRcAABnbHlmN9vYAAAAAAAAAAAAAEeb3v//7KhRAAAAAAAAAAAAAAAAAAAAAAABbP///////////YMAAAAAAAAAAAAAAAAAAAA6///////////////8UAAAAAAAAAAAAAAAAAGf/////////////////8MAAAAAAAAAAAAAAATv///////////////////4AAAAAAAAAAAAAAb/////////////////////+wAAAAAAAAAAAAf///////////////////////wQAAAAAAAAAAb////////////////////////8AAAAAAAAAAP////////////+////////////+QAAAAAAAAHv////////+mMAAAJZ7/////////UAAAAAAACv////////gQAAAAAAAF3////////hAAAAAAA////////8IAAAAAAAAAAI////////kAAAAAAL///////7AAAAAAAAAAAABf///////yAAAAAD///////8AAAAAAAAAAAAAAb///////kAAAAAr///////IAAAAAAAAAAAAAAK///////xAAAAH///////YAAAAAAAAAAAAAAAHv//////YAAABv//////0AAAAAAAAAAAAAAAAH///////AAAAL//////9gAAAAAAAAAAAAAAAAD///////IAAA///////wAAAAAAAAAAAAAAAAAJ//////9gAAX//////6AAAAAAAAAAAAAAAAAAP//////7AACf//////UAAAAAAAAAAAAAAAAAAO//////8AAM//////8QAAAAAAAAAAAAAAAAAAr//////yAA///////QAAAAAAAAAAAAAAAAAAB///////YAP//////5AAAAAAAAAAAAAAAAAAAD//////+QBf//////cAAAAAAAAAAAAAAAAAAAD//////7AI//////9AAAAAAAAAAAAAAAAAAAAO//////4Ar//////yAAAAAAAAAAAAAAAAAAAAz//////wDP//////AAAAAAAAAAAAAAAAAAAACv//////IN//////4AAAAAAAAAAAAAAAAAAAAI//////8w///////QAAAAAAAAAAAAAAAAAAAAf//////1D//////8AAAAAAAAAAAAAAAAAAAABv//////Yf//////sAAAAAAAAAAAAAAAAAAAAF//////9y//////+wAAAAAAAAAAAAAAAAAAAAT//////4L//////6AAAAAAAAAAAAAAAAAAAABP//////k///////oAAAAAAAAAAAAAAAAAAAAE//////+T//////+gAAAAAAAAAAAAAAAAAAAAT//////5T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6P//////6AAAAAAAAAAAAAAAAAAAABP//////k///////oAAAAAAAAAAAAAAAAAAAAE//////+T//////+gAAAAAAAAAAAAAAAAAAAAT//////5L//////6AAAAAAAAAAAAAAAAAAAABP//////gf//////sAAAAAAAAAAAAAAAAAAAAF//////+A///////AAAAAAAAAAAAAAAAAAAAAb//////2D//////9AAAAAAAAAAAAAAAAAAAABv//////UO//////4AAAAAAAAAAAAAAAAAAAAH//////9Az//////wAAAAAAAAAAAAAAAAAAAAn//////zC///////EAAAAAAAAAAAAAAAAAAAC///////EJ//////8wAAAAAAAAAAAAAAAAAAAM//////8Af//////1AAAAAAAAAAAAAAAAAAAA///////QBP//////gAAAAAAAAAAAAAAAAAAAH//////6AB//////+wAAAAAAAAAAAAAAAAAABP//////gADv//////AAAAAAAAAAAAAAAAAAAI//////9AAK//////8wAAAAAAAAAAAAAAAAAAz//////xAAf//////4AAAAAAAAAAAAAAAAAAD//////9AAA///////0AAAAAAAAAAAAAAAAABf//////kAAA7//////zAAAAAAAAAAAAAAAAAL//////9AAACf//////oAAAAAAAAAAAAAAAAC///////wAAAE///////yAAAAAAAAAAAAAAAAn//////7AAAADf//////sAAAAAAAAAAAAAAAL///////QAAAAH///////2AAAAAAAAAAAAAADP//////4AAAAAH///////8wAAAAAAAAAAAACf//////9wAAAAAI///////+IAAAAAAAAAAACP///////gAAAAAADv///////1AAAAAAAAAACv///////2AAAAAAAF////////+zAAAAAAAAbv///////9AAAAAAAAC//////////IQgAAJZ7/////////MAAAAAAAAB7/////////////////////////cAAAAAAAAAAv////////////////////////kAAAAAAAAAAAP///////////////////////sAAAAAAAAAAAAD7/////////////////////kAAAAAAAAAAAAAAc////////////////////cAAAAAAAAAAAAAAABu/////////////////8IAAAAAAAAAAAAAAAAAGO///////////////EAAAAAAAAAAAAAAAAAAAABb///////////9ggAAAAAAAAAAAAAAAAAAAAAAADab3v/+7KhRAAAAAAAAAAAABQENcAAAAAAAAAAAAAAAAAAAAlMAAAAAAAAAAAAAAAAAAGz/sAAAAAAAAAAAAAAAADn///sAAAAAAAAAAAAAABff////sAAAAAAAAAAAAAW///////sAAAAAAAAAAAOe////////sAAAAAAAAAF9//////////sAAAAAAABK////////////sAAAAAAo7/////////////sAAAAGz///////////////sAAEr/////////////////sBff//////////////////u/////////////////////v/////////////////////v/////////////yP//////v///////////6CAv//////v/////////+UAAAv//////v///////+1AAAAAv//////v//////XEAAAAAAv//////v////oMAAAAAAAAv//////v//6QAAAAAAAAAAv//////v8YAAAAAAAAAAAAv//////sQAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sAAAAAAAAAAAAAAv//////sCgdVwAAAAAAAAAAAAA1i83v/+3KdRAAAAAAAAAAAAAAAAAAAAAAAAAFrv///////////ZMAAAAAAAAAAAAAAAAAAAAAKf///////////////9YAAAAAAAAAAAAAAAAAABr//////////////////+UAAAAAAAAAAAAAAAAG/////////////////////8IAAAAAAAAAAAAAAb///////////////////////kAAAAAAAAAAAAAt////////////////////////9gAAAAAAAAAAA+//////////////////////////YAAAAAAAAAAe///////////////////////////0AAAAAAAAAN//////////t0IQABR7//////////4QAAAAAAAK/////////WAAAAAAAAAY/////////7AAAAAAAE////////9wAAAAAAAAAAAs////////9AAAAAAA7///////0gAAAAAAAAAAAACv///////8AAAAAAf///////0QAAAAAAAAAAAAAAn///////9AAAAADv//////4QAAAAAAAAAAAAAAAM///////6AAAABv//////9AAAAAAAAAAAAAAAAAL///////8AAAAM//////+gAAAAAAAAAAAAAAAAAI///////0AAAB///////yAAAAAAAAAAAAAAAAAAH///////cAAAb//////7AAAAAAAAAAAAAAAAAAAL//////+gAACv//////UAAAAAAAAAAAAAAAAAAAb//////9AAAO//////8QAAAAAAAAAAAAAAAAAAAv//////4AAA///////QAAAAAAAAAAAAAAAAAAAA///////wAAP//////6AAAAAAAAAAAAAAAAAAAADf//////AABf//////gAAAAAAAAAAAAAAAAAAAAN//////8AAG//////9gAAAAAAAAAAAAAAAAAAAAz//////wAAf//////2AAAAAAAAAAAAAAAAAAAADf/////+AAA2ZmZmZmIAAAAAAAAAAAAAAAAAAAAO//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7//////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj///////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX///////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHv//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAACf///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAB////////iAAAAAAAAAAAAAAAAAAAAAAAAAAAABf///////zAAAAAAAAAAAAAAAAAAAAAAAAAAAABP///////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAu///////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAd///////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAM///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAL///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ///////9EAAAAAAAAAAAAAAAAAAAAAAAAAAAAI///////+IAAAAAAAAAAAAAAAAAAAAAAAAAAAAG////////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAE////////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAC7///////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7///////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv///////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr///////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX///////0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAT///////4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAL///////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAHv//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAHf//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAACf//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAABP////////////////////////////////////AN////////////////////////////////////8A3////////////////////////////////////wDf////////////////////////////////////AN////////////////////////////////////8A3////////////////////////////////////wDf////////////////////////////////////AN////////////////////////////////////8A3////////////////////////////////////y/b2AAAAAAAAAAAAABGnN7//tyoUgAAAAAAAAAAAAAAAAAAAAAAAWv///////////6UAAAAAAAAAAAAAAAAAAAAKf///////////////oEAAAAAAAAAAAAAAAABr//////////////////3AAAAAAAAAAAAAAAG/////////////////////jAAAAAAAAAAAAAb//////////////////////9wAAAAAAAAAAAt////////////////////////kAAAAAAAAAAu/////////////////////////5AAAAAAAAAu//////////////////////////9wAAAAAAAN/////////+pjEAACR8//////////MAAAAAAJ/////////FAAAAAAAAAY/////////QAAAAAE////////5gAAAAAAAAAAAb////////cAAAAA3///////0gAAAAAAAAAAAACP///////gAAAAb///////0QAAAAAAAAAAAAAAr///////cAAADv//////4QAAAAAAAAAAAAAAAN///////AAABP//////9AAAAAAAAAAAAAAAAAT///////EAAJ//////+wAAAAAAAAAAAAAAAAAN//////9gAA7//////0AAAAAAAAAAAAAAAAAAf//////6AAL//////+AAAAAAAAAAAAAAAAAAA///////0ABf//////kAAAAAAAAAAAAAAAAAAA///////wAI//////9gAAAAAAAAAAAAAAAAAADP//////IAn//////zAAAAAAAAAAAAAAAAAAAK//////8wCv//////IAAAAAAAAAAAAAAAAAAAn//////0AGmZmZmZkQAAAAAAAAAAAAAAAAAACP//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ//////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////EAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAb///////xAAAAAAAAAAAAAAAAAAAAAAAAAAA9///////1AAAAAAAAAAAAAAAAAAAAAAAAAAGf///////4AAAAAAAAAAAAAAAAAAAAAAAAAEr////////6AAAAAAAAAAAAAAAABmZmZmZ4rf/////////6AAAAAAAAAAAAAAAAAf/////////////////4AAAAAAAAAAAAAAAAAB/////////////////kAAAAAAAAAAAAAAAAAAP///////////////+AAAAAAAAAAAAAAAAAAAA///////////////oQAAAAAAAAAAAAAAAAAAAD///////////////6QAAAAAAAAAAAAAAAAAAAP////////////////8QAAAAAAAAAAAAAAAAAAf/////////////////7EAAAAAAAAAAAAAAAAB///////////////////kAAAAAAAAAAAAAAAACIiIiImazv//////////9QAAAAAAAAAAAAAAAAAAAAAAAAJa//////////UAAAAAAAAAAAAAAAAAAAAAAAAAAG3////////zAAAAAAAAAAAAAAAAAAAAAAAAAAAH////////4QAAAAAAAAAAAAAAAAAAAAAAAAAAAu///////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAHf//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////7AAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAA3//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAb//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAE//////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////6Xd3d3d3VAAAAAAAAAAAAAAAAAAAABf//////lv//////cAAAAAAAAAAAAAAAAAAAAF//////+F//////+QAAAAAAAAAAAAAAAAAAAAj//////2P//////7AAAAAAAAAAAAAAAAAAAACv//////Qf//////4AAAAAAAAAAAAAAAAAAAAN//////8g7//////0AAAAAAAAAAAAAAAAAAAC///////gCv//////oAAAAAAAAAAAAAAAAAAAj//////6AG///////yAAAAAAAAAAAAAAAAAADv//////YAH///////sAAAAAAAAAAAAAAAAACP//////8AAK///////2AAAAAAAAAAAAAAAAA///////+gAAP///////9QAAAAAAAAAAAAAAAu///////yAAAL////////cAAAAAAAAAAAAAAu///////6AAAAL////////7IAAAAAAAAAAABv////////IAAAAH/////////5IAAAAAAAAAbf////////cAAAAAC//////////9hSAAABR7//////////oAAAAAAAz///////////////////////////0AAAAAAAAc//////////////////////////0QAAAAAAAAC/////////////////////////wQAAAAAAAAAAj///////////////////////kAAAAAAAAAAAAD3////////////////////+UAAAAAAAAAAAAAAG7//////////////////4EAAAAAAAAAAAAAAAAGz///////////////6BAAAAAAAAAAAAAAAAAAACjP///////////pQAAAAAAAAAAAAAAAAAAAAAAAFHq97//uyoUgAAAAAAAAAAAAGB9WAAAAAAAAAAAAAAAAAAAAAAAAAe///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr///////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP///////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACf////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAM///////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAb///////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAf///////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAv////////////QAAAAAAAAAAAAAAAAAAAAAAAAAABf////////////0AAAAAAAAAAAAAAAAAAAAAAAAAAB7////////////9AAAAAAAAAAAAAAAAAAAAAAAAAACv/////5///////QAAAAAAAAAAAAAAAAAAAAAAAAAE//////8f//////0AAAAAAAAAAAAAAAAAAAAAAAAADf/////4D//////9AAAAAAAAAAAAAAAAAAAAAAAAAI//////0A///////QAAAAAAAAAAAAAAAAAAAAAAAAP//////zAP//////0AAAAAAAAAAAAAAAAAAAAAAAAN//////kAD//////9AAAAAAAAAAAAAAAAAAAAAAAAf//////gAA///////QAAAAAAAAAAAAAAAAAAAAAAAv//////UAAP//////0AAAAAAAAAAAAAAAAAAAAAAAz/////+wAAD//////9AAAAAAAAAAAAAAAAAAAAAABv//////EAAA///////QAAAAAAAAAAAAAAAAAAAAAB//////9gAAAP//////0AAAAAAAAAAAAAAAAAAAAACv/////8AAAAD//////9AAAAAAAAAAAAAAAAAAAAAF//////8gAAAA///////QAAAAAAAAAAAAAAAAAAAAHv/////4AAAAAP//////0AAAAAAAAAAAAAAAAAAAAJ//////0AAAAAD//////9AAAAAAAAAAAAAAAAAAAAT//////0AAAAAA///////QAAAAAAAAAAAAAAAAAAAN//////kAAAAAAP//////0AAAAAAAAAAAAAAAAAAAj//////hAAAAAAD//////9AAAAAAAAAAAAAAAAAAA///////UAAAAAAA///////QAAAAAAAAAAAAAAAAAAz/////+wAAAAAAAP//////0AAAAAAAAAAAAAAAAAB///////EAAAAAAAD//////9AAAAAAAAAAAAAAAAAC//////9wAAAAAAAA///////QAAAAAAAAAAAAAAAAC//////8AAAAAAAAAP//////0AAAAAAAAAAAAAAAAG//////8wAAAAAAAAD//////9AAAAAAAAAAAAAAAAHv/////4AAAAAAAAAA///////QAAAAAAAAAAAAAAAK//////0AAAAAAAAAAP//////0AAAAAAAAAAAAAAAT//////0AAAAAAAAAAD//////9AAAAAAAAAAAAAAAO//////oAAAAAAAAAAA///////QAAAAAAAAAAAAAAn//////hAAAAAAAAAAAP//////0AAAAAAAAAAAAAA///////UAAAAAAAAAAAD//////9AAAAAAAAAAAAAA3/////+wAAAAAAAAAAAA///////QAAAAAAAAAAAACP//////IAAAAAAAAAAAAP//////0AAAAAAAAAAAAC//////9wAAAAAAAAAAAAD//////9AAAAAAAAAAAADP/////8AAAAAAAAAAAAAA///////QAAAAAAAAAAAH//////8wAAAAAAAAAAAAAP//////0AAAAAAAAAAAH//////4AAAAAAAAAAAAAAD//////9AAAAAAAAAAAL//////0AAAAAAAAAAAAAAA///////QAAAAAAAAAAX//////0AAAAAAAAAAAAAAAP//////0AAAAAAAAAAe//////oAAAAAAAAAAAAAAAD//////9AAAAAAAAAAr//////hAAAAAAAAAAAAAAAA///////QAAAAAAAABP//////YAAAAAAAAAAAAAAAAP//////0AAAAAAAAA7/////+wAAAAAAAAAAAAAAAAD//////9AAAAAAAACf//////////////////////////////////////+z////////////////////////////////////////zP///////////////////////////////////////87////////////////////////////////////////O////////////////////////////////////////zv///////////////////////////////////////87////////////////////////////////////////O////////////////////////////////////////zv///////////////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAABP21cAAAAK////////////////////////////8gAAAAAL////////////////////////////8gAAAAAN////////////////////////////8gAAAAAP////////////////////////////8gAAAAAP////////////////////////////8gAAAAAv////////////////////////////8gAAAAA/////////////////////////////8gAAAABf////////////////////////////8gAAAAB/////////////////////////////8gAAAACP////////////////////////////8gAAAACv/////5EREREREREREREREREREREREAAAAAC//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////yAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAX//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAj/////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAr/////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAv/////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAA3/////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAA7/////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAG//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAK//////YAAAA3rN///tqFEAAAAAAAAAAAAAAL//////QABK///////////XEAAAAAAAAAAAAN//////IX7/////////////+iAAAAAAAAAAAO//////n/////////////////kQAAAAAAAAAP/////////////////////////kAAAAAAAAAv//////////////////////////cAAAAAAAA///////////////////////////+QAAAAAABf///////////////////////////5AAAAAABv////////////////////////////YAAAAACP////////////3c3f////////////8wAAAACv/////////YQQAAAAJa///////////QAAAAC////////9QAAAAAAAAAF+/////////4AAAADf//////9wAAAAAAAAAAABr/////////EAAAAVnf///9IAAAAAAAAAAAAABv////////kAAAAAACau+gAAAAAAAAAAAAAAAF////////8QAAAAAAAAIAAAAAAAAAAAAAAAAAb///////9gAAAAAAAAAAAAAAAAAAAAAAAAAACv///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAe///////yAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////2AAAAAAAAAAAAAAAAAAAAAAAAAAAA7//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////EAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////YAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////cAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////kAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////oAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////sAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////oAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////oAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////kAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////iaqqqqqkAAAAAAAAAAAAAAAAAAAACf//////bf/////4AAAAAAAAAAAAAAAAAAAAC///////Sv/////8AAAAAAAAAAAAAAAAAAAAD///////GP//////AAAAAAAAAAAAAAAAAAAAP//////+BP//////UAAAAAAAAAAAAAAAAAAAj//////7Af//////sAAAAAAAAAAAAAAAAAAA7//////2AM//////8QAAAAAAAAAAAAAAAAAF///////yAH//////+gAAAAAAAAAAAAAAAAAN///////QAC///////zAAAAAAAAAAAAAAAAB///////9wAAv//////9EAAAAAAAAAAAAAAAP///////8QAAT///////wAAAAAAAAAAAAAAC7///////kAAAC////////BAAAAAAAAAAAAAu////////EAAAAv///////+QAAAAAAAAAAAb////////3AAAAAI////////+0AAAAAAAABM/////////QAAAAAAz/////////6VMQAAJZ7/////////8gAAAAAAHf//////////////////////////UAAAAAAAAu/////////////////////////3AAAAAAAAAC3///////////////////////9wAAAAAAAAAAG///////////////////////UAAAAAAAAAAAAH/////////////////////CAAAAAAAAAAAAAAK//////////////////+YAAAAAAAAAAAAAAAADr///////////////5wAAAAAAAAAAAAAAAAAAAWv///////////6kAAAAAAAAAAAAAAAAAAAAAAADab3v/+7KhiAAAAAAAAAAAAA/29gAAAAAAAAAAAAAAAAAAAAAAAABIzMgAAAAAAAAAAAAAAAAAAAAAAAAAAADaL3////6AAAAAAAAAAAAAAAAAAAAAAAAACe/////////oAAAAAAAAAAAAAAAAAAAAAAAF9//////////+gAAAAAAAAAAAAAAAAAAAAACn////////////6AAAAAAAAAAAAAAAAAAAAAI//////////////oAAAAAAAAAAAAAAAAAAABe//////////////+gAAAAAAAAAAAAAAAAAACv///////////////6AAAAAAAAAAAAAAAAAALf////////////////oAAAAAAAAAAAAAAAAAX/////////////////+gAAAAAAAAAAAAAAAAX////////////8l1MhAAAAAAAAAAAAAAAAAAX//////////+hAAAAAAAAAAAAAAAAAAAAAAAT/////////+1AAAAAAAAAAAAAAAAAAAAAAAAL/////////wwAAAAAAAAAAAAAAAAAAAAAAAADP////////UAAAAAAAAAAAAAAAAAAAAAAAAACP///////8IAAAAAAAAAAAAAAAAAAAAAAAAAA////////5AAAAAAAAAAAAAAAAAAAAAAAAAAAM///////4AAAAAAAAAAAAAAAAAAAAAAAAAAAG///////5AAAAAAAAAAAAAAAAAAAAAAAAAAAA7//////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////+EAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////QAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAj//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAz/////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////AAAAAAA3rO///tuFAAAAAAAAAAAAAH//////0AAAAFr//////////8UAAAAAAAAAAAr/////+QAAB+/////////////+cAAAAAAAAADf/////2AAXv///////////////9QAAAAAAAAP//////QAr//////////////////4AAAAAAAC//////8S3///////////////////+wAAAAAAX//////y7/////////////////////wQAAAAB///////7//////////////////////7AAAAAJ//////////////////////////////+QAAAAv/////////////+3QQACSN//////////UAAADP///////////+cQAAAAAAA7/////////hAAAO///////////4AAAAAAAAAABf////////kAAA///////////SAAAAAAAAAAAALv///////yAAD/////////+wAAAAAAAAAAAAAC7///////oAAf////////+gAAAAAAAAAAAAAAA////////xAB/////////AAAAAAAAAAAAAAAAAj///////cAL////////hAAAAAAAAAAAAAAAAAO///////QAv///////0AAAAAAAAAAAAAAAAAAb///////ID///////6AAAAAAAAAAAAAAAAAAAO//////9wP///////MAAAAAAAAAAAAAAAAAAAn//////7A///////8AAAAAAAAAAAAAAAAAAAA///////4D///////wAAAAAAAAAAAAAAAAAAAA7//////xP//////9AAAAAAAAAAAAAAAAAAAAC///////Q///////sAAAAAAAAAAAAAAAAAAAAI//////9j//////+wAAAAAAAAAAAAAAAAAAAAX//////4L//////7AAAAAAAAAAAAAAAAAAAAA///////kf//////sAAAAAAAAAAAAAAAAAAAAC//////+g///////AAAAAAAAAAAAAAAAAAAAAH//////6D//////+AAAAAAAAAAAAAAAAAAAAAP//////oN//////8AAAAAAAAAAAAAAAAAAAAA//////+gv//////yAAAAAAAAAAAAAAAAAAAAH//////5CP//////UAAAAAAAAAAAAAAAAAAAAv//////gF//////+AAAAAAAAAAAAAAAAAAAAE//////9gH//////8AAAAAAAAAAAAAAAAAAAAb//////1AN//////8QAAAAAAAAAAAAAAAAAACf//////IAn//////2AAAAAAAAAAAAAAAAAAAN//////8ABP//////sAAAAAAAAAAAAAAAAAAC///////AAA///////yAAAAAAAAAAAAAAAAAAj//////4AACv//////oAAAAAAAAAAAAAAAAADv//////MAAD///////yAAAAAAAAAAAAAAAABP//////4AAADP//////wAAAAAAAAAAAAAAAAN//////+QAAAF///////3AAAAAAAAAAAAAAAI///////zAAAADf//////9AAAAAAAAAAAAAAD///////7AAAAAE///////+MAAAAAAAAAAAAB7///////QAAAAAC////////0AAAAAAAAAAAC7///////sAAAAAAB////////9wAAAAAAAAAG////////8gAAAAAABv////////1QAAAAAABM////////+AAAAAAAAAr/////////6VIAElnf////////+wAAAAAAAAAM/////////////////////////hAAAAAAAAAAHP///////////////////////iAAAAAAAAAAABz//////////////////////iAAAAAAAAAAAAAK/////////////////////BAAAAAAAAAAAAAAB///////////////////+QAAAAAAAAAAAAAAAAK/////////////////0wAAAAAAAAAAAAAAAAAATP/////////////9UAAAAAAAAAAAAAAAAAAAAAOe//////////6TAAAAAAAAAAAAAAAAAAAAAAAAA2nN7//tuWIAAAAAAAAAAAACAd1m//////////////////////////////////////Nv/////////////////////////////////////zb/////////////////////////////////////82//////////////////////////////////////Nv/////////////////////////////////////zb/////////////////////////////////////82//////////////////////////////////////Fv////////////////////////////////////+gb/////////////////////////////////////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv/////3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv/////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADP/////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACv/////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7/////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb//////2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACf//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7//////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz//////2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT///////IAAAAAAAAAAAAAAAAAAAAAAAN9vYAAAAAAAAAAAAADab3v/+3KdRAAAAAAAAAAAAAAAAAAAAAAAAWu///////////IIAAAAAAAAAAAAAAAAAAAAY7//////////////7QAAAAAAAAAAAAAAAAACP/////////////////8MAAAAAAAAAAAAAAATv///////////////////5AAAAAAAAAAAAAAj//////////////////////SAAAAAAAAAAAAr///////////////////////4wAAAAAAAAAAr////////////////////////+IAAAAAAAAAn//////////////////////////hAAAAAAAAT//////////HQQABNr//////////sAAAAAAAHv////////kgAAAAAAAY/////////3AAAAAACf///////9MAAAAAAAAAAs////////8QAAAAAf///////8EAAAAAAAAAAACf///////4AAAAAJ///////9AAAAAAAAAAAAAAn///////8QAAAA7///////IAAAAAAAAAAAAAAM///////2AAAAT///////YAAAAAAAAAAAAAAAL///////sAAACf//////4AAAAAAAAAAAAAAAAI///////xAAAM//////9wAAAAAAAAAAAAAAAAH///////QAAA///////yAAAAAAAAAAAAAAAAAL//////9wAAL//////+AAAAAAAAAAAAAAAAAAf//////6AABP//////sAAAAAAAAAAAAAAAAAA///////sAAF//////+QAAAAAAAAAAAAAAAAAB///////AAAb//////4AAAAAAAAAAAAAAAAAAD//////9AABv//////cAAAAAAAAAAAAAAAAAAP//////0AAF//////9wAAAAAAAAAAAAAAAAAA///////QAAT//////4AAAAAAAAAAAAAAAAAAH//////7AAA///////sAAAAAAAAAAAAAAAAAA///////oAAA///////QAAAAAAAAAAAAAAAAAG//////9wAADP//////IAAAAAAAAAAAAAAAAAr//////zAAAI//////9wAAAAAAAAAAAAAAAAD///////AAAAP//////+AAAAAAAAAAAAAAAABv//////kAAAAN//////9gAAAAAAAAAAAAAAAO//////8wAAAAX///////EAAAAAAAAAAAAAAJ///////AAAAAAM///////AAAAAAAAAAAAAAG///////zAAAAAAT///////sAAAAAAAAAAAAF///////6AAAAAAAI///////9MAAAAAAAAAAI///////9AAAAAAAADP///////5EAAAAAAABd////////IAAAAAAAAB3////////7YwAAAUjv////////QAAAAAAAAAAd///////////+7///////////QAAAAAAAAAAAG//////////////////////+MAAAAAAAAAAAAAf////////////////////7EAAAAAAAAAAAAAACv//////////////////lAAAAAAAAAAAAAAAAAK/////////////////hAAAAAAAAAAAAAAAABd//////////////////9wAAAAAAAAAAAAAALP////////////////////1AAAAAAAAAAAAAb///////////////////////kAAAAAAAAAAAn////////////////////////8EAAAAAAAAAr/////////t0IQETau/////////RAAAAAAAAr////////WAAAAAAAABM////////0QAAAAAAj///////9wAAAAAAAAAABO///////9AAAAAAT///////4gAAAAAAAAAAAAC///////+gAAAAHv//////0QAAAAAAAAAAAAAAn///////UAAACP//////4gAAAAAAAAAAAAAAAL///////gAAAf//////9AAAAAAAAAAAAAAAAADv//////gAAI//////+gAAAAAAAAAAAAAAAAAE///////wAA7//////yAAAAAAAAAAAAAAAAAADP//////YAX//////7AAAAAAAAAAAAAAAAAAAE///////ACf//////UAAAAAAAAAAAAAAAAAAADv//////EN//////8QAAAAAAAAAAAAAAAAAAAK//////9A///////QAAAAAAAAAAAAAAAAAAAAb//////3L//////6AAAAAAAAAAAAAAAAAAAAA///////pP//////gAAAAAAAAAAAAAAAAAAAAB//////+1//////+AAAAAAAAAAAAAAAAAAAAAH//////8X//////3AAAAAAAAAAAAAAAAAAAAAP//////1f//////gAAAAAAAAAAAAAAAAAAAAB///////U//////+QAAAAAAAAAAAAAAAAAAAAL//////8P//////7AAAAAAAAAAAAAAAAAAAABP//////sf//////4AAAAAAAAAAAAAAAAAAAAG//////+Q7//////yAAAAAAAAAAAAAAAAAAAAr//////2C///////YAAAAAAAAAAAAAAAAAAAD///////MI///////AAAAAAAAAAAAAAAAAAABv//////8AT///////QAAAAAAAAAAAAAAAAAAN//////+wAO///////QAAAAAAAAAAAAAAAAAG///////2AAj///////kAAAAAAAAAAAAAAAAC////////AAAv///////3AAAAAAAAAAAAAAAB7///////kAAAn///////+AAAAAAAAAAAAAAC7///////8QAAAf////////sgAAAAAAAAAAAH////////9wAAAAX/////////kwAAAAAAAABt/////////AAAAAAJ//////////2VMAAAFHv//////////hAAAAAADP///////////////////////////0AAAAAAAAz//////////////////////////0AAAAAAAAAL/////////////////////////0AAAAAAAAAAB////////////////////////CAAAAAAAAAAAAPf////////////////////+AAAAAAAAAAAAAAAbv//////////////////ogAAAAAAAAAAAAAAAAbP///////////////5IAAAAAAAAAAAAAAAAAAAKM///////////+pQAAAAAAAAAAAAAAAAAAAAAAAEec3v/+3KhiAAAAAAAAAAAAAoG9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABHnO7//tuGIAAAAAAAAAAAAAAAAAAAAAAAAFv//////////9ggAAAAAAAAAAAAAAAAAAAACO//////////////swAAAAAAAAAAAAAAAAAAbv////////////////oQAAAAAAAAAAAAAAACz//////////////////+QAAAAAAAAAAAAAAE/////////////////////3AAAAAAAAAAAAAG//////////////////////+QAAAAAAAAAAAF////////////////////////kAAAAAAAAAAE/////////////////////////3AAAAAAAAAB7/////////t0EAE2v/////////9AAAAAAAAAz////////5IAAAAAABn////////+EAAAAAAAb////////SAAAAAAAAAD3///////+gAAAAAAHv//////+gAAAAAAAAAAAL////////MAAAAACP//////+gAAAAAAAAAAAAC////////AAAAAAf///////AAAAAAAAAAAAAAAz///////QAAAAH///////yAAAAAAAAAAAAAAAe///////AAAAA3//////5AAAAAAAAAAAAAAAAX///////MAAAP//////+AAAAAAAAAAAAAAAAAM//////+QAACP//////gAAAAAAAAAAAAAAAAAP//////+AAAN//////8gAAAAAAAAAAAAAAAAAM//////9AAB///////AAAAAAAAAAAAAAAAAAAb//////5AAX//////3AAAAAAAAAAAAAAAAAAAP//////0ACP//////MAAAAAAAAAAAAAAAAAAAv//////xAL//////8AAAAAAAAAAAAAAAAAAABv//////UA3//////QAAAAAAAAAAAAAAAAAAAC//////+ADv/////7AAAAAAAAAAAAAAAAAAAAD//////7AP//////oAAAAAAAAAAAAAAAAAAAAM//////4B//////+QAAAAAAAAAAAAAAAAAAAAn//////wH//////4AAAAAAAAAAAAAAAAAAAACP//////Iv//////kAAAAAAAAAAAAAAAAAAAAG//////9B//////+gAAAAAAAAAAAAAAAAAAAAX//////1H//////7AAAAAAAAAAAAAAAAAAAABP//////YP//////wAAAAAAAAAAAAAAAAAAAAE//////9w7//////gAAAAAAAAAAAAAAAAAAAAT//////3DP//////EAAAAAAAAAAAAAAAAAAABP//////gK//////9AAAAAAAAAAAAAAAAAAAAE//////+Af//////4AAAAAAAAAAAAAAAAAAAAT//////4BP//////0AAAAAAAAAAAAAAAAAAACf//////gA///////zAAAAAAAAAAAAAAAAAAAP//////+ADP//////kAAAAAAAAAAAAAAAAAAF///////4AH///////xAAAAAAAAAAAAAAAAAA7///////cAL///////kAAAAAAAAAAAAAAAAAr///////9wAM///////yAAAAAAAAAAAAAAAAf////////2AAb///////0AAAAAAAAAAAAAAAb/////////UAAO///////6AAAAAAAAAAAAAAf/////////9QAAf///////+gAAAAAAAAAAAAr//////////0AAAO////////wgAAAAAAAAAE7///////////MAAAX/////////gQAAAAAABc////////////8QAAAK//////////pjEAE1nv/////////////wAAAAHf//////////////////////+f/////+AAAAAC//////////////////////9G//////0AAAAAA/////////////////////9Af/////+wAAAAAAPv//////////////////4wCf/////5AAAAAAACz/////////////////sQAL//////cAAAAAAAAI////////////////YAAA3/////9AAAAAAAAAAr/////////////5EAAAD//////yAAAAAAAAAAAp7/////////5xAAAAAv/////+AAAAAAAAAAAAADet////2nIAAAAAAF//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAn/////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3/////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////hAAAAAAAAAAAAAAAAAAAAAAAAAAAB7//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAB3//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAC7///////QAAAAAAAAAAAAAAAAAAAAAAAAAAG////////kAAAAAAAAAAAAAAAAAAAAAAAAAAb////////0AAAAAAAAAAAAAAAAAAAAAAAAAGf////////8wAAAAAAAAAAAAAAAAAAAAAAAEr/////////9QAAAAAAAAAAAAAAAAAAAAACae//////////9gAAAAAAAAAAAAAAAERVZ4rO////////////9gAAAAAAAAAAAAAAAC//////////////////9QAAAAAAAAAAAAAAAAL/////////////////0wAAAAAAAAAAAAAAAAAv////////////////oQAAAAAAAAAAAAAAAAAC///////////////9QAAAAAAAAAAAAAAAAAAAL//////////////nAAAAAAAAAAAAAAAAAAAAAv////////////1gAAAAAAAAAAAAAAAAAAAAAC///////////pMAAAAAAAAAAAAAAAAAAAAAAAL////////rgwAAAAAAAAAAAAAAAAAAAAAAAAAv/+7cqGUgAAAAAAAAAAAAAAAAAAAAAAAA==",
+      "lvglSymbols": "1234567890.°C",
+      "lvglBinFile": "MAAAAGhlYWQBAAAAAwB4AFgA//9aAOL/BgD//1gAAAAQAAAAAAQHBwgAAAAGAAAAOAAAAGNtYXABAAAAHAAAAC4AAACDAAEADQADAAAAAgADAAQABQAGAAcACAAJAAoACwAVAIIAAAAoAAAAbG9jYQ4AAAAIAAgAbwDoCYgPaBnhIlAtgjb7P+lJYlPbXFloQGoAAGdseWYgEfxw4AAAABAAAAAAOu//xgAAB/////+wAF//////+gDv//////9E////////p////////9j////////n////////1P///////6Dv//////9AX//////6AAb/////sAAAKd/+pAAAQw39vYAAAAAAAAAAAAAEeb3v//7KhRAAAAAAAAAAAAAAAAAAAAAAABbP///////////YMAAAAAAAAAAAAAAAAAAAA6///////////////8UAAAAAAAAAAAAAAAAAGf/////////////////8MAAAAAAAAAAAAAAATv///////////////////4AAAAAAAAAAAAAAb/////////////////////+wAAAAAAAAAAAAf///////////////////////wQAAAAAAAAAAb////////////////////////8AAAAAAAAAAP////////////+////////////+QAAAAAAAAHv////////+mMAAAJZ7/////////UAAAAAAACv////////gQAAAAAAAF3////////hAAAAAAA////////8IAAAAAAAAAAI////////kAAAAAAL///////7AAAAAAAAAAAABf///////yAAAAAD///////8AAAAAAAAAAAAAAb///////kAAAAAr///////IAAAAAAAAAAAAAAK///////xAAAAH///////YAAAAAAAAAAAAAAAHv//////YAAABv//////0AAAAAAAAAAAAAAAAH///////AAAAL//////9gAAAAAAAAAAAAAAAAD///////IAAA///////wAAAAAAAAAAAAAAAAAJ//////9gAAX//////6AAAAAAAAAAAAAAAAAAP//////7AACf//////UAAAAAAAAAAAAAAAAAAO//////8AAM//////8QAAAAAAAAAAAAAAAAAAr//////yAA///////QAAAAAAAAAAAAAAAAAAB///////YAP//////5AAAAAAAAAAAAAAAAAAAD//////+QBf//////cAAAAAAAAAAAAAAAAAAAD//////7AI//////9AAAAAAAAAAAAAAAAAAAAO//////4Ar//////yAAAAAAAAAAAAAAAAAAAAz//////wDP//////AAAAAAAAAAAAAAAAAAAACv//////IN//////4AAAAAAAAAAAAAAAAAAAAI//////8w///////QAAAAAAAAAAAAAAAAAAAAf//////1D//////8AAAAAAAAAAAAAAAAAAAABv//////Yf//////sAAAAAAAAAAAAAAAAAAAAF//////9y//////+wAAAAAAAAAAAAAAAAAAAAT//////4L//////6AAAAAAAAAAAAAAAAAAAABP//////k///////oAAAAAAAAAAAAAAAAAAAAE//////+T//////+gAAAAAAAAAAAAAAAAAAAAT//////5T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6T//////6AAAAAAAAAAAAAAAAAAAABP//////pP//////oAAAAAAAAAAAAAAAAAAAAE//////+k//////+gAAAAAAAAAAAAAAAAAAAAT//////6P//////6AAAAAAAAAAAAAAAAAAAABP//////k///////oAAAAAAAAAAAAAAAAAAAAE//////+T//////+gAAAAAAAAAAAAAAAAAAAAT//////5L//////6AAAAAAAAAAAAAAAAAAAABP//////gf//////sAAAAAAAAAAAAAAAAAAAAF//////+A///////AAAAAAAAAAAAAAAAAAAAAb//////2D//////9AAAAAAAAAAAAAAAAAAAABv//////UO//////4AAAAAAAAAAAAAAAAAAAAH//////9Az//////wAAAAAAAAAAAAAAAAAAAAn//////zC///////EAAAAAAAAAAAAAAAAAAAC///////EJ//////8wAAAAAAAAAAAAAAAAAAAM//////8Af//////1AAAAAAAAAAAAAAAAAAAA///////QBP//////gAAAAAAAAAAAAAAAAAAAH//////6AB//////+wAAAAAAAAAAAAAAAAAABP//////gADv//////AAAAAAAAAAAAAAAAAAAI//////9AAK//////8wAAAAAAAAAAAAAAAAAAz//////xAAf//////4AAAAAAAAAAAAAAAAAAD//////9AAA///////0AAAAAAAAAAAAAAAAABf//////kAAA7//////zAAAAAAAAAAAAAAAAAL//////9AAACf//////oAAAAAAAAAAAAAAAAC///////wAAAE///////yAAAAAAAAAAAAAAAAn//////7AAAADf//////sAAAAAAAAAAAAAAAL///////QAAAAH///////2AAAAAAAAAAAAAADP//////4AAAAAH///////8wAAAAAAAAAAAACf//////9wAAAAAI///////+IAAAAAAAAAAACP///////gAAAAAADv///////1AAAAAAAAAACv///////2AAAAAAAF////////+zAAAAAAAAbv///////9AAAAAAAAC//////////IQgAAJZ7/////////MAAAAAAAAB7/////////////////////////cAAAAAAAAAAv////////////////////////kAAAAAAAAAAAP///////////////////////sAAAAAAAAAAAAD7/////////////////////kAAAAAAAAAAAAAAc////////////////////cAAAAAAAAAAAAAAABu/////////////////8IAAAAAAAAAAAAAAAAAGO///////////////EAAAAAAAAAAAAAAAAAAAABb///////////9ggAAAAAAAAAAAAAAAAAAAAAAADab3v/+7KhRAAAAAAAAAAAAAEMUAQ1wAAAAAAAAAAAAAAAAAAACUwAAAAAAAAAAAAAAAAAAbP+wAAAAAAAAAAAAAAAAOf//+wAAAAAAAAAAAAAAF9////+wAAAAAAAAAAAABb//////+wAAAAAAAAAAA57///////+wAAAAAAAAAX3/////////+wAAAAAAAEr///////////+wAAAAACjv////////////+wAAAAbP//////////////+wAASv////////////////+wF9//////////////////+7////////////////////+/////////////////////+//////////////I//////+////////////oIC//////+//////////5QAAC//////+////////7UAAAAC//////+//////9cQAAAAAC//////+////+gwAAAAAAAC//////+///pAAAAAAAAAAC//////+/xgAAAAAAAAAAAC//////+xAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAC//////+0MKAdVwAAAAAAAAAAAAA1i83v/+3KdRAAAAAAAAAAAAAAAAAAAAAAAAAFrv///////////ZMAAAAAAAAAAAAAAAAAAAAAKf///////////////9YAAAAAAAAAAAAAAAAAABr//////////////////+UAAAAAAAAAAAAAAAAG/////////////////////8IAAAAAAAAAAAAAAb///////////////////////kAAAAAAAAAAAAAt////////////////////////9gAAAAAAAAAAA+//////////////////////////YAAAAAAAAAAe///////////////////////////0AAAAAAAAAN//////////t0IQABR7//////////4QAAAAAAAK/////////WAAAAAAAAAY/////////7AAAAAAAE////////9wAAAAAAAAAAAs////////9AAAAAAA7///////0gAAAAAAAAAAAACv///////8AAAAAAf///////0QAAAAAAAAAAAAAAn///////9AAAAADv//////4QAAAAAAAAAAAAAAAM///////6AAAABv//////9AAAAAAAAAAAAAAAAAL///////8AAAAM//////+gAAAAAAAAAAAAAAAAAI///////0AAAB///////yAAAAAAAAAAAAAAAAAAH///////cAAAb//////7AAAAAAAAAAAAAAAAAAAL//////+gAACv//////UAAAAAAAAAAAAAAAAAAAb//////9AAAO//////8QAAAAAAAAAAAAAAAAAAAv//////4AAA///////QAAAAAAAAAAAAAAAAAAAA///////wAAP//////6AAAAAAAAAAAAAAAAAAAADf//////AABf//////gAAAAAAAAAAAAAAAAAAAAN//////8AAG//////9gAAAAAAAAAAAAAAAAAAAAz//////wAAf//////2AAAAAAAAAAAAAAAAAAAADf/////+AAA2ZmZmZmIAAAAAAAAAAAAAAAAAAAAO//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7//////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj///////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX///////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHv//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAACf///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAB////////iAAAAAAAAAAAAAAAAAAAAAAAAAAAABf///////zAAAAAAAAAAAAAAAAAAAAAAAAAAAABP///////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAu///////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAd///////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAM///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAL///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ///////9EAAAAAAAAAAAAAAAAAAAAAAAAAAAAI///////+IAAAAAAAAAAAAAAAAAAAAAAAAAAAAG////////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAE////////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAC7///////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7///////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv///////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr///////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX///////0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAT///////4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAL///////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAHv//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAHf//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAACf//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAABP////////////////////////////////////AN////////////////////////////////////8A3////////////////////////////////////wDf////////////////////////////////////AN////////////////////////////////////8A3////////////////////////////////////wDf////////////////////////////////////AN////////////////////////////////////8A3////////////////////////////////////wQwv9vYAAAAAAAAAAAAAEac3v/+3KhSAAAAAAAAAAAAAAAAAAAAAAABa////////////pQAAAAAAAAAAAAAAAAAAAAp///////////////+gQAAAAAAAAAAAAAAAAGv//////////////////cAAAAAAAAAAAAAAAb////////////////////+MAAAAAAAAAAAABv//////////////////////3AAAAAAAAAAAC3///////////////////////+QAAAAAAAAAC7/////////////////////////kAAAAAAAAC7//////////////////////////3AAAAAAAA3/////////6mMQAAJHz/////////8wAAAAAAn////////8UAAAAAAAABj////////9AAAAAAT////////mAAAAAAAAAAABv///////9wAAAADf///////SAAAAAAAAAAAAAI///////+AAAABv///////RAAAAAAAAAAAAAACv//////9wAAAO///////hAAAAAAAAAAAAAAAA3//////8AAAE///////0AAAAAAAAAAAAAAAABP//////8QAAn//////7AAAAAAAAAAAAAAAAAA3//////2AADv//////QAAAAAAAAAAAAAAAAAB///////oAAv//////4AAAAAAAAAAAAAAAAAAD///////QAF//////+QAAAAAAAAAAAAAAAAAAD///////AAj//////2AAAAAAAAAAAAAAAAAAAM//////8gCf//////MAAAAAAAAAAAAAAAAAAAr//////zAK//////8gAAAAAAAAAAAAAAAAAACf//////QAaZmZmZmRAAAAAAAAAAAAAAAAAAAI//////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////1AAAAAAAAAAAAAAAAAAAAAAAAAAAACf//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAA7//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAG//////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAz//////6AAAAAAAAAAAAAAAAAAAAAAAAAAABv///////EAAAAAAAAAAAAAAAAAAAAAAAAAAD3///////UAAAAAAAAAAAAAAAAAAAAAAAAAAZ////////gAAAAAAAAAAAAAAAAAAAAAAAAASv////////oAAAAAAAAAAAAAAAAGZmZmZnit//////////oAAAAAAAAAAAAAAAAB//////////////////gAAAAAAAAAAAAAAAAAH////////////////+QAAAAAAAAAAAAAAAAAA////////////////4AAAAAAAAAAAAAAAAAAAD//////////////+hAAAAAAAAAAAAAAAAAAAAP///////////////pAAAAAAAAAAAAAAAAAAAA/////////////////xAAAAAAAAAAAAAAAAAAB//////////////////sQAAAAAAAAAAAAAAAAH//////////////////+QAAAAAAAAAAAAAAAAIiIiIiZrO///////////1AAAAAAAAAAAAAAAAAAAAAAAAAlr/////////9QAAAAAAAAAAAAAAAAAAAAAAAAAAbf////////MAAAAAAAAAAAAAAAAAAAAAAAAAAAf////////hAAAAAAAAAAAAAAAAAAAAAAAAAAAC7///////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAd///////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAL///////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAG///////xAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAG///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////2AAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////pd3d3d3dUAAAAAAAAAAAAAAAAAAAAF//////+W//////9wAAAAAAAAAAAAAAAAAAAAX//////4X//////5AAAAAAAAAAAAAAAAAAAACP//////Y///////sAAAAAAAAAAAAAAAAAAAAK//////9B///////gAAAAAAAAAAAAAAAAAAAA3//////yDv//////QAAAAAAAAAAAAAAAAAAAL//////+AK//////+gAAAAAAAAAAAAAAAAAACP//////oAb///////IAAAAAAAAAAAAAAAAAAO//////9gAf//////+wAAAAAAAAAAAAAAAAAI///////wAAr///////YAAAAAAAAAAAAAAAAD///////6AAA////////1AAAAAAAAAAAAAAAC7///////IAAAv///////9wAAAAAAAAAAAAAC7///////oAAAAv////////sgAAAAAAAAAAAG////////8gAAAAf/////////kgAAAAAAAABt////////9wAAAAAL//////////2FIAAAFHv/////////+gAAAAAADP///////////////////////////QAAAAAAABz//////////////////////////RAAAAAAAAAL/////////////////////////BAAAAAAAAAACP//////////////////////+QAAAAAAAAAAAAPf////////////////////5QAAAAAAAAAAAAAAbv//////////////////gQAAAAAAAAAAAAAAAAbP///////////////oEAAAAAAAAAAAAAAAAAAAKM///////////+lAAAAAAAAAAAAAAAAAAAAAAAAUer3v/+7KhSAAAAAAAAAAAAAEMGAfVgAAAAAAAAAAAAAAAAAAAAAAAAHv//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK///////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAn////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3/////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAACP/////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAG///////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAH////////////QAAAAAAAAAAAAAAAAAAAAAAAAAAAL////////////0AAAAAAAAAAAAAAAAAAAAAAAAAAAX////////////9AAAAAAAAAAAAAAAAAAAAAAAAAAAe/////////////QAAAAAAAAAAAAAAAAAAAAAAAAAAr/////+f//////0AAAAAAAAAAAAAAAAAAAAAAAAABP//////H//////9AAAAAAAAAAAAAAAAAAAAAAAAAA3/////+A///////QAAAAAAAAAAAAAAAAAAAAAAAACP/////9AP//////0AAAAAAAAAAAAAAAAAAAAAAAAD//////8wD//////9AAAAAAAAAAAAAAAAAAAAAAAADf/////5AA///////QAAAAAAAAAAAAAAAAAAAAAAAH//////4AAP//////0AAAAAAAAAAAAAAAAAAAAAAAL//////1AAD//////9AAAAAAAAAAAAAAAAAAAAAAAM//////sAAA///////QAAAAAAAAAAAAAAAAAAAAAAb//////xAAAP//////0AAAAAAAAAAAAAAAAAAAAAAf//////YAAAD//////9AAAAAAAAAAAAAAAAAAAAAAr//////AAAAA///////QAAAAAAAAAAAAAAAAAAAABf//////IAAAAP//////0AAAAAAAAAAAAAAAAAAAAB7/////+AAAAAD//////9AAAAAAAAAAAAAAAAAAAACf/////9AAAAAA///////QAAAAAAAAAAAAAAAAAAAE//////9AAAAAAP//////0AAAAAAAAAAAAAAAAAAADf/////5AAAAAAD//////9AAAAAAAAAAAAAAAAAAAI//////4QAAAAAA///////QAAAAAAAAAAAAAAAAAAP//////1AAAAAAAP//////0AAAAAAAAAAAAAAAAAAM//////sAAAAAAAD//////9AAAAAAAAAAAAAAAAAAf//////xAAAAAAAA///////QAAAAAAAAAAAAAAAAAv//////cAAAAAAAAP//////0AAAAAAAAAAAAAAAAAv//////AAAAAAAAAD//////9AAAAAAAAAAAAAAAABv//////MAAAAAAAAA///////QAAAAAAAAAAAAAAAB7/////+AAAAAAAAAAP//////0AAAAAAAAAAAAAAACv/////9AAAAAAAAAAD//////9AAAAAAAAAAAAAAAE//////9AAAAAAAAAAA///////QAAAAAAAAAAAAAADv/////6AAAAAAAAAAAP//////0AAAAAAAAAAAAAAJ//////4QAAAAAAAAAAD//////9AAAAAAAAAAAAAAP//////1AAAAAAAAAAAA///////QAAAAAAAAAAAAAN//////sAAAAAAAAAAAAP//////0AAAAAAAAAAAAAj//////yAAAAAAAAAAAAD//////9AAAAAAAAAAAAAv//////cAAAAAAAAAAAAA///////QAAAAAAAAAAAAz//////AAAAAAAAAAAAAAP//////0AAAAAAAAAAAB///////MAAAAAAAAAAAAAD//////9AAAAAAAAAAAB//////+AAAAAAAAAAAAAAA///////QAAAAAAAAAAC//////9AAAAAAAAAAAAAAAP//////0AAAAAAAAAAF//////9AAAAAAAAAAAAAAAD//////9AAAAAAAAAAHv/////6AAAAAAAAAAAAAAAA///////QAAAAAAAAAK//////4QAAAAAAAAAAAAAAAP//////0AAAAAAAAAT//////2AAAAAAAAAAAAAAAAD//////9AAAAAAAAAO//////sAAAAAAAAAAAAAAAAA///////QAAAAAAAAn///////////////////////////////////////s////////////////////////////////////////8z////////////////////////////////////////O////////////////////////////////////////zv///////////////////////////////////////87////////////////////////////////////////O////////////////////////////////////////zv///////////////////////////////////////87////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAABDE/21cAAAAK////////////////////////////8gAAAAAL////////////////////////////8gAAAAAN////////////////////////////8gAAAAAP////////////////////////////8gAAAAAP////////////////////////////8gAAAAAv////////////////////////////8gAAAAA/////////////////////////////8gAAAABf////////////////////////////8gAAAAB/////////////////////////////8gAAAACP////////////////////////////8gAAAACv/////5EREREREREREREREREREREREAAAAAC//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////yAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAX//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAj/////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAr/////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAv/////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAA3/////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAA7/////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAG//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAK//////YAAAA3rN///tqFEAAAAAAAAAAAAAAL//////QABK///////////XEAAAAAAAAAAAAN//////IX7/////////////+iAAAAAAAAAAAO//////n/////////////////kQAAAAAAAAAP/////////////////////////kAAAAAAAAAv//////////////////////////cAAAAAAAA///////////////////////////+QAAAAAABf///////////////////////////5AAAAAABv////////////////////////////YAAAAACP////////////3c3f////////////8wAAAACv/////////YQQAAAAJa///////////QAAAAC////////9QAAAAAAAAAF+/////////4AAAADf//////9wAAAAAAAAAAABr/////////EAAAAVnf///9IAAAAAAAAAAAAABv////////kAAAAAACau+gAAAAAAAAAAAAAAAF////////8QAAAAAAAAIAAAAAAAAAAAAAAAAAb///////9gAAAAAAAAAAAAAAAAAAAAAAAAAACv///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAe///////yAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////2AAAAAAAAAAAAAAAAAAAAAAAAAAAA7//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////EAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////YAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////cAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////kAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////oAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////sAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////oAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////oAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////kAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////iaqqqqqkAAAAAAAAAAAAAAAAAAAACf//////bf/////4AAAAAAAAAAAAAAAAAAAAC///////Sv/////8AAAAAAAAAAAAAAAAAAAAD///////GP//////AAAAAAAAAAAAAAAAAAAAP//////+BP//////UAAAAAAAAAAAAAAAAAAAj//////7Af//////sAAAAAAAAAAAAAAAAAAA7//////2AM//////8QAAAAAAAAAAAAAAAAAF///////yAH//////+gAAAAAAAAAAAAAAAAAN///////QAC///////zAAAAAAAAAAAAAAAAB///////9wAAv//////9EAAAAAAAAAAAAAAAP///////8QAAT///////wAAAAAAAAAAAAAAC7///////kAAAC////////BAAAAAAAAAAAAAu////////EAAAAv///////+QAAAAAAAAAAAb////////3AAAAAI////////+0AAAAAAAABM/////////QAAAAAAz/////////6VMQAAJZ7/////////8gAAAAAAHf//////////////////////////UAAAAAAAAu/////////////////////////3AAAAAAAAAC3///////////////////////9wAAAAAAAAAAG///////////////////////UAAAAAAAAAAAAH/////////////////////CAAAAAAAAAAAAAAK//////////////////+YAAAAAAAAAAAAAAAADr///////////////5wAAAAAAAAAAAAAAAAAAAWv///////////6kAAAAAAAAAAAAAAAAAAAAAAADab3v/+7KhiAAAAAAAAAAAAAEMP/b2AAAAAAAAAAAAAAAAAAAAAAAAAEjMyAAAAAAAAAAAAAAAAAAAAAAAAAAAANovf////oAAAAAAAAAAAAAAAAAAAAAAAAAJ7////////+gAAAAAAAAAAAAAAAAAAAAAAAX3//////////6AAAAAAAAAAAAAAAAAAAAAAKf////////////oAAAAAAAAAAAAAAAAAAAAAj/////////////+gAAAAAAAAAAAAAAAAAAAF7//////////////6AAAAAAAAAAAAAAAAAAAK////////////////oAAAAAAAAAAAAAAAAAAt////////////////+gAAAAAAAAAAAAAAAABf/////////////////6AAAAAAAAAAAAAAAABf////////////yXUyEAAAAAAAAAAAAAAAAABf//////////6EAAAAAAAAAAAAAAAAAAAAAABP/////////7UAAAAAAAAAAAAAAAAAAAAAAAAv/////////DAAAAAAAAAAAAAAAAAAAAAAAAAM////////9QAAAAAAAAAAAAAAAAAAAAAAAAAI////////wgAAAAAAAAAAAAAAAAAAAAAAAAAD////////kAAAAAAAAAAAAAAAAAAAAAAAAAAAz///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAb///////kAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////4QAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAz//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////5AAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAj//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAADP/////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAE//////8AAAAAADes7//+24UAAAAAAAAAAAAAf//////QAAAAWv//////////xQAAAAAAAAAACv/////5AAAH7/////////////5wAAAAAAAAAN//////YABe////////////////1AAAAAAAAA//////9ACv//////////////////gAAAAAAAL//////xLf///////////////////7AAAAAABf//////Lv/////////////////////BAAAAAH///////v//////////////////////sAAAAAn//////////////////////////////5AAAAC//////////////7dBAAJI3/////////9QAAAM////////////5xAAAAAAADv////////+EAAA7///////////gAAAAAAAAAAF////////+QAAD//////////9IAAAAAAAAAAAAu////////IAAP/////////7AAAAAAAAAAAAAALv//////+gAB/////////6AAAAAAAAAAAAAAAD////////EAH////////8AAAAAAAAAAAAAAAACP//////9wAv///////+EAAAAAAAAAAAAAAAAA7//////9AC////////QAAAAAAAAAAAAAAAAABv//////8gP///////oAAAAAAAAAAAAAAAAAAA7//////3A///////8wAAAAAAAAAAAAAAAAAACf//////sD///////wAAAAAAAAAAAAAAAAAAAD///////gP///////AAAAAAAAAAAAAAAAAAAADv//////E///////0AAAAAAAAAAAAAAAAAAAAL//////9D//////+wAAAAAAAAAAAAAAAAAAAAj//////2P//////7AAAAAAAAAAAAAAAAAAAABf//////gv//////sAAAAAAAAAAAAAAAAAAAAD//////+R//////+wAAAAAAAAAAAAAAAAAAAAL//////6D//////8AAAAAAAAAAAAAAAAAAAAAf//////oP//////4AAAAAAAAAAAAAAAAAAAAA//////+g3//////wAAAAAAAAAAAAAAAAAAAAD//////6C///////IAAAAAAAAAAAAAAAAAAAAf//////kI//////9QAAAAAAAAAAAAAAAAAAAC//////+AX//////4AAAAAAAAAAAAAAAAAAAAT//////2Af//////wAAAAAAAAAAAAAAAAAAABv//////UA3//////xAAAAAAAAAAAAAAAAAAAJ//////8gCf//////YAAAAAAAAAAAAAAAAAAA3//////wAE//////+wAAAAAAAAAAAAAAAAAAL//////8AAD///////IAAAAAAAAAAAAAAAAACP//////gAAK//////+gAAAAAAAAAAAAAAAAAO//////8wAAP///////IAAAAAAAAAAAAAAAAE///////gAAAM///////AAAAAAAAAAAAAAAAA3//////5AAAAX///////cAAAAAAAAAAAAAAAj///////MAAAAN///////0AAAAAAAAAAAAAAP///////sAAAAAT///////4wAAAAAAAAAAAAHv//////9AAAAAAL////////QAAAAAAAAAAALv//////+wAAAAAAH////////3AAAAAAAAAAb////////yAAAAAAAG/////////VAAAAAAAEz////////4AAAAAAAACv/////////pUgASWd/////////7AAAAAAAAAAz////////////////////////+EAAAAAAAAAAc///////////////////////+IAAAAAAAAAAAHP/////////////////////+IAAAAAAAAAAAAAr////////////////////8EAAAAAAAAAAAAAAH///////////////////5AAAAAAAAAAAAAAAAAr/////////////////TAAAAAAAAAAAAAAAAAABM//////////////1QAAAAAAAAAAAAAAAAAAAAA57//////////pMAAAAAAAAAAAAAAAAAAAAAAAADac3v/+25YgAAAAAAAAAAAABDCAHdZv/////////////////////////////////////zb/////////////////////////////////////82//////////////////////////////////////Nv/////////////////////////////////////zb/////////////////////////////////////82//////////////////////////////////////Nv/////////////////////////////////////xb/////////////////////////////////////oG/////////////////////////////////////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv/////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADP/////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACf/////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP/////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7/////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7/////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABf//////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz/////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb//////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ//////8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv/////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv/////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF//////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE//////+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC//////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7//////xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3//////yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAr//////2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAn//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj//////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM//////9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL///////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK//////+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI///////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE///////yAAAAAAAAAAAAAAAAAAAAAAAAQw39vYAAAAAAAAAAAAADab3v/+3KdRAAAAAAAAAAAAAAAAAAAAAAAAWu///////////IIAAAAAAAAAAAAAAAAAAAAY7//////////////7QAAAAAAAAAAAAAAAAACP/////////////////8MAAAAAAAAAAAAAAATv///////////////////5AAAAAAAAAAAAAAj//////////////////////SAAAAAAAAAAAAr///////////////////////4wAAAAAAAAAAr////////////////////////+IAAAAAAAAAn//////////////////////////hAAAAAAAAT//////////HQQABNr//////////sAAAAAAAHv////////kgAAAAAAAY/////////3AAAAAACf///////9MAAAAAAAAAAs////////8QAAAAAf///////8EAAAAAAAAAAACf///////4AAAAAJ///////9AAAAAAAAAAAAAAn///////8QAAAA7///////IAAAAAAAAAAAAAAM///////2AAAAT///////YAAAAAAAAAAAAAAAL///////sAAACf//////4AAAAAAAAAAAAAAAAI///////xAAAM//////9wAAAAAAAAAAAAAAAAH///////QAAA///////yAAAAAAAAAAAAAAAAAL//////9wAAL//////+AAAAAAAAAAAAAAAAAAf//////6AABP//////sAAAAAAAAAAAAAAAAAA///////sAAF//////+QAAAAAAAAAAAAAAAAAB///////AAAb//////4AAAAAAAAAAAAAAAAAAD//////9AABv//////cAAAAAAAAAAAAAAAAAAP//////0AAF//////9wAAAAAAAAAAAAAAAAAA///////QAAT//////4AAAAAAAAAAAAAAAAAAH//////7AAA///////sAAAAAAAAAAAAAAAAAA///////oAAA///////QAAAAAAAAAAAAAAAAAG//////9wAADP//////IAAAAAAAAAAAAAAAAAr//////zAAAI//////9wAAAAAAAAAAAAAAAAD///////AAAAP//////+AAAAAAAAAAAAAAAABv//////kAAAAN//////9gAAAAAAAAAAAAAAAO//////8wAAAAX///////EAAAAAAAAAAAAAAJ///////AAAAAAM///////AAAAAAAAAAAAAAG///////zAAAAAAT///////sAAAAAAAAAAAAF///////6AAAAAAAI///////9MAAAAAAAAAAI///////9AAAAAAAADP///////5EAAAAAAABd////////IAAAAAAAAB3////////7YwAAAUjv////////QAAAAAAAAAAd///////////+7///////////QAAAAAAAAAAAG//////////////////////+MAAAAAAAAAAAAAf////////////////////7EAAAAAAAAAAAAAACv//////////////////lAAAAAAAAAAAAAAAAAK/////////////////hAAAAAAAAAAAAAAAABd//////////////////9wAAAAAAAAAAAAAALP////////////////////1AAAAAAAAAAAAAb///////////////////////kAAAAAAAAAAAn////////////////////////8EAAAAAAAAAr/////////t0IQETau/////////RAAAAAAAAr////////WAAAAAAAABM////////0QAAAAAAj///////9wAAAAAAAAAABO///////9AAAAAAT///////4gAAAAAAAAAAAAC///////+gAAAAHv//////0QAAAAAAAAAAAAAAn///////UAAACP//////4gAAAAAAAAAAAAAAAL///////gAAAf//////9AAAAAAAAAAAAAAAAADv//////gAAI//////+gAAAAAAAAAAAAAAAAAE///////wAA7//////yAAAAAAAAAAAAAAAAAADP//////YAX//////7AAAAAAAAAAAAAAAAAAAE///////ACf//////UAAAAAAAAAAAAAAAAAAADv//////EN//////8QAAAAAAAAAAAAAAAAAAAK//////9A///////QAAAAAAAAAAAAAAAAAAAAb//////3L//////6AAAAAAAAAAAAAAAAAAAAA///////pP//////gAAAAAAAAAAAAAAAAAAAAB//////+1//////+AAAAAAAAAAAAAAAAAAAAAH//////8X//////3AAAAAAAAAAAAAAAAAAAAAP//////1f//////gAAAAAAAAAAAAAAAAAAAAB///////U//////+QAAAAAAAAAAAAAAAAAAAAL//////8P//////7AAAAAAAAAAAAAAAAAAAABP//////sf//////4AAAAAAAAAAAAAAAAAAAAG//////+Q7//////yAAAAAAAAAAAAAAAAAAAAr//////2C///////YAAAAAAAAAAAAAAAAAAAD///////MI///////AAAAAAAAAAAAAAAAAAABv//////8AT///////QAAAAAAAAAAAAAAAAAAN//////+wAO///////QAAAAAAAAAAAAAAAAAG///////2AAj///////kAAAAAAAAAAAAAAAAC////////AAAv///////3AAAAAAAAAAAAAAAB7///////kAAAn///////+AAAAAAAAAAAAAAC7///////8QAAAf////////sgAAAAAAAAAAAH////////9wAAAAX/////////kwAAAAAAAABt/////////AAAAAAJ//////////2VMAAAFHv//////////hAAAAAADP///////////////////////////0AAAAAAAAz//////////////////////////0AAAAAAAAAL/////////////////////////0AAAAAAAAAAB////////////////////////CAAAAAAAAAAAAPf////////////////////+AAAAAAAAAAAAAAAbv//////////////////ogAAAAAAAAAAAAAAAAbP///////////////5IAAAAAAAAAAAAAAAAAAAKM///////////+pQAAAAAAAAAAAAAAAAAAAAAAAEec3v/+3KhiAAAAAAAAAAAAAEMKAb2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEec7v/+24YgAAAAAAAAAAAAAAAAAAAAAAAAW///////////2CAAAAAAAAAAAAAAAAAAAAAI7/////////////+zAAAAAAAAAAAAAAAAAABu////////////////+hAAAAAAAAAAAAAAAALP//////////////////5AAAAAAAAAAAAAAAT/////////////////////cAAAAAAAAAAAAAb//////////////////////5AAAAAAAAAAAAX///////////////////////+QAAAAAAAAAAT/////////////////////////cAAAAAAAAAHv////////+3QQATa//////////0AAAAAAAADP////////kgAAAAAAGf////////4QAAAAAABv///////9IAAAAAAAAAPf///////6AAAAAAAe///////6AAAAAAAAAAAAv///////8wAAAAAI///////6AAAAAAAAAAAAAL///////8AAAAAB///////8AAAAAAAAAAAAAADP//////9AAAAAf///////IAAAAAAAAAAAAAAB7//////8AAAADf//////kAAAAAAAAAAAAAAABf//////8wAAA///////4AAAAAAAAAAAAAAAAAz//////5AAAI//////+AAAAAAAAAAAAAAAAAA///////4AAA3//////yAAAAAAAAAAAAAAAAAAz//////0AAH//////8AAAAAAAAAAAAAAAAAABv//////kABf//////cAAAAAAAAAAAAAAAAAAA///////QAI//////8wAAAAAAAAAAAAAAAAAAC///////EAv//////wAAAAAAAAAAAAAAAAAAAG//////9QDf/////9AAAAAAAAAAAAAAAAAAAAL//////4AO//////sAAAAAAAAAAAAAAAAAAAAP//////sA//////+gAAAAAAAAAAAAAAAAAAAAz//////gH//////5AAAAAAAAAAAAAAAAAAAACf//////Af//////gAAAAAAAAAAAAAAAAAAAAI//////8i//////+QAAAAAAAAAAAAAAAAAAAAb//////0H//////6AAAAAAAAAAAAAAAAAAAABf//////Uf//////sAAAAAAAAAAAAAAAAAAAAE//////9g///////AAAAAAAAAAAAAAAAAAAAAT//////3Dv/////+AAAAAAAAAAAAAAAAAAAABP//////cM//////8QAAAAAAAAAAAAAAAAAAAE//////+Ar//////0AAAAAAAAAAAAAAAAAAAAT//////4B///////gAAAAAAAAAAAAAAAAAAABP//////gE///////QAAAAAAAAAAAAAAAAAAAJ//////+AD///////MAAAAAAAAAAAAAAAAAAA///////4AM//////+QAAAAAAAAAAAAAAAAAAX///////gAf///////EAAAAAAAAAAAAAAAAADv//////9wAv//////+QAAAAAAAAAAAAAAAACv///////3AAz///////IAAAAAAAAAAAAAAAB/////////YABv///////QAAAAAAAAAAAAAABv////////9QAA7///////oAAAAAAAAAAAAAB//////////1AAB////////6AAAAAAAAAAAACv//////////QAAA7////////CAAAAAAAAAATv//////////8wAABf////////+BAAAAAAAFz////////////xAAAAr/////////+mMQATWe//////////////AAAAAd///////////////////////5//////4AAAAAL//////////////////////0b//////QAAAAAD/////////////////////0B//////7AAAAAAA+///////////////////jAJ//////kAAAAAAALP////////////////+xAAv/////9wAAAAAAAAj///////////////9gAADf/////0AAAAAAAAACv/////////////kQAAAP//////IAAAAAAAAAACnv/////////nEAAAAC//////4AAAAAAAAAAAAAN63////acgAAAAAAX/////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAACf/////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/////+wAAAAAAAAAAAAAAAAAAAAAAAAAAAADf/////2AAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////EAAAAAAAAAAAAAAAAAAAAAAAAAAAAL//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////9QAAAAAAAAAAAAAAAAAAAAAAAAAAAA3//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////3AAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////+EAAAAAAAAAAAAAAAAAAAAAAAAAAAHv//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAHf//////0AAAAAAAAAAAAAAAAAAAAAAAAAAALv//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAb///////+QAAAAAAAAAAAAAAAAAAAAAAAAABv////////QAAAAAAAAAAAAAAAAAAAAAAAAAZ/////////zAAAAAAAAAAAAAAAAAAAAAAAASv/////////1AAAAAAAAAAAAAAAAAAAAAAJp7//////////2AAAAAAAAAAAAAAAARFVnis7////////////2AAAAAAAAAAAAAAAAL//////////////////1AAAAAAAAAAAAAAAAAv/////////////////TAAAAAAAAAAAAAAAAAC////////////////+hAAAAAAAAAAAAAAAAAAL///////////////1AAAAAAAAAAAAAAAAAAAAv/////////////+cAAAAAAAAAAAAAAAAAAAAC/////////////WAAAAAAAAAAAAAAAAAAAAAAL//////////+kwAAAAAAAAAAAAAAAAAAAAAAAv///////+uDAAAAAAAAAAAAAAAAAAAAAAAAAC//7tyoZSAAAAAAAAAAAAAAAAAAAABOD/4VkAAAAAAAAAAAAAAAAAAAASNEQyEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEi9///////9qEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGz/////////////+2EAAAAAAAAAAAAAAAAAAAAAAAADr/////////////////+SAAAAAAAAAAAAAAAAAAAAAAKv////////////////////sgAAAAAAAAAAAAAAAAAAAJ///////////////////////3AAAAAAAAAAAAAAAAAAPf////////////////////////0gAAAAAAAAAAAAAAAH///////////////////////////jAAAAAAAAAAAAAACf////////////////////////////UAAAAAAAAAAAAAv/////////////////////////////9AAAAAAAAAAAAK///////////6dCEAASV67//////////zAAAAAAAAAACf/////////6QAAAAAAAAAA6/////////+EAAAAAAAAAb/////////ogAAAAAAAAAAAAKv////////sAAAAAAAAD/////////kAAAAAAAAAAAAAAAF////////9gAAAAAAAN////////sQAAAAAAAAAAAAAAAAPv///////xAAAAAACP///////6AAAAAAAAAAAAAAAAAAAv///////5AAAAAAL///////+gAAAAAAAAAAAAAAAAAAAE////////EAAAAAv///////wAAAAAAAAAAAAAAAAAAAAAn///////kAAAAD////////EAAAAAAAAAAAAAAAAAAAAAHv//////8AAAAL///////2AAAAAAAAAAAAAAAAAAAAAAB///////9QAAA////////AAAAAAAAAAAAAAAAAAAAAAAAP//////+wAACf//////8wAAAAAAAAAAAAAAAAAAAAAAAJ///////xAADv//////sAAAAAAAAAAAAAAAAAAAAAAAAD///////1AAX///////QAAAAAAAAAAAAAAAAAAAAAAAAA3//////5AAr//////+AAAAAAAAAAAAAAAAAAAAAAAAAAn//////9AA7//////4AAAAAAAAAAAAAAAAAAAAAAAAAAX///////ED///////zAAAAAAAAAAAAAAAAAAAAAAAAAAH///////MH///////gAAAAAAAAAAAAAAAAAAAAAAAAAADv//////UL//////+gAAAAAAAAAAAAAAAAAAAAAAAAAADP//////gO//////9gAAAAAAAAAAAAAAAAAAAAAAAAAABHd3d3d3Qf//////8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACv//////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADP//////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv//////UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADf//////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC///////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACf//////oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABv//////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN//////9wAAAAAAAAAAAAAAAAAAAAAAAAAABYiIiIiIUK//////+wAAAAAAAAAAAAAAAAAAAAAAAAAADP//////cG///////wAAAAAAAAAAAAAAAAAAAAAAAAAAD///////UC///////0AAAAAAAAAAAAAAAAAAAAAAAAAAL///////IA7//////5AAAAAAAAAAAAAAAAAAAAAAAAAAb///////AAn///////AAAAAAAAAAAAAAAAAAAAAAAAAAv//////8AAP///////YAAAAAAAAAAAAAAAAAAAAAAAAA///////4AADf//////0AAAAAAAAAAAAAAAAAAAAAAAAF///////zAACP//////9AAAAAAAAAAAAAAAAAAAAAAAAL///////gAAAf///////QAAAAAAAAAAAAAAAAAAAAAAAv//////+QAAAJ///////3AAAAAAAAAAAAAAAAAAAAAACf//////8wAAAC////////IAAAAAAAAAAAAAAAAAAAAAL///////0AAAAAn///////0AAAAAAAAAAAAAAAAAAAAAv///////UAAAAAH///////+wAAAAAAAAAAAAAAAAAAAH///////9AAAAAABv///////6AAAAAAAAAAAAAAAAAABf///////1AAAAAAAM////////wQAAAAAAAAAAAAAAAAb///////+wAAAAAAAB7////////kAAAAAAAAAAAAAAAa////////8QAAAAAAAAT/////////ogAAAAAAAAAAAAbv////////YAAAAAAAAAB//////////6UAAAAAAAAASe/////////5AAAAAAAAAAAI///////////8llREVnrP//////////+wAAAAAAAAAAAAn/////////////////////////////wAAAAAAAAAAAAAB////////////////////////////6AAAAAAAAAAAAAAAF//////////////////////////+AAAAAAAAAAAAAAAAALP///////////////////////+QAAAAAAAAAAAAAAAAAAH//////////////////////+QAAAAAAAAAAAAAAAAAAAAGP///////////////////6MAAAAAAAAAAAAAAAAAAAAAABfv////////////////kgAAAAAAAAAAAAAAAAAAAAAAAAAEnf///////////9hAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABV6ze//7cuWQQAAAAAAAAAAAAAAAC0O5PnwAAAAAAACV4djAAAAAAAAAAAAAAKe/////6MAAAAAAAAAABn////////7IAAAAAAAAE7//////////1AAAAAAAF////////////9wAAAAAF//////////////YAAAAD///////////////zAAAA3///////////////0AAAf/////+lEBSf/////4AADv////4wAAAALf////4ABv////4QAAAAAA3////2AL////8wAAAAAAAv////sA////+gAAAAAAAAn////wL////0AAAAAAAABP////JP////AAAAAAAAAA////80////8AAAAAAAAAD////0T////wAAAAAAAAAP////Q/////IAAAAAAAAB////8x////9gAAAAAAAAb////xDv///9AAAAAAAADf///+AJ////+AAAAAAAB/////kAP/////cAAAAABv////9AAM/////7MAAAGv/////AAAP//////9qZz//////0AAAJ///////////////6AAAADP/////////////9EAAAAB3////////////+IAAAAAAc///////////9IAAAAAAACP/////////5AAAAAAAAAAKv//////+zAAAAAAAAAAAAFq3v/bcgAAAAAAAAA=",
       "lvglGlyphs": {
         "encodings": [
           {
@@ -733,8 +1238,8 @@
       "descent": 19,
       "glyphs": [],
       "lvglRanges": "",
-      "lvglSymbols": "1234567890.kW",
-      "lvglBinFile": "MAAAAGhlYWQBAAAAAwBQADwA//88AOz/BAD//zwAAAAQAAAAAAQEBwgAAAAEAAAAOAAAAGNtYXABAAAAHAAAAC4AAAA+AAEADQADAAAAAgADAAQABQAGAAcACAAJAAoACwApAD0AAAAoAAAAbG9jYQ4AAAAIAAgAOQBuBA0HfAuxD2IUehivHAshQCV1KQsxSDUAAGdseWYVUBQkABplyAALv//9QDf////E/////91/////5T/////gP////8wb///+gAEz/1wALU9K6AAAAAAAAN6zv/tyWMAAAAAAAAAAAAAAY7////////9cQAAAAAAAAAAB////////////+UAAAAAAAAAC//////////////6AAAAAAAADP///////////////AAAAAAAC////////+////////oAAAAAB//////6QQABWv/////2AAAAAf////+hAAAAAALP////4QAAAJ////+QAAAAAAAAr////4AAAB/////AAAAAAAAAAM////8AAAf////yAAAAAAAAAAP////2AADP///6AAAAAAAAAAAL////sAAf////MAAAAAAAAAAAX////wAG////4AAAAAAAAAAAAP////QAn///+gAAAAAAAAAAAAv///+ADP///2AAAAAAAAAAAACP///7AP////MAAAAAAAAAAAAF////4B////8QAAAAAAAAAAAAP////wP////wAAAAAAAAAAAAAf////JP///+AAAAAAAAAAAAAA////81////0AAAAAAAAAAAAADv///0b////AAAAAAAAAAAAAAO////V////8AAAAAAAAAAAAAA3///9n////wAAAAAAAAAAAAADf///2f////AAAAAAAAAAAAAAN////aP///8AAAAAAAAAAAAAA3///94////wAAAAAAAAAAAAADf///3j////AAAAAAAAAAAAAAN////eP///8AAAAAAAAAAAAAA3///94////wAAAAAAAAAAAAADf///3j////AAAAAAAAAAAAAAN////eP///8AAAAAAAAAAAAAA3///94////wAAAAAAAAAAAAADf///3f////AAAAAAAAAAAAAAN////Z////8AAAAAAAAAAAAAA3///9n////wAAAAAAAAAAAAADf///2b////QAAAAAAAAAAAAAO////Vf///9AAAAAAAAAAAAAA7///9E////8AAAAAAAAAAAAAD////zL////wAAAAAAAAAAAAAf////EP////IAAAAAAAAAAAAD////8A7///9QAAAAAAAAAAAAX////QC////4AAAAAAAAAAAACP///6AI////sAAAAAAAAAAAAM////cAT////xAAAAAAAAAAAA////9AAP////YAAAAAAAAAAAX////wAAv////QAAAAAAAAAADP///6AABf////UAAAAAAAAABP////UAAA7////hAAAAAAAAAe////4AAAB/////wQAAAAAAAL////9wAAAA7////9MAAAAAAs/////gAAAABP/////7UQACW//////0AAAAAAj////////////////5AAAAAAAK///////////////6AAAAAAAACf/////////////5AAAAAAAAAATf///////////lAAAAAAAAAAAAbP////////1wAAAAAAAAAAAAAAJpzf/+ynIAAAAAAAALWAu6AAAAAAAAAAAAAAEAAAAAAAAAAAABbPcAAAAAAAAAAEr//3AAAAAAAAAo7///9wAAAAAAFs//////cAAAAASv///////3AAACjv////////9wAGz///////////ca/////////////3X/////////////91///////+gs////df/////5QADP///3X///+1AAAAz///91//xxAAAAAM////deggAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wAAAAAAAAAM////cAAAAAAAAADP///3AAAAAAAAAAz///9wtME7oAAAAAAAAEes3u7blhAAAAAAAAAAAAAAAEr/////////1gAAAAAAAAAAAAPP///////////+YAAAAAAAAAAI///////////////BAAAAAAAAC////////////////+IAAAAAAAz/////////////////4QAAAAAK//////xzEAE33/////+wAAAABv/////DAAAAAABe/////2AAAAHv////gAAAAAAAAB3////+AAAAj////4AAAAAAAAAAHv////UAAA7////AAAAAAAAAAABf////oAAF////8wAAAAAAAAAAAM////8AAK////wAAAAAAAAAAAAG////8gAO////cAAAAAAAAAAAAC////9AAf////MAAAAAAAAAAAAA////9QA/////AAAAAAAAAAAAAA7///9QBP////AAAAAAAAAAAAAA7///9AA6qqqpAAAAAAAAAAAAAA////8wAAAAAAAAAAAAAAAAAAAB////8AAAAAAAAAAAAAAAAAAAAF////wAAAAAAAAAAAAAAAAAAAAJ////cAAAAAAAAAAAAAAAAAAAAP////IAAAAAAAAAAAAAAAAAAAB////7AAAAAAAAAAAAAAAAAAAAH////0AAAAAAAAAAAAAAAAAAAAr////AAAAAAAAAAAAAAAAAAAAF////9AAAAAAAAAAAAAAAAAAAAv////oAAAAAAAAAAAAAAAAAAADf///+EAAAAAAAAAAAAAAAAAAAr////1AAAAAAAAAAAAAAAAAAAH////+QAAAAAAAAAAAAAAAAAABf////0AAAAAAAAAAAAAAAAAAAP/////IAAAAAAAAAAAAAAAAAAC7////0AAAAAAAAAAAAAAAAAAAe////9wAAAAAAAAAAAAAAAAAADf////gAAAAAAAAAAAAAAAAAAAv////6AAAAAAAAAAAAAAAAAAAK////+wAAAAAAAAAAAAAAAAAACf////wAAAAAAAAAAAAAAAAAAAf////9EAAAAAAAAAAAAAAAAAAF/////hAAAAAAAAAAAAAAAAAABP////4gAAAAAAAAAAAAAAAAAAP/////MAAAAAAAAAAAAAAAAAAC7////0AAAAAAAAAAAAAAAAAAAd////9QAAAAAAAAAAAAAAAAAADP////YAAAAAAAAAAAAAAAAAAAv////4AAAAAAAAAAAAAAAAAAAJ////+QAAAAAAAAAAAAAAAAAACP////oAAAAAAAAAAAAAAAAAAAb////7AAAAAAAAAAAAAAAAAAAE/////AAAAAAAAAAAAAAAAAAAA/////0QAAAAAAAAAAAAAAAAAALv///+EAAAAAAAAAAAAAAAAAAB3///////////////////////8D////////////////////////8D////////////////////////8D////////////////////////8D////////////////////////8D////////////////////////8LT9K6AAAAAAAAFpzu/+24QAAAAAAAAAAAAAAFz/////////pAAAAAAAAAAABN////////////wwAAAAAAAACv//////////////cAAAAAAAHP///////////////5AAAAAAHf////////////////+AAAAAC//////6UgAAJr//////QAAAB/////+xAAAAAAA9/////gAAAf////9gAAAAAAAAC/////YAAI////9wAAAAAAAAAB7////QAA7///+wAAAAAAAAAABv////IAT////zAAAAAAAAAAAA////9gB////9AAAAAAAAAAAAC////5AK////kAAAAAAAAAAAAI////wAv///9wAAAAAAAAAAAAb////QBoiIiDAAAAAAAAAAAABv///+AAAAAAAAAAAAAAAAAAAG////0AAAAAAAAAAAAAAAAAAAj///+wAAAAAAAAAAAAAAAAAAC////4AAAAAAAAAAAAAAAAAAAf////MAAAAAAAAAAAAAAAAAAH////4AAAAAAAAAAAAAAAAAAC////9gAAAAAAAAAAAAAAAAAB3////QAAAAAAAAAAAAAAAAAE7////yAAAAAAAAAAAAAAAABc/////0AAAAAAAAAABpmZmb3//////0AAAAAAAAAAAL///////////SAAAAAAAAAAAA//////////5gAAAAAAAAAAAAD/////////+0AAAAAAAAAAAAAP///////////EAAAAAAAAAAAAv///////////+QAAAAAAAAAAA1VVVWi///////sAAAAAAAAAAAAAAAAABc/////7AAAAAAAAAAAAAAAAAABe////9wAAAAAAAAAAAAAAAAAALv////EAAAAAAAAAAAAAAAAAAD////+QAAAAAAAAAAAAAAAAAACf///+AAAAAAAAAAAAAAAAAAAC////8wAAAAAAAAAAAAAAAAAADf///3AAAAAAAAAAAAAAAAAAAK////kAAAAAAAAAAAAAAAAAAAn///+gAAAAAAAAAAAAAAAAAACP///7O7u7uwAAAAAAAAAAAAAI////s/////AAAAAAAAAAAAAAn///+i////8gAAAAAAAAAAAADP///4D////2AAAAAAAAAAAAAP////UL////wAAAAAAAAAAAAG////8Qf////1AAAAAAAAAAAA3////AAf////4QAAAAAAAAAAj////2AAn////9IAAAAAAAAAf////+AAAe/////3AAAAAAABr/////UAAAX//////pQQAAJr//////oAAAAH//////////////////wAAAAABv////////////////wAAAAAAAPf//////////////kAAAAAAAAAj////////////8MAAAAAAAAAAAbf////////+0AAAAAAAAAAAAAAJpzv/+24UAAAAAAAALSBU5AAAAAAAAAAAAAAAABP//+oEAAAAAAAAAAAAAAAAAAAAAL/////MAAAAAAAAAAAAAAAAAAAAAv/////MAAAAAAAAAAAAAAAAAAAAG//////MAAAAAAAAAAAAAAAAAAAAf//////MAAAAAAAAAAAAAAAAAAAC///////MAAAAAAAAAAAAAAAAAAAX///////MAAAAAAAAAAAAAAAAAAB7///////MAAAAAAAAAAAAAAAAAAK////////MAAAAAAAAAAAAAAAAABP////////MAAAAAAAAAAAAAAAAADv///f////MAAAAAAAAAAAAAAAAAn///9P////MAAAAAAAAAAAAAAAAD////sP////MAAAAAAAAAAAAAAAAN////EP////MAAAAAAAAAAAAAAACP///2AP////MAAAAAAAAAAAAAAAP////AAP////MAAAAAAAAAAAAAAA3///8gAP////MAAAAAAAAAAAAAAH////cAAP////MAAAAAAAAAAAAAAv///9AAAP////MAAAAAAAAAAAAADP///zAAAP////MAAAAAAAAAAAAAf///+AAAAP////MAAAAAAAAAAAAC////0AAAAP////MAAAAAAAAAAAAL////QAAAAP////MAAAAAAAAAAABv///6AAAAAP////MAAAAAAAAAAAHv///hAAAAAP////MAAAAAAAAAAAr///9QAAAAAP////MAAAAAAAAAAF////sAAAAAAP////MAAAAAAAAAAe////EAAAAAAP////MAAAAAAAAACv///2AAAAAAAP////MAAAAAAAAAT////AAAAAAAAP////MAAAAAAAAA7///8gAAAAAAAP////MAAAAAAAAJ////cAAAAAAAAP////MAAAAAAAA////9AAAAAAAAAP////MAAAAAAADf///zAAAAAAAAAP////MAAAAAAAj///+QAAAAAAAAAP////MAAAAAAD////4AAAAAAAAAAP////MAAAAAAM////QAAAAAAAAAAP////MAAAAAB////6AAAAAAAAAAAP////MAAAAAL//////////////////////////yv//////////////////////////y7//////////////////////////y7//////////////////////////y7//////////////////////////y7//////////////////////////yAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAAAAAAAAAAAAAAAAAAP////MAAAAAC1vSOgAAGqqqqqqqqqqqqqqqqqqqEAAAL///////////////////IAAAT///////////////////IAAAb///////////////////IAAAf///////////////////IAAAn///////////////////IAAAr///////////////////IAAAz///8AAAAAAAAAAAAAAAAAAA7///4AAAAAAAAAAAAAAAAAAA////wAAAAAAAAAAAAAAAAAAB////sAAAAAAAAAAAAAAAAAAD////kAAAAAAAAAAAAAAAAAAE////cAAAAAAAAAAAAAAAAAAG////UAAAAAAAAAAAAAAAAAAH////MAAAAAAAAAAAAAAAAAAJ////IAAAAAAAAAAAAAAAAAAL////AAAAAAAAAAAAAAAAAAAM///+AAAAAAAAAAAAAAAAAAAO///8AAAAAAAAAAAAAAAAAAAP///6AAAAAAAAAAAAAAAAAAAf///5AAR73v/spyAAAAAAAAA////3KO////////xQAAAAAABP///9///////////9MAAAAABv////////////////9wAAAAB//////////////////4AAAACf//////////////////cAAAC///////2oeJvv//////9AAADP////+RAAAAAEv//////QAACv///8MAAAAAAABe/////3AAAAOM+QAAAAAAAAAC7////+AAAAAAAAAAAAAAAAAAL/////UAAAAAAAAAAAAAAAAAB/////sAAAAAAAAAAAAAAAAAAO////8AAAAAAAAAAAAAAAAAAH////8wAAAAAAAAAAAAAAAAAC////9gAAAAAAAAAAAAAAAAAA7///+QAAAAAAAAAAAAAAAAAAr///+gAAAAAAAAAAAAAAAAAAn///+wAAAAAAAAAAAAAAAAAAj////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAj///+wAAAAAAAAAAAAAAAAAAn///+rzMzLAAAAAAAAAAAAAAz///+d////IAAAAAAAAAAAAA////9q////YAAAAAAAAAAAAD////82////sAAAAAAAAAAAAJ////8C////8wAAAAAAAAAAAP////sA3///+wAAAAAAAAAACf////UAb////2AAAAAAAAAAT////+AADf////UAAAAAAAAE/////3AABP////+RAAAAAACP/////QAAAJ//////pSAAFI7/////8wAAAAv/////////////////YAAAAAC////////////////3AAAAAAAK//////////////9QAAAAAAAATf///////////7IAAAAAAAAAAFz/////////owAAAAAAAAAAAAAVjN7//bhQAAAAAAAAtX0roAAAAAAAAAAAACaKze/xAAAAAAAAAAAAAAAAWu//////EAAAAAAAAAAAAAAH7///////8QAAAAAAAAAAAABe/////////xAAAAAAAAAAAAG///////////EAAAAAAAAAAAPv//////////8QAAAAAAAAAAT////////IZDIgAAAAAAAAAAT//////7UAAAAAAAAAAAAAAAL/////+zAAAAAAAAAAAAAAAADP////9gAAAAAAAAAAAAAAAACP////4gAAAAAAAAAAAAAAAAAf////0QAAAAAAAAAAAAAAAAAK////8gAAAAAAAAAAAAAAAAAC////9gAAAAAAAAAAAAAAAAAAn///+wAAAAAAAAAAAAAAAAAAD////zAAAAAAAAAAAAAAAAAABf///7AAAAAAAAAAAAAAAAAAAL////QAAAAAAAAAAAAAAAAAAA////4AAAAAAAAAAAAAAAAAAAT///+QAAAAAAAAAAAAAAAAAACP///1AAADe97/7KYQAAAAAAAL////IAGO////////owAAAAAA7///8Ab///////////kAAAAAH////Av////////////9EAAAA////7z//////////////iAAAF////////////////////0AAAf////////8YwACW//////6AACP///////DAAAAAATv////9AAK//////+AAAAAAAABz////9AAv/////9QAAAAAAAAAe////9AC/////9gAAAAAAAAAAT////7AM////+QAAAAAAAAAAAK////8Qz////xAAAAAAAAAAAAP////0DP////AAAAAAAAAAAAAO////gM////sAAAAAAAAAAAAAn///+wz///9wAAAAAAAAAAAABv///+DP///3AAAAAAAAAAAAAD////8L////gAAAAAAAAAAAAAH////wr///+QAAAAAAAAAAAAAP////Gf///6AAAAAAAAAAAAAA////8W////0AAAAAAAAAAAAAH////xT////wAAAAAAAAAAAAAv////AP////MAAAAAAAAAAAAF////0Az///+AAAAAAAAAAAAAj///+gB////+AAAAAAAAAAAADP///3AC////9QAAAAAAAAAAA/////MADP///9AAAAAAAAAAAJ////4AAE////+AAAAAAAAAAD////+AAADP////UAAAAAAAAB3////xAAAD/////0AAAAAAAAz////5AAAACf////+QAAAAAE7////+EAAAAA3/////6DABJs//////QAAAAAAu////////////////gAAAAAAALv//////////////gAAAAAAAACz/////////////YAAAAAAAAAAI///////////8IAAAAAAAAAAAAp////////+0AAAAAAAAAAAAAAAFnO//7KYQAAAAAAAAtME7nv////////////////////////f/////////////////////////f/////////////////////////f/////////////////////////f/////////////////////////X////////////////////////9AAAAAAAAAAAAAAAAAAAABv///2AAAAAAAAAAAAAAAAAAAADf///gAAAAAAAAAAAAAAAAAAAAX///+AAAAAAAAAAAAAAAAAAAAAz///8QAAAAAAAAAAAAAAAAAAAE////oAAAAAAAAAAAAAAAAAAAAL////MAAAAAAAAAAAAAAAAAAAAv///8AAAAAAAAAAAAAAAAAAAACv///0AAAAAAAAAAAAAAAAAAAAH////QAAAAAAAAAAAAAAAAAAAAj///9gAAAAAAAAAAAAAAAAAAAB////4AAAAAAAAAAAAAAAAAAAAH////gAAAAAAAAAAAAAAAAAAAAO////EAAAAAAAAAAAAAAAAAAABv///6AAAAAAAAAAAAAAAAAAAADf///zAAAAAAAAAAAAAAAAAAAAX///+wAAAAAAAAAAAAAAAAAAAAz///9AAAAAAAAAAAAAAAAAAAAD////0AAAAAAAAAAAAAAAAAAAAL////YAAAAAAAAAAAAAAAAAAAAv///+AAAAAAAAAAAAAAAAAAAACv///4AAAAAAAAAAAAAAAAAAAAH////xAAAAAAAAAAAAAAAAAAAAj///+gAAAAAAAAAAAAAAAAAAAA////8gAAAAAAAAAAAAAAAAAAAH////sAAAAAAAAAAAAAAAAAAAAO////QAAAAAAAAAAAAAAAAAAABv///9AAAAAAAAAAAAAAAAAAAADf///2AAAAAAAAAAAAAAAAAAAAX////gAAAAAAAAAAAAAAAAAAAAz///+AAAAAAAAAAAAAAAAAAAAD////8QAAAAAAAAAAAAAAAAAAAL////kAAAAAAAAAAAAAAAAAAAAv////IAAAAAAAAAAAAAAAAAAACf///7AAAAAAAAAAAAAAAAAAAAH////0AAAAAAAAAAAAAAAAAAAAj////QAAAAAAAAAAAAAAAAAAAA////9gAAAAAAAAAAAAAAAAAAAH////4AAAAAAAAAAAAAAAAAAAAO////gAAAAAAAAAAAAAAAAAAABv////EAAAAAAAAAAAAAAAAAAADf///5AAAAAAAAAAAAAAAAAAAAT////yAAAAAAAAAAAAAAAAAAAAz///+wAAAAAAAAAAAAAAAAAAAD////9AAAAAAAAAAAAAAAAAAAAL////0AAAAAAAAAAAAAAAAAAAAv////YAAAAAAAAAAAAAAAAAAACf///+AAAAAAAAAAAAAAAAAAAAH////3AAAAAAAAAAAAAAAAAAAAj////xAAAAAAAAAAAAAAAAAAAA////+QAAAAAAAAAAAAAAAAAAAH////8gAAAAAAAAAAAAAAAAtT0roAAAAAAAAmrO//7KYgAAAAAAAAAAAAAAff////////1gAAAAAAAAAAAG7///////////5gAAAAAAAAAb//////////////sQAAAAAAAd///////////////9EAAAAAAd/////////////////QAAAAAK//////pRAAJr//////oAAAAF/////9IAAAAABO/////0AAAA3////6AAAAAAAAHP////0AAAT////9AAAAAAAAAB7////zAACf////IAAAAAAAAABP////kAAN////sAAAAAAAAAAAz////QAA////9QAAAAAAAAAABv////AAL////yAAAAAAAAAAAC////8gA/////AAAAAAAAAAAAD////zAE////8AAAAAAAAAAAAP////MAP////wAAAAAAAAAAAA////8wAv////EAAAAAAAAAAAL////xAA////9QAAAAAAAAAABf///+AAC////6AAAAAAAAAAAK////oAAF////8QAAAAAAAAAC////9AAADv///7AAAAAAAAAAz////QAAAG////+AAAAAAAAAn////0AAAAC/////sQAAAAABv////5AAAAAB3////+cgAAAn7////8AAAAAAAd//////7Lzv/////8AAAAAAAACv/////////////5AAAAAAAAAAXv///////////UAAAAAAAAAAAq///////////5EAAAAAAAAACf/////////////4AAAAAAAAPf///////////////CAAAAAAT/////+3QyNYz/////4gAAAAP/////ogAAAAADv////+IAAADv////UAAAAAAAAG/////QAACf////QAAAAAAAAABf////gAAv////cAAAAAAAAAAAj////xAJ////0AAAAAAAAAAAAO////gA7///9gAAAAAAAAAAAAf////gP////xAAAAAAAAAAAAAv////Jv///9AAAAAAAAAAAAAA7///9o////sAAAAAAAAAAAAADP///3j///+gAAAAAAAAAAAAAL////iP///6AAAAAAAAAAAAAAv///+H////wAAAAAAAAAAAAADP///3b////gAAAAAAAAAAAAAP////Y/////IAAAAAAAAAAAAD////8w////+AAAAAAAAAAAAAn////wC/////EAAAAAAAAAAAL////7AF////+wAAAAAAAAAADP////UADf////oAAAAAAAAAC/////0AAE/////9QAAAAAAATf////9AAACf/////8cxAAE33/////+QAAAAv/////////////////+wAAAAAL////////////////+wAAAAAAB///////////////9wAAAAAAAAO/////////////sgAAAAAAAAAAOf/////////5MAAAAAAAAAAAAAA3re//7acwAAAAAAAAtMEroAAAAAAAAVm97+25UAAAAAAAAAAAAAAAOv////////owAAAAAAAAAAABr///////////kAAAAAAAAAAE7////////////9IAAAAAAAAF///////////////zAAAAAAAE////////////////8wAAAAAC//////1zEBOO/////9AAAAAAz/////YAAAAACv////+gAAAAb////+IAAAAAAAX/////MAAADv///+IAAAAAAAAG/////AAABf////UAAAAAAAAACf////MAAL////wAAAAAAAAAAB7///+gAB////9QAAAAAAAAAABv////AAX////gAAAAAAAAAAAB////9QCP///6AAAAAAAAAAAACv///5AL////YAAAAAAAAAAAAF////0A7///8wAAAAAAAAAAAAH////xD////yAAAAAAAAAAAAAO////MP////EAAAAAAAAAAAAAv///9h////8AAAAAAAAAAAAACv///3D////xAAAAAAAAAAAAAJ////kP////IAAAAAAAAAAAAAj///+g7///9AAAAAAAAAAAAACP///6Df///3AAAAAAAAAAAAAI////oJ////oAAAAAAAAAAAAAz///+wb////wAAAAAAAAAAAAD////6A/////UAAAAAAAAAAAA/////oA3////QAAAAAAAAAAAM////+gB/////YAAAAAAAAAAJ/////5AB/////yAAAAAAAAAH//////kACv////4gAAAAAAAK//////+AAB//////UAAAAABd///////2AAB//////8YgAkjf////////UAAAv//////////////9v///8wAAAd/////////////9Gv///yAAAAHP///////////7EM////AAAAAAj//////////3AA////0AAAAAACr///////+RAAH///+gAAAAAAABas7/7JUAAABP///3AAAAAAAAAAAAAAAAAAAI////MAAAAAAAAAAAAAAAAAAAz///4AAAAAAAAAAAAAAAAAAAL///+gAAAAAAAAAAAAAAAAAACP///1AAAAAAAAAAAAAAAAAAAf///+AAAAAAAAAAAAAAAAAAAK////gAAAAAAAAAAAAAAAAAAE////8QAAAAAAAAAAAAAAAAAC////+AAAAAAAAAAAAAAAAAAD7////hAAAAAAAAAAAAAAAAAG/////0AAAAAAAAAAAAAAAAA8/////5AAAAAAAAAAAAAAABbP/////7AAAAAAAAAAAiM1ed///////7AAAAAAAAAAAf///////////6AAAAAAAAAAAB///////////2AAAAAAAAAAAAH/////////+yAAAAAAAAAAAAAf////////owAAAAAAAAAAAAAB///////HEAAAAAAAAAAAAAAAH//tuXQAAAAAAAAAAAABHIIjl/////AAAAAAAAAAAAAABP///0AAAAAAAAAAAAAAb////yT////zAAAAAAAAAAAAAAn///+AAAAAAAAAAAAAAJ////4A////9wAAAAAAAAAAAAAN////0AAAAAAAAAAAAADf///6AM////sAAAAAAAAAAAAAL/////EAAAAAAAAAAAAB////9gCP///+AAAAAAAAAAAAAG/////2AAAAAAAAAAAABP////IAT////yAAAAAAAAAAAAC/////+gAAAAAAAAAAAAj////gAA////9gAAAAAAAAAAAA//////4AAAAAAAAAAAAL////sAAM////kAAAAAAAAAAABP//////MAAAAAAAAAAAD////3AACP///9AAAAAAAAAAAAj//////3AAAAAAAAAAAD////8wAAX////xAAAAAAAAAAAN///////AAAAAAAAAAABv////AAAB////9AAAAAAAAAAAH///////8AAAAAAAAAAAr///+wAAAN////gAAAAAAAAAAG////7///UAAAAAAAAAAO////cAAACf///8AAAAAAAAAAC////K///5AAAAAAAAAAH////zAAAAX////wAAAAAAAAAA////h////QAAAAAAAAAF////8AAAAB////8wAAAAAAAABP///1P///8gAAAAAAAACP///8AAAAAN////cAAAAAAAAAj///8g////YAAAAAAAAAz///+AAAAACf///7AAAAAAAAAN///9AM///7AAAAAAAAAP////QAAAAAb////gAAAAAAAAH///+AB////wAAAAAAAAP////wAAAAAC////8gAAAAAAAG////QAP///8wAAAAAAAH////wAAAAAAO////YAAAAAAACv///wAA7///gAAAAAAACv///4AAAAAACv///5AAAAAAAA////oAAK///8AAAAAAAA7///9QAAAAAAb////QAAAAAABP///2AABf///xAAAAAAAv////EAAAAAAC////8QAAAAAAj///8QAAH///9QAAAAAAX////QAAAAAAAO////QAAAAAAN///8AAAAz///oAAAAAAJ////kAAAAAAAC////4AAAAAAH///+AAAAH///+AAAAAADP///1AAAAAAAAf////AAAAAAG////MAAAA////yAAAAAA////8QAAAAAAAD////8AAAAACv///gAAAADv//9wAAAABP///9AAAAAAAAAP////MAAAAA7///oAAAAAr///sAAAAAf///+gAAAAAAAAC////3AAAAA////1AAAAAF////AAAAAL////YAAAAAAAAAf///+gAAAAj///8QAAAAAf///0AAAADv///yAAAAAAAAAD////4AAAAM///8AAAAAADP//+QAAAC////4AAAAAAAAAAP////IAAAH///9wAAAAAAj///0AAABv///6AAAAAAAAAADP///2AAAG////IAAAAAAD////EAAAn///9gAAAAAAAAAAj///+QAACv///gAAAAAAAP///2AAAN////IAAAAAAAAAAE////0AAA7///kAAAAAAACv//+gAAH////gAAAAAAAAAAAP////EAA////0AAAAAAAAb///4AAE////sAAAAAAAAAAADP///0AAj///8AAAAAAAAB////MACP///3AAAAAAAAAAAAj///+AAM///7AAAAAAAAAN///3AAv///8wAAAAAAAAAAAE////wAH///9gAAAAAAAACP///AAP////AAAAAAAAAAAAAf////AF////IAAAAAAAAAT///8QL///+wAAAAAAAAAAAADf///xCf///QAAAAAAAAAA////QE////cAAAAAAAAAAAAAn///8w3///gAAAAAAAAAAL///4B////0AAAAAAAAAAAAAF////Yf///0AAAAAAAAAABv///An///8AAAAAAAAAAAAAAf///4T///8AAAAAAAAAAAL///8M///8AAAAAAAAAAAAAADf//+4///6AAAAAAAAAAAA3///Pv//+AAAAAAAAAAAAAAAn///3P//9QAAAAAAAAAAAJ///4////QAAAAAAAAAAAAAAF////////EAAAAAAAAAAABP///v///wAAAAAAAAAAAAAAAv///////AAAAAAAAAAAAAD///////wAAAAAAAAAAAAAAADv//////cAAAAAAAAAAAAAv//////5AAAAAAAAAAAAAAAAr//////zAAAAAAAAAAAAAH//////9QAAAAAAAAAAAAAAAG//////4AAAAAAAAAAAAAAv//////EAAAAAAAAAAAAAAAAv/////5AAAAAAAAAAAAAADv/////QAAAAAAAAAAAAAAAADv////9QAAAAAAAAAAAAAAn/////kAAAAAAAAAAAAAAAAAr/////AAAAAAAAAAAAAAAF/////1AAAAAAAAAAAAAAAAAG////+wAAAAAAAAAAAAAAAP////8QAAAAAAAAAAAAAAAAA/////cAAAAAAAAAAAAAAADP///+AAAAAAAAAAAAAAAAAAD////yAAAAAAAAAAAAAAAAf///+gAAAAAAAAAKVBI8f///+wAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAEzMzMzEAf////AAAAAAAAAAB3////9EAf////AAAAAAAAAAM/////hAAf////AAAAAAAAADP////4gAAf////AAAAAAAAAv////+IAAAf////AAAAAAAAK/////zAAAAf////AAAAAAACv////9AAAAAf////AAAAAAAn/////UAAAAAf////AAAAAAI/////2AAAAAAf////AAAAAB/////9gAAAAAAf////AAAAAb/////cAAAAAAAf////AAAAF/////5AAAAAAAAf////AAABf////+QAAAAAAAAf////AAAT/////oAAAAAAAAAf////AAD/////7AAAAAAAAAAf////AAu/////AAAAAAAAAAAf////ADf////0QAAAAAAAAAAf////Av////9EAAAAAAAAAAAf////J/////1AAAAAAAAAAAAf//////////+EAAAAAAAAAAAf///////////sAAAAAAAAAAAf///////////9wAAAAAAAAAAf////////////zAAAAAAAAAAf///////7////+EAAAAAAAAAf//////0Df////sAAAAAAAAAf/////9QAv////9wAAAAAAAAf/////UAAF/////zAAAAAAAAf////2AAAAn////9EAAAAAAAf////wAAAADf////oAAAAAAAf////AAAAAAv////9gAAAAAAf////AAAAAAF/////zAAAAAAf////AAAAAAAn////9AAAAAAf////AAAAAAADf////oAAAAAf////AAAAAAAAv////9gAAAAf////AAAAAAAAF/////zAAAAf////AAAAAAAAAn////9AAAAf////AAAAAAAAADf////oAAAf////AAAAAAAAAAv////9gAAf////AAAAAAAAAAF/////yAAf////AAAAAAAAAAAn////9AAf////AAAAAAAAAAADf////oAf////AAAAAAAAAAAAv////9gf////AAAAAAAAAAAAG/////yAA=",
+      "lvglSymbols": "1234567890.°C",
+      "lvglBinFile": "MAAAAGhlYWQBAAAAAwBQADoA//88AOz/BAD//zoAAAAQAAAAAAQHBgcAAAAEAAAAOAAAAGNtYXABAAAAHAAAAC4AAACDAAEADQADAAAAAgADAAQABQAGAAcACAAJAAoACwAVAIIAAAAoAAAAbG9jYQ4AAAAIAAgAOgBwBBAHgAu2D2gUgRi3HBMhSSV/KbMugC8AAGdseWYqFAFEgANMuQABd///qAb////4n/////uv/////Kf////8B/////mDf///0AAmf+uAAFoT/L0AAAAAAAAb1nf/bksYAAAAAAAAAAAAAAx3////////64gAAAAAAAAAAD////////////8oAAAAAAAAAF//////////////0AAAAAAAAGf//////////////+AAAAAAAF////////9////////QAAAAAD//////0ggACtf/////sAAAAA/////9CAAAAAAWf////wgAAAT////8gAAAAAAABX////wAAAD////+AAAAAAAAAAZ////4AAA/////kAAAAAAAAAAf////sAAGf///0AAAAAAAAAAAX////YAA////+YAAAAAAAAAAAv////gAN////wAAAAAAAAAAAAf///+gBP///9AAAAAAAAAAAABf///8AGf///sAAAAAAAAAAAAEf///2Af///+YAAAAAAAAAAAAL////wD////4gAAAAAAAAAAAAf////gf////gAAAAAAAAAAAAA////+Sf///8AAAAAAAAAAAAAB////5r////oAAAAAAAAAAAAAHf///o3///+AAAAAAAAAAAAAAd///+r////4AAAAAAAAAAAAABv///7P////gAAAAAAAAAAAAAG////s////+AAAAAAAAAAAAAAb///+0f///4AAAAAAAAAAAAABv///7x////gAAAAAAAAAAAAAG////vH///+AAAAAAAAAAAAAAb///+8f///4AAAAAAAAAAAAABv///7x////gAAAAAAAAAAAAAG////vH///+AAAAAAAAAAAAAAb///+8f///4AAAAAAAAAAAAABv///7x////gAAAAAAAAAAAAAG////u////+AAAAAAAAAAAAAAb///+z////4AAAAAAAAAAAAABv///7P////gAAAAAAAAAAAAAG////s3///+gAAAAAAAAAAAAAd///+q////6AAAAAAAAAAAAAB3///6J////4AAAAAAAAAAAAAH////mX////gAAAAAAAAAAAAA////+If///+QAAAAAAAAAAAAH////4B3///6gAAAAAAAAAAAAv///+gF////wAAAAAAAAAAAAEf///0AR////YAAAAAAAAAAAAZ///+4An////iAAAAAAAAAAAB////6AAf///+wAAAAAAAAAAAv////gABf///+gAAAAAAAAAAGf///0AAC////+oAAAAAAAAACf///+oAAB3////CAAAAAAAAA9////wAAAD/////ggAAAAAAAX////7gAAAB3////6YAAAAABZ/////AAAAACf/////2ogAEt//////oAAAAABH////////////////yAAAAAAAV///////////////0AAAAAAAAE//////////////yAAAAAAAAAAm////////////KAAAAAAAAAAAA2f////////rgAAAAAAAAAAAAAATTm//9lOQAAAAAAAABaGAL9AAAAAAAAAAAAAACAAAAAAAAAAAAAtnuAAAAAAAAAACV//7gAAAAAAAAUd///+4AAAAAAC2f/////uAAAAAJX///////7gAABR3////////+4ADZ///////////uNf////////////7r/////////////+6////////QWf///uv/////8oABn///7r////agAAAZ///+6//44gAAAAGf///uvQQAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4AAAAAAAAAGf///uAAAAAAAAABn///7gAAAAAAAAAZ///+4BaDAT9AAAAAAAAAj1m93bcsIAAAAAAAAAAAAAAAlf////////+sAAAAAAAAAAAAB5////////////zAAAAAAAAAABH//////////////4IAAAAAAAAX////////////////xAAAAAAAGf/////////////////CAAAAABX/////+OYgAm+//////2AAAAAN/////4YAAAAAAL3////+wAAAA9////8AAAAAAAAAO/////wAAAEf////AAAAAAAAAAA9////6gAAHf///4AAAAAAAAAAAL////9AAAv////mAAAAAAAAAAABn////gABX///+AAAAAAAAAAAAA3////kAB3///7gAAAAAAAAAAAAX////oAD////5gAAAAAAAAAAAAH////qAH////4AAAAAAAAAAAAAHf///qAJ////4AAAAAAAAAAAAAHf///oAHVVVVIAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAP////gAAAAAAAAAAAAAAAAAAAAv///+AAAAAAAAAAAAAAAAAAAABP///7gAAAAAAAAAAAAAAAAAAAB////5AAAAAAAAAAAAAAAAAAAAP////YAAAAAAAAAAAAAAAAAAAA////+gAAAAAAAAAAAAAAAAAAAFf///4AAAAAAAAAAAAAAAAAAAAv////oAAAAAAAAAAAAAAAAAAAF////9AAAAAAAAAAAAAAAAAAAAb////wgAAAAAAAAAAAAAAAAAAFf///+oAAAAAAAAAAAAAAAAAAA/////yAAAAAAAAAAAAAAAAAAAL////+gAAAAAAAAAAAAAAAAAAB/////5AAAAAAAAAAAAAAAAAAAXf///+gAAAAAAAAAAAAAAAAAAD3////uAAAAAAAAAAAAAAAAAAAb////8AAAAAAAAAAAAAAAAAAAF/////QAAAAAAAAAAAAAAAAAABX////2AAAAAAAAAAAAAAAAAAAT////+AAAAAAAAAAAAAAAAAAAD/////ogAAAAAAAAAAAAAAAAAAv////8IAAAAAAAAAAAAAAAAAAJ/////EAAAAAAAAAAAAAAAAAAB/////5gAAAAAAAAAAAAAAAAAAXf///+gAAAAAAAAAAAAAAAAAADv////qAAAAAAAAAAAAAAAAAAAZ////7AAAAAAAAAAAAAAAAAAAF/////AAAAAAAAAAAAAAAAAAABP////yAAAAAAAAAAAAAAAAAAAR////9AAAAAAAAAAAAAAAAAAADf////YAAAAAAAAAAAAAAAAAAAn////4AAAAAAAAAAAAAAAAAAAH////+iAAAAAAAAAAAAAAAAAABd////wgAAAAAAAAAAAAAAAAAAO////////////////////////gf////////////////////////gf////////////////////////gf////////////////////////gf////////////////////////gf////////////////////////gFoP/L0AAAAAAAALTnd/9twgAAAAAAAAAAAAAALn/////////SAAAAAAAAAAACb////////////hgAAAAAAAAFf/////////////+4AAAAAAAOf///////////////yAAAAAAO/////////////////8AAAAAF//////0pAAATX/////+gAAAD/////9iAAAAAAB7/////AAAA/////7AAAAAAAAAF////+wAAR////7gAAAAAAAAAD3///+gAB3///9gAAAAAAAAAADf///+QAn////mAAAAAAAAAAAB////7AD////6AAAAAAAAAAAAF////yAV////IAAAAAAAAAAAAR////gBf///7gAAAAAAAAAAAA3///+gDREREGAAAAAAAAAAAADf///8AAAAAAAAAAAAAAAAAAAN////oAAAAAAAAAAAAAAAAAABH///9gAAAAAAAAAAAAAAAAAAF////wAAAAAAAAAAAAAAAAAAA////+YAAAAAAAAAAAAAAAAAAP////wAAAAAAAAAAAAAAAAAAF////7AAAAAAAAAAAAAAAAAADv///+gAAAAAAAAAAAAAAAAAJ3////kAAAAAAAAAAAAAAAAC5/////oAAAAAAAAAADTMzM3v//////oAAAAAAAAAAAX//////////+kAAAAAAAAAAAB//////////zAAAAAAAAAAAAAH/////////9oAAAAAAAAAAAAAf//////////+IAAAAAAAAAAABf///////////8gAAAAAAAAAABqqqqtF///////YAAAAAAAAAAAAAAAAAC5/////2AAAAAAAAAAAAAAAAAAC9////7gAAAAAAAAAAAAAAAAAAXf///+IAAAAAAAAAAAAAAAAAAH////8gAAAAAAAAAAAAAAAAAAE////8AAAAAAAAAAAAAAAAAAAF////5gAAAAAAAAAAAAAAAAAAG////uAAAAAAAAAAAAAAAAAAAV////IAAAAAAAAAAAAAAAAAABP///9AAAAAAAAAAAAAAAAAAAEf///2d3d3dgAAAAAAAAAAAAAR////Z////+AAAAAAAAAAAAABP///9F////5AAAAAAAAAAAAAGf///wH////sAAAAAAAAAAAAAf///+oX////gAAAAAAAAAAAAN////4g/////qAAAAAAAAAAABv///+AA/////wgAAAAAAAAABH////sABP////6QAAAAAAAAA/////8AAA9/////uAAAAAAADX////+oAAAv//////SggAATX//////QAAAAP//////////////////gAAAAADf////////////////gAAAAAAAe///////////////IAAAAAAAABH////////////4YAAAAAAAAAAA2/////////9oAAAAAAAAAAAAAATTnf/9twoAAAAAAAABaCAVcgAAAAAAAAAAAAAAAAn///UCAAAAAAAAAAAAAAAAAAAAAF/////mAAAAAAAAAAAAAAAAAAAAAX/////mAAAAAAAAAAAAAAAAAAAADf/////mAAAAAAAAAAAAAAAAAAAAP//////mAAAAAAAAAAAAAAAAAAABf//////mAAAAAAAAAAAAAAAAAAAL///////mAAAAAAAAAAAAAAAAAAA9///////mAAAAAAAAAAAAAAAAAAFf///////mAAAAAAAAAAAAAAAAAAn////////mAAAAAAAAAAAAAAAAAB3///v////mAAAAAAAAAAAAAAAAAT///+n////mAAAAAAAAAAAAAAAAB////2H////mAAAAAAAAAAAAAAAAG////iH////mAAAAAAAAAAAAAAABH///7AH////mAAAAAAAAAAAAAAAH////gAH////mAAAAAAAAAAAAAAAb///+QAH////mAAAAAAAAAAAAAAD////uAAH////mAAAAAAAAAAAAAAX///+gAAH////mAAAAAAAAAAAAABn///5gAAH////mAAAAAAAAAAAAAP////AAAAH////mAAAAAAAAAAAABf///6AAAAH////mAAAAAAAAAAAAF////oAAAAH////mAAAAAAAAAAAA3///9AAAAAH////mAAAAAAAAAAAD3///wgAAAAH////mAAAAAAAAAAAV///+oAAAAAH////mAAAAAAAAAAC////2AAAAAAH////mAAAAAAAAAAPf///iAAAAAAH////mAAAAAAAAABX///7AAAAAAAH////mAAAAAAAAAJ////gAAAAAAAH////mAAAAAAAAAd///+QAAAAAAAH////mAAAAAAAAE////uAAAAAAAAH////mAAAAAAAAf///+gAAAAAAAAH////mAAAAAAABv///5gAAAAAAAAH////mAAAAAAAR////IAAAAAAAAAH////mAAAAAAB////8AAAAAAAAAAH////mAAAAAAGf///oAAAAAAAAAAH////mAAAAAA////9AAAAAAAAAAAH////mAAAAAF//////////////////////////5X//////////////////////////5d//////////////////////////5d//////////////////////////5d//////////////////////////5d//////////////////////////5AAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAAAAAH////mAAAAAAFob/J0AAA1VVVVVVVVVVVVVVVVVVQgAABf//////////////////5AAACf//////////////////5AAADf//////////////////5AAAD///////////////////5AAAE///////////////////5AAAFf//////////////////5AAAGf///gAAAAAAAAAAAAAAAAAAHf///AAAAAAAAAAAAAAAAAAAH///+AAAAAAAAAAAAAAAAAAAP///9gAAAAAAAAAAAAAAAAAAf///8gAAAAAAAAAAAAAAAAAAn///7gAAAAAAAAAAAAAAAAAA3///6gAAAAAAAAAAAAAAAAAA////5gAAAAAAAAAAAAAAAAABP///5AAAAAAAAAAAAAAAAAABf///4AAAAAAAAAAAAAAAAAABn///wAAAAAAAAAAAAAAAAAAB3///gAAAAAAAAAAAAAAAAAAB////QAAAAAAAAAAAAAAAAAAD////IACPe9/9lOQAAAAAAAAH///+5R3///////+KAAAAAAAJ////v///////////pgAAAAAN/////////////////uAAAAAP//////////////////AAAAAT//////////////////7gAAAX//////+1DxN9///////oAAAZ/////yIAAAAAl//////6AAAV////hgAAAAAAAL3////+4AAABxnyAAAAAAAAAAXf////wAAAAAAAAAAAAAAAAABf////6gAAAAAAAAAAAAAAAAAP////9gAAAAAAAAAAAAAAAAAB3////gAAAAAAAAAAAAAAAAAA/////mAAAAAAAAAAAAAAAAAAX////sAAAAAAAAAAAAAAAAAAHf///yAAAAAAAAAAAAAAAAAAFf///0AAAAAAAAAAAAAAAAAAE////2AAAAAAAAAAAAAAAAAAEf///4AAAAAAAAAAAAAAAAAAD////4AAAAAAAAAAAAAAAAAAEf///2AAAAAAAAAAAAAAAAAAE////1eZmZYAAAAAAAAAAAAAGf///zv///5AAAAAAAAAAAAAH////tX///7AAAAAAAAAAAAAf////m3///9gAAAAAAAAAAABP////gX////mAAAAAAAAAAAB////9gG////2AAAAAAAAAAAT////6gDf///+wAAAAAAAAACf////wAAb////6gAAAAAAAAn////+4AAJ/////yIAAAAAAR/////6AAABP/////9KQAApHf/////mAAAAF/////////////////7AAAAAAX///////////////+4AAAAAABX//////////////qAAAAAAAACb////////////ZAAAAAAAAAAAuf////////9GAAAAAAAAAAAAACsZvf/7cKAAAAAAAAAWhf8vQAAAAAAAAAAAAE0Vm9/iAAAAAAAAAAAAAAAAtd/////+IAAAAAAAAAAAAAAP3///////4gAAAAAAAAAAAAC9/////////iAAAAAAAAAAAAN//////////+IAAAAAAAAAAAff//////////4gAAAAAAAAAAn///////+QyGRAAAAAAAAAAAn//////2oAAAAAAAAAAAAAAAX/////9mAAAAAAAAAAAAAAAAGf////7AAAAAAAAAAAAAAAAAEf////xAAAAAAAAAAAAAAAAAA/////ogAAAAAAAAAAAAAAAAAV////5AAAAAAAAAAAAAAAAAAF////7AAAAAAAAAAAAAAAAAABP///9gAAAAAAAAAAAAAAAAAAH////mAAAAAAAAAAAAAAAAAAC////2AAAAAAAAAAAAAAAAAAAX///+gAAAAAAAAAAAAAAAAAAB////wAAAAAAAAAAAAAAAAAAAn///8gAAAAAAAAAAAAAAAAAAEf///qAAAG973/2UwgAAAAAAAX///+QAMd////////RgAAAAAB3///4A3///////////IAAAAAP///+Bf////////////6IAAAB////3n//////////////EAAAL////////////////////oAAA/////////4xgAEt//////0AAEf//////+GAAAAAAnf////6AAV//////8AAAAAAAADn////6ABf/////6gAAAAAAAAA9////6AF/////7AAAAAAAAAAAn////2AZ////8gAAAAAAAAAAAV////4hn////iAAAAAAAAAAAAf////oGf///+AAAAAAAAAAAAAd////AZ////YAAAAAAAAAAAABP///9hn///7gAAAAAAAAAAAADf///8Gf///uAAAAAAAAAAAAAH////4X////AAAAAAAAAAAAAAP////hX///8gAAAAAAAAAAAAAf///+M////0AAAAAAAAAAAAAB////4t////oAAAAAAAAAAAAAP////in////gAAAAAAAAAAAABf///+Af///+YAAAAAAAAAAAAL////oBn///8AAAAAAAAAAAABH///9AD////8AAAAAAAAAAAAGf///uAF////6gAAAAAAAAAAB////+YAGf///6AAAAAAAAAAAT////wAAJ////8AAAAAAAAAAH////8AAAGf///+oAAAAAAAADv////iAAAH/////oAAAAAAABn////yAAAAE/////8gAAAAAJ3////8IAAAABv/////0GACTZ/////+gAAAAABd////////////////AAAAAAAAXf//////////////AAAAAAAAAFn////////////+wAAAAAAAAAAR///////////4QAAAAAAAAAAABT////////9oAAAAAAAAAAAAAAALOd//2UwgAAAAAAAAFoMBPz3////////////////////////v/////////////////////////v/////////////////////////v/////////////////////////v/////////////////////////r////////////////////////+gAAAAAAAAAAAAAAAAAAAA3///7AAAAAAAAAAAAAAAAAAAABv///wAAAAAAAAAAAAAAAAAAAAL////AAAAAAAAAAAAAAAAAAAAAZ///+IAAAAAAAAAAAAAAAAAAACf///0AAAAAAAAAAAAAAAAAAAAF////mAAAAAAAAAAAAAAAAAAAAX///+AAAAAAAAAAAAAAAAAAAABX///6AAAAAAAAAAAAAAAAAAAAD////oAAAAAAAAAAAAAAAAAAAAR///+wAAAAAAAAAAAAAAAAAAAA////8AAAAAAAAAAAAAAAAAAAAD////wAAAAAAAAAAAAAAAAAAAAHf///iAAAAAAAAAAAAAAAAAAAA3///9AAAAAAAAAAAAAAAAAAAABv///5gAAAAAAAAAAAAAAAAAAAL////YAAAAAAAAAAAAAAAAAAAAZ///+gAAAAAAAAAAAAAAAAAAAB////6AAAAAAAAAAAAAAAAAAAAF////sAAAAAAAAAAAAAAAAAAAAX////AAAAAAAAAAAAAAAAAAAABX///8AAAAAAAAAAAAAAAAAAAAD////4gAAAAAAAAAAAAAAAAAAAR////QAAAAAAAAAAAAAAAAAAAAf///+QAAAAAAAAAAAAAAAAAAAD////2AAAAAAAAAAAAAAAAAAAAHf///oAAAAAAAAAAAAAAAAAAAA3///+gAAAAAAAAAAAAAAAAAAABv///7AAAAAAAAAAAAAAAAAAAAL////wAAAAAAAAAAAAAAAAAAAAZ////AAAAAAAAAAAAAAAAAAAAB////+IAAAAAAAAAAAAAAAAAAAF////yAAAAAAAAAAAAAAAAAAAAX////kAAAAAAAAAAAAAAAAAAABP///9gAAAAAAAAAAAAAAAAAAAD////6AAAAAAAAAAAAAAAAAAAAR////oAAAAAAAAAAAAAAAAAAAAf///+wAAAAAAAAAAAAAAAAAAAD////8AAAAAAAAAAAAAAAAAAAAHf///wAAAAAAAAAAAAAAAAAAAA3////iAAAAAAAAAAAAAAAAAAABv///8gAAAAAAAAAAAAAAAAAAAJ////5AAAAAAAAAAAAAAAAAAAAZ////YAAAAAAAAAAAAAAAAAAAB////+gAAAAAAAAAAAAAAAAAAAF////6AAAAAAAAAAAAAAAAAAAAX////sAAAAAAAAAAAAAAAAAAABP////AAAAAAAAAAAAAAAAAAAAD////7gAAAAAAAAAAAAAAAAAAAR////4gAAAAAAAAAAAAAAAAAAAf////IAAAAAAAAAAAAAAAAAAAD////+QAAAAAAAAAAAAAAAFoT/L0AAAAAAAATVnf/9lMQAAAAAAAAAAAAAAPv////////6wAAAAAAAAAAADd///////////8wAAAAAAAAAN//////////////2IAAAAAAAO///////////////+iAAAAAAO/////////////////oAAAAAFf/////0ogAE1//////0AAAAC/////+kAAAAAAnf////6AAAAb////9AAAAAAAADn////6AAAJ////+gAAAAAAAAA9////5gABP////kAAAAAAAAAAn////yAAG////2AAAAAAAAAAAZ////oAAf///+oAAAAAAAAAAA3////gAF////5AAAAAAAAAAABf///+QAf////gAAAAAAAAAAAB////5gCf///+AAAAAAAAAAAAH////mAH////4AAAAAAAAAAAAf///+YAX////iAAAAAAAAAAAF////4gAf///+oAAAAAAAAAAAv////AABf///9AAAAAAAAAAAFf///0AAC////+IAAAAAAAAABf///+gAAB3///9gAAAAAAAAAZ////oAAADf////AAAAAAAAAT////6AAAABf////2IAAAAAA3////8gAAAAA7/////OQAAAT9////+AAAAAAAO//////9l53/////+AAAAAAAABX/////////////8gAAAAAAAAAL3///////////qAAAAAAAAAAAVf//////////8iAAAAAAAAABP/////////////8AAAAAAAAHv///////////////hAAAAAAJ//////boZGsZ/////8QAAAAH/////0QAAAAAB3/////EAAAB3////qAAAAAAAADf////oAABP////oAAAAAAAAAAv////wAAX////uAAAAAAAAAAAR////4gE////6AAAAAAAAAAAAHf///wAd///+wAAAAAAAAAAAAP////wH////4gAAAAAAAAAAAAX////k3///+gAAAAAAAAAAAAAd///+0f///2AAAAAAAAAAAAABn///7x////QAAAAAAAAAAAAAF////xH///9AAAAAAAAAAAAAAX////D////4AAAAAAAAAAAAABn///7t////wAAAAAAAAAAAAAH////sf////kAAAAAAAAAAAAB////+Yf////AAAAAAAAAAAAAT////4Bf////iAAAAAAAAAAAF////9gC/////YAAAAAAAAAABn////qABv////0AAAAAAAAABf////6AACf////+oAAAAAAAJv////+gAABP/////+OYgACb7//////IAAAAX//////////////////YAAAAAF/////////////////YAAAAAAA///////////////+4AAAAAAAAHf////////////2QAAAAAAAAAAHP/////////8mAAAAAAAAAAAAAAb1vf/9tOYAAAAAAAABaDAS9AAAAAAAACs3vf23KgAAAAAAAAAAAAAAB1////////9GAAAAAAAAAAAANf//////////8gAAAAAAAAAAnf////////////pAAAAAAAAAv//////////////+YAAAAAAAn////////////////mAAAAAAX/////+uYgJx3/////oAAAAAGf////7AAAAAAV/////0AAAADf////xAAAAAAAC/////5gAAAd////xAAAAAAAAA3////4AAAL////6gAAAAAAAAAT////5gABf///+AAAAAAAAAAAPf///0AAP////qAAAAAAAAAAAN////4AC////8AAAAAAAAAAAAP////qAR////QAAAAAAAAAAAAV////IBf///7AAAAAAAAAAAAAv///+gHf///mAAAAAAAAAAAAA////+If///+QAAAAAAAAAAAAB3///5h////4gAAAAAAAAAAAAF////sP////gAAAAAAAAAAAAAV///+4f///+IAAAAAAAAAAAABP///8h////5AAAAAAAAAAAAAEf///0Hf///oAAAAAAAAAAAAAR////Qb///+4AAAAAAAAAAAABH///9BP///9AAAAAAAAAAAAAGf///2Df///+AAAAAAAAAAAAAf////QH////6gAAAAAAAAAAAH////9AG////6AAAAAAAAAAABn////0AP////7AAAAAAAAAABP/////IAP////+QAAAAAAAAA//////8gAV/////EAAAAAAABX//////wAAP/////6gAAAAALv//////+wAAP//////jEAEkb////////6gAAF///////////////t////mAAADv/////////////o1///+QAAAA5////////////Yhn///4AAAAAEf/////////+4AH///+gAAAAAAVf///////yIAA////0AAAAAAAALVnf/ZKgAAAJ///+4AAAAAAAAAAAAAAAAAABH///5gAAAAAAAAAAAAAAAAAAGf///AAAAAAAAAAAAAAAAAAABf///0AAAAAAAAAAAAAAAAAAAR///+oAAAAAAAAAAAAAAAAAAD////wAAAAAAAAAAAAAAAAAABX///8AAAAAAAAAAAAAAAAAAAn////iAAAAAAAAAAAAAAAAAAX////wAAAAAAAAAAAAAAAAAAff///8IAAAAAAAAAAAAAAAAA3////+gAAAAAAAAAAAAAAAAHn/////IAAAAAAAAAAAAAAALZ//////YAAAAAAAAAAERmrzv///////YAAAAAAAAAAD////////////QAAAAAAAAAAAP//////////+wAAAAAAAAAAAA//////////2QAAAAAAAAAAAAD////////9GAAAAAAAAAAAAAAP//////44gAAAAAAAAAAAAAAA//9ty6AAAAAAAAAAAAAAaBP9vYAAAAAAAAAAAAAAiQiAAAAAAAAAAAAAAAAAAAAAAAE9b/////XCAAAAAAAAAAAAAAAAAAC+///////////JAAAAAAAAAAAAAAAEf/////////////2IAAAAAAAAAAAAJ3///////////////7AAAAAAAAAAAEf/////////////////0AAAAAAAAABX///////////////////YAAAAAAAAV//////+OhAACbV//////9AAAAAAAEf/////0QAAAAAAAD//////sAAAAAAn/////yAAAAAAAAAAFv////+QAAAAB3////6IAAAAAAAAAAAGf////QAAAAT////+iAAAAAAAAAAAAA9////5AAABf////5AAAAAAAAAAAAAAL////9AAAE////+wAAAAAAAAAAAAAABv////gAAP////6AAAAAAAAAAAAAAAA3////qAA3////qAAAAAAAAAAAAAAAAP////0ABn////AAAAAAAAAAAAAAAAAF////8AD////8gAAAAAAAAAAAAAAAAD////+IL////6AAAAAAAAAAAAAAAAACf///+YR////4AAAAAAAAAAAAAAAAAA5mZmYgX////oAAAAAAAAAAAAAAAAAAAAAAAAd////QAAAAAAAAAAAAAAAAAAAAAAAAf///+4AAAAAAAAAAAAAAAAAAAAAAABf///+wAAAAAAAAAAAAAAAAAAAAAAAB////+oAAAAAAAAAAAAAAAAAAAAAAACf///+gAAAAAAAAAAAAAAAAAAAAAAACf///+YAAAAAAAAAAAAAAAAAAAAAAAC////+YAAAAAAAAAAAAAAAAAAAAAAAC////+YAAAAAAAAAAAAAAAAAAAAAAAC////+YAAAAAAAAAAAAAAAAAAAAAAAC////+YAAAAAAAAAAAAAAAAAAAAAAAC////+YAAAAAAAAAAAAAAAAAAAAAAACf///+YAAAAAAAAAAAAAAAAAAAAAAACf///+YAAAAAAAAAAAAAAAAAAAAAAACf///+gAAAAAAAAAAAAAAAAAAAAAAAB////+oAAAAAAAAAAAAAAAAAAAAAAABf///+wAAAAAAAAAAAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAAAAAAAAAAAd////YAAAAAAAAAAAAAAAAAAAAAAAAX////wAAAAAAAAAAAAAAAAAAAAAAAAR////4gAAAAAAAAAAAAAAAAA5mZmYgJ////6gAAAAAAAAAAAAAAAACf///+YB////9gAAAAAAAAAAAAAAAAEf///+IBf////gAAAAAAAAAAAAAAAAGf///6AA3////uAAAAAAAAAAAAAAAAP////yAAH////8AAAAAAAAAAAAAAAA/////oAAEf////AAAAAAAAAAAAAAAB3////AAAA/////5AAAAAAAAAAAAAAP////8AAAAR////+iAAAAAAAAAAAABf////4gAAABv////4IAAAAAAAAAAAO/////AAAAAAf/////pgAAAAAAAAAJ3////6AAAAAAD//////yQAAAAAAAdf/////mAAAAAAAT//////+OpkRo07//////6gAAAAAAABP//////////////////+wAAAAAAAAAD//////////////////qAAAAAAAAAAAHv///////////////hAAAAAAAAAAAAAD9////////////+sAAAAAAAAAAAAAAAA2f/////////2oAAAAAAAAAAAAAAAAAAC033//dlOgAAAAAAAAAAPBUqigAAACVv/1KAAAAAABZ/////6YAAAAL///////+wAAAv////////+wABf/////////+YBn///ZgBz///4B///7gAAAN///nH//0AAAAAT//8X//5gAAAAB///m//+AAAAAAH//7v//gAAAAAB//+5//5gAAAABf//k///QAAAABP//yn//+wAAAC///6Bn///RgBz///6AH//////////5gAN/////////uAAAN///////+4AAAAHv/////yAAAAAAAtb/9agAAAAA==",
       "lvglGlyphs": {
         "encodings": [
           {

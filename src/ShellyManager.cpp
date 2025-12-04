@@ -42,6 +42,7 @@ void ShellyManager::discoverDevices() {
     
     // 1. Search for _http._tcp (Gen1 and some Gen2)
     int n = MDNS.queryService("http", "tcp");
+    SysLog.log(String("ShellyManager/GEN1: mDNS found ") + String(n) + " _http._tcp services");
     for (int i = 0; i < n; ++i) {
         String hostname = MDNS.hostname(i);
         String ip = MDNS.address(i).toString();
@@ -53,6 +54,7 @@ void ShellyManager::discoverDevices() {
 
     // 2. Search for _shelly._tcp (Gen2 specific)
     n = MDNS.queryService("shelly", "tcp");
+    SysLog.log(String("ShellyManager/GEN2: mDNS found ") + String(n) + " _shelly._tcp services");
     for (int i = 0; i < n; ++i) {
         String hostname = MDNS.hostname(i);
         String ip = MDNS.address(i).toString();

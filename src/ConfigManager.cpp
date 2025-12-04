@@ -77,14 +77,14 @@ bool ConfigManager::load(AppConfig &config) {
     setDefaults(defs);
 
     // wifi
-    if (doc.containsKey("wifi_ssid")) config.wifi_ssid = doc["wifi_ssid"].as<String>();
+    if (!doc["wifi_ssid"].isNull()) config.wifi_ssid = doc["wifi_ssid"].as<String>();
     else { config.wifi_ssid = defs.wifi_ssid; markMissing("wifi_ssid"); }
 
-    if (doc.containsKey("wifi_password")) config.wifi_password = doc["wifi_password"].as<String>();
+    if (!doc["wifi_password"].isNull()) config.wifi_password = doc["wifi_password"].as<String>();
     else { config.wifi_password = defs.wifi_password; markMissing("wifi_password"); }
 
     // log level (numeric: 0=INFO,1=ERROR,2=DEBUG)
-    if (doc.containsKey("log_level")) {
+    if (!doc["log_level"].isNull()) {
         config.log_level = doc["log_level"].as<int>();
     } else {
         config.log_level = defs.log_level;
@@ -92,13 +92,13 @@ bool ConfigManager::load(AppConfig &config) {
     }
 
     // timezone offsets (seconds)
-    if (doc.containsKey("tz_gmt_offset_sec")) {
+    if (!doc["tz_gmt_offset_sec"].isNull()) {
         config.tz_gmt_offset_sec = doc["tz_gmt_offset_sec"].as<int>();
     } else {
         config.tz_gmt_offset_sec = defs.tz_gmt_offset_sec;
         markMissing("tz_gmt_offset_sec");
     }
-    if (doc.containsKey("tz_dst_offset_sec")) {
+    if (!doc["tz_dst_offset_sec"].isNull()) {
         config.tz_dst_offset_sec = doc["tz_dst_offset_sec"].as<int>();
     } else {
         config.tz_dst_offset_sec = defs.tz_dst_offset_sec;
@@ -109,27 +109,27 @@ bool ConfigManager::load(AppConfig &config) {
     SysLog.setLogLevel(config.log_level);
 
     // energy - check subfields individually
-    if (doc.containsKey("energy")) {
+    if (!doc["energy"].isNull()) {
         JsonObject e = doc["energy"];
-        if (e.containsKey("max_power_w")) config.energy.max_power_w = e["max_power_w"] | defs.energy.max_power_w;
+        if (!e["max_power_w"].isNull()) config.energy.max_power_w = e["max_power_w"] | defs.energy.max_power_w;
         else { config.energy.max_power_w = defs.energy.max_power_w; markMissing("energy.max_power_w"); }
 
-        if (e.containsKey("buffer_power_w")) config.energy.buffer_power_w = e["buffer_power_w"] | defs.energy.buffer_power_w;
+        if (!e["buffer_power_w"].isNull()) config.energy.buffer_power_w = e["buffer_power_w"] | defs.energy.buffer_power_w;
         else { config.energy.buffer_power_w = defs.energy.buffer_power_w; markMissing("energy.buffer_power_w"); }
 
-        if (e.containsKey("cut_off_delay_s")) config.energy.cut_off_delay_s = e["cut_off_delay_s"] | defs.energy.cut_off_delay_s;
+        if (!e["cut_off_delay_s"].isNull()) config.energy.cut_off_delay_s = e["cut_off_delay_s"] | defs.energy.cut_off_delay_s;
         else { config.energy.cut_off_delay_s = defs.energy.cut_off_delay_s; markMissing("energy.cut_off_delay_s"); }
 
-        if (e.containsKey("restore_delay_s")) config.energy.restore_delay_s = e["restore_delay_s"] | defs.energy.restore_delay_s;
+        if (!e["restore_delay_s"].isNull()) config.energy.restore_delay_s = e["restore_delay_s"] | defs.energy.restore_delay_s;
         else { config.energy.restore_delay_s = defs.energy.restore_delay_s; markMissing("energy.restore_delay_s"); }
 
-        if (e.containsKey("alarm_enabled")) config.energy.alarm_enabled = e["alarm_enabled"] | defs.energy.alarm_enabled;
+        if (!e["alarm_enabled"].isNull()) config.energy.alarm_enabled = e["alarm_enabled"] | defs.energy.alarm_enabled;
         else { config.energy.alarm_enabled = defs.energy.alarm_enabled; markMissing("energy.alarm_enabled"); }
 
-        if (e.containsKey("alarm_freq_hz")) config.energy.alarm_freq_hz = e["alarm_freq_hz"] | defs.energy.alarm_freq_hz;
+        if (!e["alarm_freq_hz"].isNull()) config.energy.alarm_freq_hz = e["alarm_freq_hz"] | defs.energy.alarm_freq_hz;
         else { config.energy.alarm_freq_hz = defs.energy.alarm_freq_hz; markMissing("energy.alarm_freq_hz"); }
 
-        if (e.containsKey("main_meter_id")) config.energy.main_meter_id = e["main_meter_id"].as<String>();
+        if (!e["main_meter_id"].isNull()) config.energy.main_meter_id = e["main_meter_id"].as<String>();
         else { config.energy.main_meter_id = defs.energy.main_meter_id; markMissing("energy.main_meter_id"); }
     } else {
         config.energy = defs.energy;
@@ -137,21 +137,21 @@ bool ConfigManager::load(AppConfig &config) {
     }
 
     // climate
-    if (doc.containsKey("climate")) {
+    if (!doc["climate"].isNull()) {
         JsonObject c = doc["climate"];
-        if (c.containsKey("enabled")) config.climate.enabled = c["enabled"] | defs.climate.enabled;
+        if (!c["enabled"].isNull()) config.climate.enabled = c["enabled"] | defs.climate.enabled;
         else { config.climate.enabled = defs.climate.enabled; markMissing("climate.enabled"); }
 
-        if (c.containsKey("summer_mode")) config.climate.summer_mode = c["summer_mode"] | defs.climate.summer_mode;
+        if (!c["summer_mode"].isNull()) config.climate.summer_mode = c["summer_mode"] | defs.climate.summer_mode;
         else { config.climate.summer_mode = defs.climate.summer_mode; markMissing("climate.summer_mode"); }
 
-        if (c.containsKey("global_setpoint")) config.climate.global_setpoint = c["global_setpoint"] | defs.climate.global_setpoint;
+        if (!c["global_setpoint"].isNull()) config.climate.global_setpoint = c["global_setpoint"] | defs.climate.global_setpoint;
         else { config.climate.global_setpoint = defs.climate.global_setpoint; markMissing("climate.global_setpoint"); }
 
-        if (c.containsKey("hysteresis")) config.climate.hysteresis = c["hysteresis"] | defs.climate.hysteresis;
+        if (!c["hysteresis"].isNull()) config.climate.hysteresis = c["hysteresis"] | defs.climate.hysteresis;
         else { config.climate.hysteresis = defs.climate.hysteresis; markMissing("climate.hysteresis"); }
 
-        if (c.containsKey("boiler_relay_id")) config.climate.boiler_relay_id = c["boiler_relay_id"].as<String>();
+        if (!c["boiler_relay_id"].isNull()) config.climate.boiler_relay_id = c["boiler_relay_id"].as<String>();
         else { config.climate.boiler_relay_id = defs.climate.boiler_relay_id; markMissing("climate.boiler_relay_id"); }
     } else {
         config.climate = defs.climate;
@@ -160,7 +160,7 @@ bool ConfigManager::load(AppConfig &config) {
 
     // devices (optional)
     config.devices.clear();
-    if (doc.containsKey("devices")) {
+    if (!doc["devices"].isNull()) {
         JsonObject devs = doc["devices"];
         for (JsonPair kv : devs) {
             String id = kv.key().c_str();
@@ -175,7 +175,7 @@ bool ConfigManager::load(AppConfig &config) {
             else if (roleStr == "TRV") dc.role = DeviceRole::TRV;
             else dc.role = DeviceRole::UNKNOWN;
             dc.schedule_enabled = d["schedule_enabled"] | false;
-            if (d.containsKey("schedule")) {
+            if (!d["schedule"].isNull()) {
                 JsonArray sched = d["schedule"];
                 for (JsonObject pt : sched) {
                     SchedulePoint sp;
@@ -208,7 +208,7 @@ bool ConfigManager::save(const AppConfig &config) {
     doc["wifi_ssid"] = config.wifi_ssid;
     doc["wifi_password"] = config.wifi_password;
 
-    JsonObject e = doc.createNestedObject("energy");
+    JsonObject e = doc["energy"].to<JsonObject>();
     e["max_power_w"] = config.energy.max_power_w;
     e["buffer_power_w"] = config.energy.buffer_power_w;
     e["cut_off_delay_s"] = config.energy.cut_off_delay_s;
@@ -217,7 +217,7 @@ bool ConfigManager::save(const AppConfig &config) {
     e["alarm_freq_hz"] = config.energy.alarm_freq_hz;
     e["main_meter_id"] = config.energy.main_meter_id;
 
-    JsonObject c = doc.createNestedObject("climate");
+    JsonObject c = doc["climate"].to<JsonObject>();
     c["enabled"] = config.climate.enabled;
     c["summer_mode"] = config.climate.summer_mode;
     c["global_setpoint"] = config.climate.global_setpoint;
@@ -228,10 +228,10 @@ bool ConfigManager::save(const AppConfig &config) {
     doc["tz_gmt_offset_sec"] = config.tz_gmt_offset_sec;
     doc["tz_dst_offset_sec"] = config.tz_dst_offset_sec;
 
-    JsonObject devs = doc.createNestedObject("devices");
+    JsonObject devs = doc["devices"].to<JsonObject>();
     for (const auto &kv : config.devices) {
         const DeviceConfig &dc = kv.second;
-        JsonObject d = devs.createNestedObject(dc.id);
+        JsonObject d = devs[dc.id.c_str()].to<JsonObject>();
         d["name"] = dc.name;
         d["room"] = dc.room;
         d["priority"] = dc.priority;
@@ -240,7 +240,7 @@ bool ConfigManager::save(const AppConfig &config) {
         else d["role"] = "UNKNOWN";
         d["schedule_enabled"] = dc.schedule_enabled;
         if (!dc.schedule.empty()) {
-            JsonArray sched = d.createNestedArray("schedule");
+            JsonArray sched = d["schedule"].to<JsonArray>();
             for (const auto &pt : dc.schedule) {
                 JsonObject p = sched.createNestedObject();
                 p["time"] = pt.time;
