@@ -7,7 +7,8 @@
 extern "C" {
 #endif
 
-extern void action_show_all_power_consumption(lv_event_t * e);
+extern void action_show_thermostat(lv_event_t * e);
+extern void action_goto_main(lv_event_t * e);
 
 
 #ifdef __cplusplus

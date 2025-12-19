@@ -8,7 +8,8 @@ extern "C" {
 #endif
 
 typedef struct _objects_t {
-    lv_obj_t *main_2;
+    lv_obj_t *main;
+    lv_obj_t *thermostat;
     lv_obj_t *panel_sidebar;
     lv_obj_t *lbl_power_title;
     lv_obj_t *lbl_power_val;
@@ -27,16 +28,25 @@ typedef struct _objects_t {
     lv_obj_t *panel_room_4;
     lv_obj_t *lbl_name_bagno;
     lv_obj_t *lbl_temp_bagno;
+    lv_obj_t *btn_back;
+    lv_obj_t *temperature_chart;
+    lv_obj_t *arc_actual_temp;
+    lv_obj_t *btn_plus;
+    lv_obj_t *btn_minus;
 } objects_t;
 
 extern objects_t objects;
 
 enum ScreensEnum {
-    SCREEN_ID_MAIN_2 = 1,
+    SCREEN_ID_MAIN = 1,
+    SCREEN_ID_THERMOSTAT = 2,
 };
 
-void create_screen_main_2();
-void tick_screen_main_2();
+void create_screen_main();
+void tick_screen_main();
+
+void create_screen_thermostat();
+void tick_screen_thermostat();
 
 void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);
