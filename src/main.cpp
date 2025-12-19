@@ -6,6 +6,8 @@
 #include "AppManager.h"
 #include "LogManager.h"
 #include "NetworkUtils.h"
+#include "RoomDataManager.h"
+#include "ThermostatChart.h"
 #include <ArduinoOTA.h>
 #include <time.h>
 
@@ -30,11 +32,14 @@ AppManager appManager;
 static uint16_t screenWidth;
 static uint16_t screenHeight;
 
-// Buffer LVGL in PSRAM per DMA (2 buffer full-screen per DIRECT mode)
+// Buffer LVGL in PSRAM per DMA (2 buffer per double buffering)
 static lv_color_t *buf1 = nullptr;
 static lv_color_t *buf2 = nullptr;
 
-lv_display_t *display = nullptr;
+// LVGL 8 structures
+static lv_disp_draw_buf_t draw_buf;
+static lv_disp_drv_t disp_drv;
+static lv_indev_drv_t indev_drv;
 
 // --- Helper Functions ---
 
@@ -63,8 +68,8 @@ void initDisplay()
     screenHeight = M5.Display.height();
 }
 
-// DMA-optimized flush function for M5GFX
-void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
+// DMA-optimized flush function for LVGL 8 + M5GFX
+void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
 {
     uint32_t w = (area->x2 - area->x1 + 1);
     uint32_t h = (area->y2 - area->y1 + 1);
@@ -73,40 +78,51 @@ void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
     M5.Display.waitDisplay();
 
     M5.Display.startWrite();
-    M5.Display.pushImageDMA(area->x1, area->y1, w, h, (const uint16_t *)px_map);
+    M5.Display.pushImageDMA(area->x1, area->y1, w, h, (const uint16_t *)&color_p->full);
     M5.Display.endWrite();
 
-    lv_display_flush_ready(disp);
+    lv_disp_flush_ready(disp);
 }
 
-// Touchpad read function for LVGL 9.4
-void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
+// Touchpad read function for LVGL 8
+void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 {
-    // M5.update() is called in loop(), so we just read the state here
     auto touch = M5.Touch.getDetail();
 
     if (touch.isPressed() || touch.wasPressed())
     {
-        data->state = LV_INDEV_STATE_PRESSED;
+        data->state = LV_INDEV_STATE_PR;
         data->point.x = touch.x;
         data->point.y = touch.y;
     }
     else
     {
-        data->state = LV_INDEV_STATE_RELEASED;
+        data->state = LV_INDEV_STATE_REL;
     }
 }
 
 void initLVGL()
 {
+    SysLog.log("LVGL Init: Starting lv_init()...");
     lv_init();
-    lv_tick_set_cb([]() -> uint32_t {
-        return millis();
-    });
+    SysLog.log("LVGL Init: lv_init() completed");
 
-    size_t buf_size = screenWidth * 100 * sizeof(lv_color_t);
-    buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
-    buf2 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size, MALLOC_CAP_SPIRAM);
+    // OPZIONE 1: Full screen buffer (no banding, ma usa ~3.5MB PSRAM)
+    //size_t buf_size = screenWidth * screenHeight;
+    
+    // OPZIONE 2: Half screen buffer (compromesso tra velocità e memoria ~1.75MB)
+    // size_t buf_size = screenWidth * screenHeight / 2;
+    
+    // OPZIONE 3: 1/3 screen (veloce, minimo banding visibile ~1.2MB)
+    size_t buf_size = screenWidth * screenHeight / 3;
+    
+    // OPZIONE 4: Attuale - 100 linee (banding visibile ma memoria bassa)
+    // size_t buf_size = screenWidth * 100;
+    
+    SysLog.log("LVGL Init: Calculating buffer size: " + String(buf_size));
+    
+    buf1 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size * sizeof(lv_color_t), MALLOC_CAP_SPIRAM);
+    buf2 = (lv_color_t *)heap_caps_aligned_alloc(32, buf_size * sizeof(lv_color_t), MALLOC_CAP_SPIRAM);
 
     if (!buf1 || !buf2)
     {
@@ -116,18 +132,43 @@ void initLVGL()
     }
 
     // Zero-initialize buffers to prevent artifacts from uninitialized PSRAM
-    memset(buf1, 0, buf_size);
-    memset(buf2, 0, buf_size);
+    memset(buf1, 0, buf_size * sizeof(lv_color_t));
+    memset(buf2, 0, buf_size * sizeof(lv_color_t));
 
-    SysLog.log("LVGL buffers allocated: 2x " + String(buf_size / (1024.0 * 1024.0)) + " MB");
+    SysLog.log("LVGL buffers allocated: 2x " + String((buf_size * sizeof(lv_color_t)) / (1024.0 * 1024.0)) + " MB");
 
-    display = lv_display_create(screenWidth, screenHeight);
-    lv_display_set_buffers(display, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
-    lv_display_set_flush_cb(display, my_disp_flush);
+    // LVGL 8: lv_disp_draw_buf_init
+    SysLog.log("LVGL Init: Initializing draw buffer...");
+    lv_disp_draw_buf_init(&draw_buf, buf1, buf2, buf_size);
+    SysLog.log("LVGL Init: Draw buffer initialized");
 
-    lv_indev_t *indev = lv_indev_create();
-    lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
-    lv_indev_set_read_cb(indev, my_touchpad_read);
+    // LVGL 8: lv_disp_drv_init
+    SysLog.log("LVGL Init: Initializing display driver...");
+    lv_disp_drv_init(&disp_drv);
+    disp_drv.hor_res = screenWidth;
+    disp_drv.ver_res = screenHeight;
+    disp_drv.flush_cb = my_disp_flush;
+    disp_drv.draw_buf = &draw_buf;
+    
+    // Ottimizzazioni per performance massima
+    disp_drv.full_refresh = 0;      // Partial refresh per velocità
+    disp_drv.direct_mode = 0;       // Buffered mode (migliore con DMA)
+    disp_drv.antialiasing = 0;      // Disabilita antialiasing per velocità
+    
+    // IMPORTANTE: Se usi buffer >= 1/10 dello schermo, puoi ridurre il refresh period
+    // per diminuire il carico CPU mantenendo fluidità visiva
+    
+    SysLog.log("LVGL Init: Registering display driver...");
+    lv_disp_drv_register(&disp_drv);
+    SysLog.log("LVGL Init: Display driver registered");
+
+    // LVGL 8: lv_indev_drv_init
+    SysLog.log("LVGL Init: Initializing input device...");
+    lv_indev_drv_init(&indev_drv);
+    indev_drv.type = LV_INDEV_TYPE_POINTER;
+    indev_drv.read_cb = my_touchpad_read;
+    lv_indev_drv_register(&indev_drv);
+    SysLog.log("LVGL Init: Input device registered - COMPLETE");
 }
 
 // Initialize system time from the M5 RTC. Returns true if system time
@@ -233,6 +274,9 @@ static void handleUIUpdates()
         float currentKw = st.totalPower / 1000.f; // current consumption from shared state
         float maxKw = appManager.getMaxPowerW() / 1000.f;   // configured max power in kW
         int pct = 0;
+        
+        currentKw = lv_rand(0, (int)(maxKw * 1000)) / 1000.0f; // TESTING: random value up to maxKw
+        
         if (maxKw > 0)
         {
             float prop = currentKw / maxKw;
@@ -246,7 +290,33 @@ static void handleUIUpdates()
         sprintf(temp, "%.2f", currentKw);
         lv_bar_set_value(objects.bar_power, pct, LV_ANIM_ON);
         lv_label_set_text(objects.lbl_power_val, temp);
-        //lv_label_set_text_fmt(objects.lbl_battery, "%d%% / %dW", st.batteryPercent);
+        delete[] temp;
+    }
+}
+
+// Helper: aggiorna dati temperatura ogni 30 secondi
+static void handleTemperatureUpdates()
+{
+    static uint32_t last_temp_update = 0;
+    uint32_t now = millis();
+    if (now - last_temp_update >= 1000) // 1 second
+    {
+        last_temp_update = now;
+        
+        // Genera temperature casuali per tutte le stanze
+        roomDataManager.generateAllRandomTemps();
+        
+        // Se siamo nella schermata termostato, aggiorna il grafico
+        static lv_obj_t* lastScreen = nullptr;
+        lv_obj_t* currentScreen = lv_scr_act();
+        
+        if (currentScreen == objects.thermostat)
+        {
+            // Aggiorna il grafico per la stanza corrente
+            thermostatChart.updateForRoom(roomDataManager.getCurrentRoomIndex());
+        }
+        
+        lastScreen = currentScreen;
     }
 }
 
@@ -297,18 +367,17 @@ void setup()
 {
     // 1. Init Hardware (M5)
     initHardware();
+    
     // 2. Init System Time (RTC -> system clock)
-    // Initialize system time from RTC so SysLog can use real timestamps.
-    // If RTC holds a reasonable date, apply it to the system clock.
     bool rtcInitialized = initSystemTimeFromRtc();
 
     // 3. Init Logging (Screen + SD)
-    // Provide SPI pins before begin so LogManager can initialize SD properly
     SysLog.setSdPins(SD_SPI_CS_PIN, SD_SPI_SCK_PIN, SD_SPI_MOSI_PIN, SD_SPI_MISO_PIN);
     SysLog.begin();
-    // Configure WiFi SDIO pins for M5Tab5 (like SD pin setup)
+    
+    // Configure WiFi SDIO pins for M5Tab5
     setWifiPins(WIFI_SDIO_CLK, WIFI_SDIO_CMD, WIFI_SDIO_D0, WIFI_SDIO_D1, WIFI_SDIO_D2, WIFI_SDIO_D3, WIFI_SDIO_RST);
-    // Now that SysLog is active we can report RTC initialization result
+    
     if (rtcInitialized)
         SysLog.log("System time initialized from RTC");
     else
@@ -350,6 +419,7 @@ void setup()
         M5.update();
         delay(10);
     }
+    
     // Disable screen logging before UI takes over
     SysLog.setScreenLogging(false);
 
@@ -357,21 +427,25 @@ void setup()
     appManager.saveShellyDevicesToSD("/shelly_discovered.json");
 
     // 9. Start UI
+    SysLog.log("=== Calling ui_init() ===");
     ui_init();
-    loadScreen(SCREEN_ID_MAIN_2);
-    
+    SysLog.log("=== ui_init() completed ===");
 }
 
 void loop()
 {
     M5.update();
-    lv_timer_handler();
+    lv_timer_handler();  // LVGL 8 usa lv_timer_handler invece di lv_task_handler
     ui_tick();
 
     handleOTA();
     handleUIUpdates();
+    handleTemperatureUpdates();  // Aggiorna temperature ogni 30 secondi
     handleSdRemount();
     logBatteryStateFromSystem();
 
-    delay(5);
+    // Delay ottimizzato:
+    // - Con buffer grandi (1/3+ screen): delay(10-20) riduce CPU senza perdere fluidità
+    // - Con buffer piccoli (100 linee): delay(5) necessario per refresh rapido
+    delay(5);  // Aumentato da 5 a 10 per ridurre CPU load
 }

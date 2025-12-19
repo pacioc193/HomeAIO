@@ -300,8 +300,8 @@ void create_screen_thermostat() {
             // temperatureChart
             lv_obj_t *obj = lv_chart_create(parent_obj);
             objects.temperature_chart = obj;
-            lv_obj_set_pos(obj, 0, 8);
-            lv_obj_set_size(obj, LV_PCT(100), LV_PCT(40));
+            lv_obj_set_pos(obj, 60, 8);
+            lv_obj_set_size(obj, LV_PCT(90), LV_PCT(40));
         }
         {
             // arcActualTemp

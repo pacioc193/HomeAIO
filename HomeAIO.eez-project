@@ -1333,9 +1333,9 @@
             {
               "objID": "0d4ef9a6-5ab4-42cc-83a6-cc246e173510",
               "type": "LVGLChartWidget",
-              "left": 0,
+              "left": 60,
               "top": 8,
-              "width": 100,
+              "width": 90,
               "height": 40,
               "customInputs": [],
               "customOutputs": [],

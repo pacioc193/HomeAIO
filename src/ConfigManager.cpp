@@ -52,7 +52,7 @@ bool ConfigManager::load(AppConfig &config) {
         return false;
     }
 
-    StaticJsonDocument<8192> doc;
+    JsonDocument doc;
     DeserializationError err = deserializeJson(doc, file);
     file.close();
 
@@ -204,7 +204,7 @@ bool ConfigManager::load(AppConfig &config) {
 bool ConfigManager::save(const AppConfig &config) {
     // Attempt to write to SD dynamically. If SD is missing or write fails, return false.
 
-    StaticJsonDocument<8192> doc;
+    JsonDocument doc;
     doc["wifi_ssid"] = config.wifi_ssid;
     doc["wifi_password"] = config.wifi_password;
 
@@ -242,7 +242,7 @@ bool ConfigManager::save(const AppConfig &config) {
         if (!dc.schedule.empty()) {
             JsonArray sched = d["schedule"].to<JsonArray>();
             for (const auto &pt : dc.schedule) {
-                JsonObject p = sched.createNestedObject();
+                JsonObject p = sched.add<JsonObject>();
                 p["time"] = pt.time;
                 p["temp"] = pt.temp;
             }
